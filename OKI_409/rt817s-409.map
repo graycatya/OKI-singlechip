@@ -1,0 +1,561 @@
+RLU8 Object Linker, Ver.1.52.1 Linkage Information
+[Wed Jan 03 14:06:19 2018]
+
+
+                         ------------------
+                          Control Synopsis
+                         ------------------
+
+I/O controls:    D  SD NS NA
+Other controls: CC STACK( 0400H(1024) )
+                COMB( $$content_of_init $$end_of_init )
+                COMB( $$init_info $$init_info_end )
+
+
+
+                        ------------------------
+                         Object Module Synopsis
+                        ------------------------
+                                                                Creator
+Module Name           File Name                                 CCU8     RASU8
+-----------           ---------                                 -----    -----
+clk                   _output\_obj\clk.obj                      3.54     1.70
+clkbuzz               _output\_obj\clkbuzz.obj                  3.54     1.70
+eternity              _output\_obj\eternity.obj                 3.54     1.70
+ints                  _output\_obj\ints.obj                     3.54     1.70
+key                   _output\_obj\key.obj                      3.54     1.70
+lcdshow               _output\_obj\lcdshow.obj                  3.54     1.70
+main                  _output\_obj\main.obj                     3.54     1.70
+melody                _output\_obj\melody.obj                   3.54     1.70
+rcadc                 _output\_obj\rcadc.obj                    3.54     1.70
+s610409sw             _output\_obj\s610409sw.obj                -.--     1.70
+temphum               _output\_obj\temphum.obj                  3.54     1.70
+UIDIVSW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+FDIVSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+SIDIVSW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+SLDIVSW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+FTOESW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+ROUNSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+NORMSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+SLDIMOSW              E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+DIV32SW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+CIDIMOSW              E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+SIDIMOSW              E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+PUSHPOPU8SW           E:\IDEU8\Lib\longu8.lib                   -.--     1.61
+EDIVSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+CMPFSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+ETOFSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+FADDSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+EADDSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+SHIFTSW               E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+FILDSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+LTOESW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+FMULSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+EMULSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+FTOLSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+ETOLSW                E:\IDEU8\Lib\doubleu8.lib                 -.--     1.04
+SIMODSW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+IMULSW                E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+SLMODSW               E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+LMULSW                E:\IDEU8\Lib\longu8.lib                   -.--     1.04
+
+
+Number of Modules: 39
+
+Number of Symbols:
+ +---------------------------------------------------------------------------+
+ |          | CODE | DATA | BIT  |NVDATA|NVBIT |TABLE |NUMBER| TBIT || total |
+ |----------+------+------+------+------+------+------+------+------++-------|
+ | SEGMENT  |   168|     2|     0|     0|     0|    17|      |      ||    187|
+ |----------+------+------+------+------+------+------+------+------++-------|
+ | COMMUNAL |     0|     7|     0|     0|     0|     0|      |      ||      7|
+ |----------+------+------+------+------+------+------+------+------++-------|
+ | PUBLIC   |   153|    43|     0|     0|     0|     7|     0|     0||    203|
+ +---------------------------------------------------------------------------+
+
+Target:  ML610409 
+Model:   SMALL
+
+
+Memory Map - Program memory space #0:
+      Type     Start      Stop
+     -----------------------------
+      ROM      00:0000    00:3DFF
+
+Memory Map - Data memory space #0:
+      Type     Start      Stop
+     -----------------------------
+      RAM      00:E000    00:E3FF
+      RAM      00:F000    00:FFFF
+
+Memory Map - Memory space above #1:
+      Type     Start      Stop
+     -----------------------------
+      ROM      08:0000    08:3DFF
+
+                         ------------------
+                          Segment Synopsis
+                         ------------------
+
+Link Map - Program memory space #0 ( ROMWINDOW: 0000 - 3DFF )
+
+      Type     Start      Stop       Size              Name
+     -------------------------------------------------------
+      S CODE   00:0000    00:0001    0002(2)           (absolute)
+      S CODE   00:0002    00:0003    0002(2)           (absolute)
+      S CODE   00:0004    00:0005    0002(2)           (absolute)
+      S TABLE  00:0006    00:000D    0008(8)           $$init_info
+      S TABLE  00:000E    00:000F    0002(2)           $$init_info_end
+      S CODE   00:0010    00:0011    0002(2)           (absolute)
+      S CODE   00:0012    00:0012    0000(0)           $$content_of_init
+      S CODE   00:0012    00:0013    0002(2)           $$end_of_init
+>GAP<          00:0014    00:0017    0004(4)           (ROM)
+      S CODE   00:0018    00:0019    0002(2)           (absolute)
+      S CODE   00:001A    00:0031    0018(24)          $$P5_INIT$main
+      S CODE   00:0032    00:0033    0002(2)           (absolute)
+      S CODE   00:0034    00:003F    000C(12)          $$key_buzz$main
+      S CODE   00:0040    00:0057    0018(24)          $$Temperature3_gathering$main
+>GAP<          00:0058    00:0059    0002(2)           (ROM)
+      S CODE   00:005A    00:005B    0002(2)           (absolute)
+      S CODE   00:005C    00:006B    0010(16)          $$pushpopu8sw
+      S CODE   00:006C    00:0071    0006(6)           $$BUZZ_mode$main
+>GAP<          00:0072    00:0075    0004(4)           (ROM)
+      S CODE   00:0076    00:0077    0002(2)           (absolute)
+      S TABLE  00:0078    00:01A9    0132(306)         $$NINITTAB
+      S TABLE  00:01AA    00:02E9    0140(320)         $$TABDSxCnA$main
+      S TABLE  00:02EA    00:0429    0140(320)         $$TABDSxCnB$main
+      S CODE   00:042A    00:052F    0106(262)         $$KEY_scanning$key
+      S CODE   00:0530    00:057B    004C(76)          $$time_CLK$eternity
+      S CODE   00:057C    00:05B3    0038(56)          $$clk_fcon1_init$clk
+      S CODE   00:05B4    00:067D    00CA(202)         $$T2HZInt$main
+      S CODE   00:067E    00:06CB    004E(78)          $$MAI_LDCdelay$main
+      S CODE   00:06CC    00:06F1    0026(38)          $$LOW_career$clk
+      S CODE   00:06F2    00:0755    0064(100)         $$BUZZ_int$main
+      S CODE   00:0756    00:0775    0020(32)          $$MelodyInit$main
+      S CODE   00:0776    00:0791    001C(28)          $$Init_Times0$main
+      S CODE   00:0792    00:07AD    001C(28)          $$Init_Times2$main
+      S CODE   00:07AE    00:07DB    002E(46)          $$TIME_CLK_LCDmode$main
+      S CODE   00:07DC    00:0803    0028(40)          $$KEY_VALUE$key
+      S CODE   00:0804    00:0893    0090(144)         $$NCODs610409sw
+      S CODE   00:0894    00:08C1    002E(46)          $$P0_INIT$main
+      S CODE   00:08C2    00:08E5    0024(36)          $$LCD_empty$main
+      S CODE   00:08E6    00:095D    0078(120)         $$Low_Voltage_Detect$main
+      S CODE   00:095E    00:0983    0026(38)          $$KEY_indepen_scan$key
+      S CODE   00:0984    00:099D    001A(26)          $$Temperature4_gathering$main
+      S CODE   00:099E    00:09DF    0042(66)          $$LcdInit$main
+      S CODE   00:09E0    00:0A21    0042(66)          $$CLKMODE_tim$main
+      S CODE   00:0A22    00:0A45    0024(36)          $$P04int$main
+      S CODE   00:0A46    00:0A65    0020(32)          $$delayms$main
+      S CODE   00:0A66    00:0AA5    0040(64)          $$ADC_delay$main
+      S CODE   00:0AA6    00:0AF9    0054(84)          $$P00int$main
+      S CODE   00:0AFA    00:0B1F    0026(38)          $$HIGH_career$clk
+      S CODE   00:0B20    00:0BEF    00D0(208)         $$ON_OFF$main
+      S CODE   00:0BF0    00:0C3F    0050(80)          $$main$main
+      S CODE   00:0C40    00:0C53    0014(20)          $$WD_Feed$clk
+      S CODE   00:0C54    00:0CAF    005C(92)          $$KEY_WALK_ROW$key
+      S CODE   00:0CB0    00:0CE9    003A(58)          $$Sample_TableCopyFunc$main
+      S CODE   00:0CEA    00:0D2F    0046(70)          $$clk_fcon0_init$clk
+      S CODE   00:0D30    00:0D91    0062(98)          $$TM1int$main
+      S CODE   00:0D92    00:0D9B    000A(10)          $$KEY_independent$key
+      S CODE   00:0D9C    00:0DE9    004E(78)          $$CLKMODE_delay$main
+      S CODE   00:0DEA    00:0E0F    0026(38)          $$KEY_delay$main
+      S CODE   00:0E10    00:0E4F    0040(64)          $$KEY_scan$main
+      S CODE   00:0E50    00:0E7F    0030(48)          $$TM3int$main
+      S CODE   00:0E80    00:0E91    0012(18)          $$ON_clk_buzz$main
+>GAP<          00:0E92    00:3BFF    2D6E(11630)       (ROM)
+      S CODE   00:3C00    00:3DFF    0200(512)         (absolute)
+
+
+Link Map - Data memory space #0
+
+      Type     Start      Stop       Size              Name
+     -------------------------------------------------------
+      Q ROMWIN 00:0000    00:3DFF    3E00(15872)       (ROMWIN)
+      S DATA   00:E000    00:E2C1    02C2(706)         $STACK
+>GAP<          00:E2C2.0  00:E2C2.7  0001.0(1.0)       (RAM)
+      C DATA   00:E2C3    00:E2C3    0001(1)           _Trg
+      C DATA   00:E2C4    00:E2C5    0002(2)           _countb
+      C DATA   00:E2C6    00:E2C7    0002(2)           _counta
+      S DATA   00:E2C8    00:E3F9    0132(306)         $$NINITVAR
+      C DATA   00:E3FA    00:E3FA    0001(1)           _Cont
+      C DATA   00:E3FB    00:E3FB    0001(1)           _cont
+      C DATA   00:E3FC    00:E3FD    0002(2)           _MODE_2S_10S
+      C DATA   00:E3FE    00:E3FF    0002(2)           _RES_delay
+      Q SFR    00:F000    00:FFFF    1000(4096)        (SFR)
+
+
+Link Map - Memory space above #1
+
+      Type     Start      Stop       Size              Name
+     -------------------------------------------------------
+ ---
+      S TABLE  08:0000    08:3DFF    3E00(15872)       (absolute)
+
+
+Not Linked segments:
+
+      Module Name         Type       Size              Segment Name 
+     --------------------------------------------------------------
+      clk
+                          CODE       0026(38)          $$HIGH2_career$clk
+     --------------------------------------------------------------
+      clkbuzz
+                          CODE       0004(4)           $$BUzz_CLKzhi$clkbuzz
+                          CODE       001E(30)          $$BUzz_keyjudper$clkbuzz
+                          CODE       0012(18)          $$TIME_ALG$clkbuzz
+                          CODE       0050(80)          $$BUzz_keyjudnop$clkbuzz
+                          CODE       0074(116)         $$CLK_time$clkbuzz
+     --------------------------------------------------------------
+      eternity
+                          CODE       001A(26)          $$var_mode$eternity
+                          CODE       011A(282)         $$year_judge$eternity
+                          CODE       0038(56)          $$year$eternity
+                          CODE       0070(112)         $$date$eternity
+                          CODE       0198(408)         $$calendar_treat$eternity
+     --------------------------------------------------------------
+      ints
+                          CODE       0020(32)          $$IRQ0_init$ints
+                          CODE       0058(88)          $$IRQ4_init$ints
+                          CODE       0058(88)          $$IE4_init$ints
+                          CODE       0088(136)         $$IRQ1_init$ints
+                          CODE       003C(60)          $$IRQ5_init$ints
+                          CODE       003C(60)          $$IE3_init$ints
+                          CODE       003C(60)          $$IE7_init$ints
+                          CODE       0058(88)          $$IRQ2_init$ints
+                          CODE       0058(88)          $$IRQ6_init$ints
+                          CODE       0058(88)          $$IE2_init$ints
+                          CODE       0058(88)          $$IE6_init$ints
+                          CODE       003C(60)          $$IRQ3_init$ints
+                          CODE       003C(60)          $$IRQ7_init$ints
+                          CODE       0088(136)         $$IE1_init$ints
+                          CODE       003C(60)          $$IE5_init$ints
+     --------------------------------------------------------------
+      key
+                          CODE       001A(26)          $$KeyRead$key
+                          CODE       0010(16)          $$KEY_long$key
+                          CODE       0010(16)          $$KEY_close$key
+     --------------------------------------------------------------
+      lcdshow
+                          CODE       005E(94)          $$TIM_SHI$lcdshow
+                          CODE       0040(64)          $$CIK_glint$lcdshow
+                          CODE       0022(34)          $$PICK_dataCOR$lcdshow
+                          CODE       002C(44)          $$UI_BUZZ$lcdshow
+                          CODE       00E8(232)         $$UI_YE$lcdshow
+                          CODE       003E(62)          $$DATA_compare$lcdshow
+                          CODE       00EC(236)         $$UI_TIME$lcdshow
+                          CODE       0014(20)          $$DATA_INT$lcdshow
+                          CODE       001C(28)          $$UI_MODA$lcdshow
+                          CODE       004E(78)          $$UI_AIS_APM$lcdshow
+                          CODE       00DE(222)         $$UI_all_CLMON$lcdshow
+                          CODE       0052(82)          $$MAX_MIN_realtime$lcdshow
+                          CODE       0152(338)         $$UI_YEAR_TIME$lcdshow
+                          CODE       007A(122)         $$UI_TEMP_HUM$lcdshow
+                          CODE       0044(68)          $$UI_P$lcdshow
+                          CODE       003C(60)          $$TIM_FEN$lcdshow
+                          CODE       00DE(222)         $$TEM_HUM_realtime$lcdshow
+     --------------------------------------------------------------
+      main
+                          CODE       0156(342)         $$keyMAI_var$main
+                          CODE       007E(126)         $$key_module$main
+                          CODE       0168(360)         $$key_MAX_MIN$main
+                          CODE       0066(102)         $$alarm_MIAOTIM$main
+                          CODE       0162(354)         $$key_SET$main
+                          TABLE      0158(344)         $$TABTEMP_AT$main
+                          TABLE      0158(344)         $$TABTEMP_BT$main
+                          TABLE      000C(12)          $$NTABBUzz_CLKfun$main
+                          TABLE      0222(546)         $$TABHUM_CAY$main
+                          TABLE      0000(0)           $$NTABmain
+                          CODE       0054(84)          $$key_12_24$main
+                          CODE       0078(120)         $$key_MODE$main
+                          CODE       007A(122)         $$key_cytime$main
+                          CODE       00EC(236)         $$BUzz_CLKfun$main
+                          CODE       00A6(166)         $$lcd_te_hum$main
+                          CODE       0042(66)          $$CLK_BUzzLCD$main
+                          CODE       0088(136)         $$MAXI_mode$main
+                          CODE       001E(30)          $$AP_Mjudge$main
+                          CODE       00EA(234)         $$Temperature$main
+                          TABLE      001A(26)          $$TABHUM_TEMP_BT$main
+                          CODE       0370(880)         $$LCD_year_time$main
+                          TABLE      002A(42)          $$TABHUM_AT$main
+     --------------------------------------------------------------
+      melody
+                          CODE       0004(4)           $$MD0_TON_melody$melody
+                          CODE       003C(60)          $$MD0_CON$melody
+                          CODE       0016(22)          $$MD0_TMP_buzz$melody
+                          CODE       0016(22)          $$MD0_TON_buzz$melody
+                          CODE       0016(22)          $$MD0_TMP_melody$melody
+                          CODE       0016(22)          $$MD0_LEN_buzz$melody
+                          TABLE      0010(16)          $$TABRCADC_SAMPLING_MODE$melody
+                          CODE       0004(4)           $$MD0_LEN_melody$melody
+     --------------------------------------------------------------
+      rcadc
+                          TABLE      0008(8)           $$TABRCADC_SAMP_CLK_MODE$rcadc
+                          CODE       0048(72)          $$rcadc_getResult$rcadc
+                          CODE       0014(20)          $$P3rcAdc_monitor_off$rcadc
+                          CODE       0018(24)          $$P4rcAdc_monitor_off$rcadc
+                          CODE       0020(32)          $$rcadc_RCINT_run$rcadc
+                          CODE       002A(42)          $$rcadc_Samp_Clk_init$rcadc
+                          CODE       003E(62)          $$rcadc_intit$rcadc
+                          CODE       0020(32)          $$rcadc_radi$rcadc
+                          CODE       001E(30)          $$P4rcAdc_monitor_on$rcadc
+                          CODE       0020(32)          $$rcadc_RCAD_run$rcadc
+                          TABLE      000A(10)          $$TABRCADC_SAMPLING_MODE$rcadc
+                          CODE       0018(24)          $$P3rcAdc_monitor_on$rcadc
+     --------------------------------------------------------------
+      temphum
+                          CODE       00B0(176)         $$TE_A$temphum
+                          CODE       00A8(168)         $$TE_B$temphum
+                          CODE       00C0(192)         $$H_H$temphum
+                          CODE       0012(18)          $$TEMP_ZH$temphum
+                          CODE       00EE(238)         $$HUM_A$temphum
+                          CODE       0050(80)          $$HUM_HS$temphum
+                          CODE       0070(112)         $$C_FCUTOVER$temphum
+                          CODE       004E(78)          $$Temp_trade$temphum
+                          CODE       006C(108)         $$H_T$temphum
+     --------------------------------------------------------------
+      UIDIVSW
+                          CODE       000C(12)          $$uidivu8sw
+     --------------------------------------------------------------
+      FDIVSW
+                          CODE       003A(58)          $$nfdivu8sw
+     --------------------------------------------------------------
+      SIDIVSW
+                          CODE       000E(14)          $$sidivu8sw
+     --------------------------------------------------------------
+      SLDIVSW
+                          CODE       001A(26)          $$sldivu8sw
+     --------------------------------------------------------------
+      FTOESW
+                          CODE       0054(84)          $$floadu8sw
+     --------------------------------------------------------------
+      ROUNSW
+                          CODE       000C(12)          $$roundu8sw
+     --------------------------------------------------------------
+      NORMSW
+                          CODE       0020(32)          $$normu8sw
+     --------------------------------------------------------------
+      SLDIMOSW
+                          CODE       0060(96)          $$sldimou8sw
+     --------------------------------------------------------------
+      DIV32SW
+                          CODE       002E(46)          $$div32u8sw
+     --------------------------------------------------------------
+      CIDIMOSW
+                          CODE       0040(64)          $$cidimou8sw
+     --------------------------------------------------------------
+      SIDIMOSW
+                          CODE       0034(52)          $$sidimou8sw
+     --------------------------------------------------------------
+      EDIVSW
+                          TABLE      0020(32)          $$TABLE_SEGMENT
+                          CODE       0140(320)         $$ddivu8sw
+     --------------------------------------------------------------
+      CMPFSW
+                          CODE       001C(28)          $$cmpfu8sw
+     --------------------------------------------------------------
+      ETOFSW
+                          CODE       0088(136)         $$fstoru8sw
+     --------------------------------------------------------------
+      FADDSW
+                          CODE       003A(58)          $$nfaddu8sw
+     --------------------------------------------------------------
+      EADDSW
+                          TABLE      0020(32)          $$TABLE_SEGMENT
+                          CODE       00FA(250)         $$daddu8sw
+     --------------------------------------------------------------
+      SHIFTSW
+                          CODE       0022(34)          $$shiftu8sw
+     --------------------------------------------------------------
+      FILDSW
+                          CODE       002C(44)          $$nfildu8sw
+     --------------------------------------------------------------
+      LTOESW
+                          CODE       002A(42)          $$lloadu8sw
+     --------------------------------------------------------------
+      FMULSW
+                          CODE       003A(58)          $$nfmulu8sw
+     --------------------------------------------------------------
+      EMULSW
+                          TABLE      0020(32)          $$TABLE_SEGMENT
+                          CODE       013A(314)         $$dmulu8sw
+     --------------------------------------------------------------
+      FTOLSW
+                          CODE       002A(42)          $$nftolu8sw
+     --------------------------------------------------------------
+      ETOLSW
+                          CODE       003E(62)          $$lstoru8sw
+     --------------------------------------------------------------
+      SIMODSW
+                          CODE       0010(16)          $$simodu8sw
+     --------------------------------------------------------------
+      IMULSW
+                          CODE       002A(42)          $$imulu8sw
+     --------------------------------------------------------------
+      SLMODSW
+                          CODE       001A(26)          $$slmodu8sw
+     --------------------------------------------------------------
+      LMULSW
+                          CODE       0042(66)          $$lmulu8sw
+     --------------------------------------------------------------
+
+
+Total size (CODE  ) = 00CCC   (3276)
+Total size (DATA  ) = 003FF   (1023)
+Total size (BIT   ) = 00000.0 (0.0)
+Total size (NVDATA) = 00000   (0)
+Total size (NVBIT ) = 00000.0 (0.0)
+Total size (TABLE ) = 041BC   (16828)
+
+          -----------------------
+           Symbol Table Synopsis
+          -----------------------
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+clk
+               00:06CC   Pub CODE     _LOW_career
+               00:0C40   Pub CODE     _WD_Feed
+               00:0CEA   Pub CODE     _clk_fcon0_init
+               00:0AFA   Pub CODE     _HIGH_career
+               00:057C   Pub CODE     _clk_fcon1_init
+               00:E2C8   Pub DATA     _SYSC_MODE_CLK
+               00:E2CC   Pub DATA     _OUTC_MODE_CLK
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+clkbuzz
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+eternity
+               00:0530   Pub CODE     _time_CLK
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+ints
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+key
+               00:095E   Pub CODE     _KEY_indepen_scan
+               00:07DC   Pub CODE     _KEY_VALUE
+               00:0C54   Pub CODE     _KEY_WALK_ROW
+               00:042A   Pub CODE     _KEY_scanning
+               00:0D92   Pub CODE     _KEY_independent
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+lcdshow
+               00:E364   Pub DATA     _NOISY1_bell
+               00:E376   Pub DATA     _table
+               00:E334   Pub DATA     _week
+               00:E2D4   Pub DATA     _TIME_system
+               00:E35E   Pub DATA     _NOISY0_bell
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+main
+               00:0B20   Pub CODE     _ON_OFF
+               00:0DEA   Pub CODE     _KEY_delay
+               00:067E   Pub CODE     _MAI_LDCdelay
+               00:006C   Pub CODE     _BUZZ_mode
+               00:06F2   Pub CODE     _BUZZ_int
+               00:0A46   Pub CODE     _delayms
+               00:0776   Pub CODE     _Init_Times0
+               00:0792   Pub CODE     _Init_Times2
+               00:0756   Pub CODE     _MelodyInit
+               00:08E6   Pub CODE     _Low_Voltage_Detect
+               00:09E0   Pub CODE     _CLKMODE_tim
+               00:0E80   Pub CODE     _ON_clk_buzz
+               00:0034   Pub CODE     _key_buzz
+               00:0BF0   Pub CODE     _main
+               00:099E   Pub CODE     _LcdInit
+               00:08C2   Pub CODE     _LCD_empty
+               00:0040   Pub CODE     _Temperature3_gathering
+               00:001A   Pub CODE     _P5_INIT
+               00:0A66   Pub CODE     _ADC_delay
+               00:07AE   Pub CODE     _TIME_CLK_LCDmode
+               00:0E10   Pub CODE     _KEY_scan
+               00:0984   Pub CODE     _Temperature4_gathering
+               00:0CB0   Pub CODE     _Sample_TableCopyFunc
+               00:0D9C   Pub CODE     _CLKMODE_delay
+               00:0894   Pub CODE     _P0_INIT
+               00:E3C0   Pub DATA     _Tmoon
+               00:E3C6   Pub DATA     _CLK_mode
+               00:E38C   Pub DATA     _hum
+               00:E3AA   Pub DATA     _TIM_mode
+               00:E3BC   Pub DATA     _C_MAR
+               00:E3A0   Pub DATA     _key_sampling
+               00:E3CC   Pub DATA     _BUZZ_degree
+               00:E394   Pub DATA     _LCD_delayx
+               00:E3AE   Pub DATA     _TIM_time
+               00:E3BA   Pub DATA     _C_TEN
+               00:E39A   Pub DATA     _CY_allow
+               00:E390   Pub DATA     _Ds_P
+               00:E3CA   Pub DATA     _key_perfect
+               00:E3A8   Pub DATA     _MOde
+               00:E39E   Pub DATA     _Csum
+               00:E3A2   Pub DATA     _key_C_F
+               00:E3BE   Pub DATA     _Tyear
+               00:E3A6   Pub DATA     _RES_temhum
+               00:E3C8   Pub DATA     _key_noperfect
+               00:E398   Pub DATA     _on_off
+               00:E3B0   Pub DATA     _AM_PM
+               00:E3AC   Pub DATA     _TIM_clock
+               00:E396   Pub DATA     _low_voltage
+               00:E3CE   Pub DATA     _BU_deg
+               00:E388   Pub DATA     _buzz_mo
+               00:E3C2   Pub DATA     _Tday
+               00:E39C   Pub DATA     _ALG_allow
+               00:E3A4   Pub DATA     _MAI_key
+               00:E38A   Pub DATA     _temp
+               00:E3B6   Pub DATA     _MAR
+               00:E3C4   Pub DATA     _week_zhi
+               00:E3B8   Pub DATA     _SEC
+               00:E3B4   Pub DATA     _TEN
+               00:E38E   Pub DATA     _P_A
+               00:01AA   Pub TABLE    _DSxCnA
+               00:02EA   Pub TABLE    _DSxCnB
+               00:E3B2   Pub DATA     _am_plcd
+               00:E392   Pub DATA     _SS_YX
+               00:0D30   Loc CODE     _TM1int
+               00:0E50   Loc CODE     _TM3int
+               00:0AA6   Loc CODE     _P00int
+               00:05B4   Loc CODE     _T2HZInt
+               00:0A22   Loc CODE     _P04int
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+melody
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+rcadc
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+s610409sw
+              0000E3FF   Loc NUMBER   NEAR_RAM_END
+              0000E000   Loc NUMBER   NEAR_RAM_START
+               00:0826   Loc CODE     __wdtcounter_clear
+              000000FF   Loc NUMBER   _$$WINVAL
+               00:3DFF   Loc TABLE    _$$ROMWINEND
+               00:0808   Loc CODE     $begin
+               00:0000   Loc TABLE    _$$ROMWINSTART
+               00:083A   Loc CODE     __init_loop
+               00:0886   Loc CODE     __init_end
+               00:0806   Loc CODE     $$brk_reset
+               00:0846   Loc CODE     __skip
+               00:0862   Loc CODE     __init_loop2
+               00:0874   Loc CODE     __loop_by_byte
+               00:0816   Loc CODE     __near_ram_loop
+               00:0804   Pub CODE     $$start_up
+
+
+Module         Value     Type         Symbol
+------         -----     ----------   ------
+temphum
+
+End of mapfile.
+
+Warning W018: Specified stack size is too big, so adjusting to 02C2(706) bytes

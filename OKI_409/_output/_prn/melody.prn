@@ -1,0 +1,545 @@
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   1 
+ Source File: _output\_obj\melody.asm
+ Object File: _output\_obj\melody.obj
+ Date  : 2018/01/03 Wed.[14:06]
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                    1   ;; Compile Options : /TM610409 /MS /nea
+                                        r /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /
+                                        Ilcdshow /Imelody /Ircadc /Itemphum /It
+                                        imers /IMACROA~1 /Ieternity /ICLKbuzz /
+                                        SD /Om /W 1 /Fa_output\_obj\ 
+                                    2   ;; Version Number  : Ver.3.54.3
+                                    3   ;; File Name       : melody.c
+                                    4   
+                                    5   	type (M610409) 
+                                    6   	model small, near
+                                    7   	$$MD0_CON$melody segment code 2
+                                        h #0h
+                                    8   	$$MD0_LEN_buzz$melody segment c
+                                        ode 2h #0h
+                                    9   	$$MD0_LEN_melody$melody segment
+                                         code 2h #0h
+                                   10   	$$MD0_TMP_buzz$melody segment c
+                                        ode 2h #0h
+                                   11   	$$MD0_TMP_melody$melody segment
+                                         code 2h #0h
+                                   12   	$$MD0_TON_buzz$melody segment c
+                                        ode 2h #0h
+                                   13   	$$MD0_TON_melody$melody segment
+                                         code 2h #0h
+                                   14   	$$TABRCADC_SAMPLING_MODE$melody
+                                         segment table 2h #0h
+                                   15   CVERSION 3.54.3
+                                   16   CGLOBAL 01H 03H 0000H "MD0_TON_melody" 
+                                        08H 02H 05H 00H 80H 00H 00H 00H 01H
+                                   17   CGLOBAL 01H 03H 0000H "MD0_CON" 08H 02H
+                                         00H 00H 80H 04H 00H 00H 01H
+                                   18   CGLOBAL 01H 03H 0000H "MD0_TMP_buzz" 08
+                                        H 02H 01H 00H 80H 00H 00H 00H 01H
+                                   19   CGLOBAL 01H 03H 0000H "MD0_TON_buzz" 08
+                                        H 02H 02H 00H 80H 00H 00H 00H 01H
+                                   20   CGLOBAL 01H 03H 0000H "MD0_LEN_melody" 
+                                        08H 02H 06H 00H 80H 00H 00H 00H 01H
+                                   21   CGLOBAL 01H 03H 0000H "MD0_LEN_buzz" 08
+                                        H 02H 03H 00H 80H 00H 00H 00H 01H
+                                   22   CGLOBAL 01H 03H 0000H "MD0_TMP_melody" 
+                                        08H 02H 04H 00H 80H 00H 00H 00H 01H
+                                   23   CSTRUCTTAG 0000H 0000H 0000H 0008H 0000
+                                        0001H "_Notag"
+                                   24   CSTRUCTMEM 52H 00000001H 00000000H "b0"
+                                         02H 00H 00H
+                                   25   CSTRUCTMEM 52H 00000001H 00000001H "b1"
+                                         02H 00H 00H
+                                   26   CSTRUCTMEM 52H 00000001H 00000002H "b2"
+                                         02H 00H 00H
+                                   27   CSTRUCTMEM 52H 00000001H 00000003H "b3"
+                                         02H 00H 00H
+                                   28   CSTRUCTMEM 52H 00000001H 00000004H "b4"
+                                         02H 00H 00H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   2 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   29   CSTRUCTMEM 52H 00000001H 00000005H "b5"
+                                         02H 00H 00H
+                                   30   CSTRUCTMEM 52H 00000001H 00000006H "b6"
+                                         02H 00H 00H
+                                   31   CSTRUCTMEM 52H 00000001H 00000007H "b7"
+                                         02H 00H 00H
+                                   32   CENUMTAG 0000H 0000H 0001H 0010H "BUZZm
+                                        ode_value"
+                                   33   CENUMMEM 00000000H "buzz_one"
+                                   34   CENUMMEM 00000001H "buzz_two"
+                                   35   CENUMMEM 00000002H "buzz_three"
+                                   36   CENUMMEM 00000003H "buzz_four"
+                                   37   CENUMMEM 00000004H "buzz_five"
+                                   38   CENUMMEM 00000005H "buzz_six"
+                                   39   CENUMMEM 00000006H "buzz_seven"
+                                   40   CENUMMEM 00000007H "buzz_eight"
+                                   41   CENUMMEM 00000008H "buzz_nine"
+                                   42   CENUMMEM 00000009H "buzz_ten"
+                                   43   CENUMMEM 0000000AH "buzz_eleven"
+                                   44   CENUMMEM 0000000BH "buzz_twelve"
+                                   45   CENUMMEM 0000000CH "buzz_thirteen"
+                                   46   CENUMMEM 0000000DH "buzz_fourteen"
+                                   47   CENUMMEM 0000000EH "buzz_fifteen"
+                                   48   CENUMMEM 0000000FH "buzz_sixteen"
+                                   49   CTYPEDEF 0000H 0000H 42H "uint8" 02H 00
+                                        H 00H
+                                   50   CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00
+                                        H 02H
+                                   51   CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H
+                                         00H
+                                   52   CTYPEDEF 0000H 0000H 42H "uint32" 02H 0
+                                        0H 02H
+                                   53   CTYPEDEF 0000H 0000H 42H "uint16" 02H 0
+                                        0H 01H
+                                   54   CTYPEDEF 0000H 0000H 42H "byte" 02H 00H
+                                         00H
+                                   55   CTYPEDEF 0000H 0000H 43H "INT32" 02H 00
+                                        H 02H
+                                   56   CTYPEDEF 0000H 0000H 43H "INT16" 02H 00
+                                        H 01H
+                                   57   CTYPEDEF 0000H 0000H 42H "dword" 02H 00
+                                        H 02H
+                                   58   CTYPEDEF 0000H 0000H 43H "int8" 02H 00H
+                                         00H
+                                   59   CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H
+                                         01H
+                                   60   CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H
+                                         01H
+                                   61   CTYPEDEF 0000H 0000H 43H "int16" 02H 00
+                                        H 01H
+                                   62   CTYPEDEF 0000H 0000H 43H "int32" 02H 00
+                                        H 02H
+                                   63   CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00
+                                        H 00H
+                                   64   CTYPEDEF 0000H 0000H 42H "uint" 02H 00H
+                                         01H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   3 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   65   CTYPEDEF 0000H 0000H 42H "uchar" 02H 00
+                                        H 00H
+                                   66   CTYPEDEF 0000H 0000H 42H "UINT16" 02H 0
+                                        0H 01H
+                                   67   CTYPEDEF 0000H 0000H 42H "UINT32" 02H 0
+                                        0H 02H
+                                   68   CTYPEDEF 0000H 0000H 42H "word" 02H 00H
+                                         01H
+                                   69   CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H
+                                         00H
+                                   70   CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H
+                                         00H
+                                   71   CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 
+                                        04H 00H 05H 00H 00H
+                                   72   CSGLOBAL 00H 0010H "RCADC_SAMPLING_MODE
+                                        " 05H 01H 10H 00H 00H 00H
+                                   73   CFILE 0001H 00000822H "E:\\IDEU8\\Inc\\
+                                        m610409.h"
+                                   74   CFILE 0002H 0000003AH "melody\\melody.h
+                                        "
+                                   75   CFILE 0003H 00000025H "MACROA~1\\MacroA
+                                        ndConst.h"
+                                   76   CFILE 0000H 00000097H "melody\\melody.c
+                                        "
+                                   77   
+  --------------------------       78   	rseg $$MD0_CON$melody
+                                   79   CFUNCTION 0
+                                   80   
+00:0000                            81   _MD0_CON	:
+                                   82   CBLOCK 0 1 16
+                                   83   
+                                   84   ;; {
+                                   85   CLINEA 0000H 0001H 0010H 0002H 0002H
+00:0000 6E-F8                      86   	push	xr8
+00:0002 05-F8                      87   	mov	er8,	er0
+00:0004 25-FA                      88   	mov	er10,	er2
+                                   89   CBLOCK 0 2 16
+                                   90   CARGUMENT 46H 0002H 0028H "M0_RUN" 02H 
+                                        00H 01H
+                                   91   CARGUMENT 46H 0002H 0029H "BZ_MD" 02H 0
+                                        0H 01H
+                                   92   
+                                   93   ;;  if((M0_RUN > MELODY_HIGH) || (BZ_MD
+                                         > MELODY_HIGH)) {
+                                   94   CLINEA 0000H 0001H 0011H 0003H 0037H
+00:0006 01 70                      95   	cmp	r0,	#01h
+00:0008 00 51                      96   	cmpc	r1,	#00h
+00:000A 03 C2                      97   	bgt	_$L2
+00:000C 01 72                      98   	cmp	r2,	#01h
+00:000E 00 53                      99   	cmpc	r3,	#00h
+00:0010 03 C3                     100   	ble	_$L1
+00:0012                           101   _$L2 :
+                                  102   CBLOCK 0 3 17
+                                  103   
+                                  104   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  105   CLINEA 0000H 0001H 0012H 0004H 0020H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   4 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0012 7F E0                     106   	mov	er0,	#-1
+                                  107   CBLOCKEND 0 3 19
+                                  108   CBLOCKEND 0 2 23
+                                  109   
+                                  110   ;;  }
+                                  111   CLINEA 0000H 0001H 0017H 0003H 0003H
+00:0014                           112   _$L0 :
+00:0014 2E-F8                     113   	pop	xr8
+00:0016 1F-FE                     114   	rt
+                                  115   
+                                  116   ;;   }
+                                  117   CLINEA 0000H 0000H 0013H 0004H 0004H
+00:0018                           118   _$L1 :
+                                  119   
+                                  120   ;;   M0RUN = M0_RUN;
+                                  121   CLINEA 0000H 0001H 0014H 0004H 0012H
+00:0018 80-80                     122   	mov	r0,	r8
+00:001A 01 20                     123   	and	r0,	#01h
+00:001C 03 C9                     124   	beq	_$M1
+00:001E 80-A0 C0-F2               125   	sb	0f2c0h.0
+00:0022 02 CE                     126   	bal	_$M2
+00:0024                           127   _$M1 :
+00:0024 82-A0 C0-F2               128   	rb	0f2c0h.0
+00:0028                           129   _$M2 :
+                                  130   
+                                  131   ;;   BZMD = BZ_MD;
+                                  132   CLINEA 0000H 0001H 0015H 0004H 0010H
+00:0028 A0-80                     133   	mov	r0,	r10
+00:002A 01 20                     134   	and	r0,	#01h
+00:002C 03 C9                     135   	beq	_$M3
+00:002E 90-A0 C0-F2               136   	sb	0f2c0h.1
+00:0032 02 CE                     137   	bal	_$M4
+00:0034                           138   _$M3 :
+00:0034 92-A0 C0-F2               139   	rb	0f2c0h.1
+00:0038                           140   _$M4 :
+                                  141   
+                                  142   ;;   return (MELODY_DEPLOY_OK);
+                                  143   CLINEA 0000H 0001H 0016H 0004H 001DH
+00:0038 00 E0                     144   	mov	er0,	#0 
+00:003A EC CE                     145   	bal	_$L0
+                                  146   CBLOCKEND 0 1 23
+                                  147   CFUNCTIONEND 0
+                                  148   
+                                  149   
+  --------------------------      150   	rseg $$MD0_TMP_buzz$melody
+                                  151   CFUNCTION 1
+                                  152   
+00:0000                           153   _MD0_TMP_buzz	:
+                                  154   CBLOCK 1 1 37
+                                  155   
+                                  156   ;; {
+                                  157   CLINEA 0000H 0001H 0025H 0002H 0002H
+                                  158   CBLOCK 1 2 37
+                                  159   CARGUMENT 46H 0002H 0024H "MD0_TMP" 02H
+                                         00H 01H
+                                  160   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   5 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  161   ;;  if(MD0_TMP >= buzzTMP_mode) {
+                                  162   CLINEA 0000H 0001H 0026H 0003H 001FH
+00:0000 04 70                     163   	cmp	r0,	#04h
+00:0002 00 51                     164   	cmpc	r1,	#00h
+00:0004 02 C1                     165   	blt	_$L9
+                                  166   CBLOCK 1 3 38
+                                  167   
+                                  168   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  169   CLINEA 0000H 0001H 0027H 0004H 0020H
+00:0006 7F E0                     170   	mov	er0,	#-1
+                                  171   CBLOCKEND 1 3 40
+                                  172   CBLOCKEND 1 2 43
+                                  173   
+                                  174   ;;  }
+                                  175   CLINEA 0000H 0001H 002BH 0003H 0003H
+00:0008 1F-FE                     176   	rt
+                                  177   
+                                  178   ;;   }
+                                  179   CLINEA 0000H 0000H 0028H 0004H 0004H
+00:000A                           180   _$L9 :
+                                  181   
+                                  182   ;;   MD0TMP = RCADC_SAMPLING_MODE[MD0_T
+                                        MP]; 
+                                  183   CLINEA 0000H 0001H 0029H 0004H 002AH
+00:000A 08-90 00-00'              184   	l	r0,	NEAR _RCADC_SAM
+                                        PLING_MODE[er0]
+00:000E 11-90 C1-F2               185   	st	r0,	0f2c1h
+                                  186   
+                                  187   ;;   return (MELODY_DEPLOY_OK);
+                                  188   CLINEA 0000H 0001H 002AH 0004H 001DH
+00:0012 00 E0                     189   	mov	er0,	#0 
+00:0014 1F-FE                     190   	rt
+                                  191   CBLOCKEND 1 1 43
+                                  192   CFUNCTIONEND 1
+                                  193   
+                                  194   
+  --------------------------      195   	rseg $$MD0_TON_buzz$melody
+                                  196   CFUNCTION 2
+                                  197   
+00:0000                           198   _MD0_TON_buzz	:
+                                  199   CBLOCK 2 1 62
+                                  200   
+                                  201   ;; {
+                                  202   CLINEA 0000H 0001H 003EH 0002H 0002H
+                                  203   CBLOCK 2 2 62
+                                  204   CARGUMENT 46H 0002H 0024H "MD0_TON" 02H
+                                         00H 01H
+                                  205   
+                                  206   ;;  if(MD0_TON >= buzzTON_mode) {
+                                  207   CLINEA 0000H 0001H 003FH 0003H 001FH
+00:0000 08 70                     208   	cmp	r0,	#08h
+00:0002 00 51                     209   	cmpc	r1,	#00h
+00:0004 02 C1                     210   	blt	_$L12
+                                  211   CBLOCK 2 3 63
+                                  212   
+                                  213   ;;   return (MELODY_DEPLOY_FAIL);	
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   6 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  214   CLINEA 0000H 0001H 0040H 0004H 0020H
+00:0006 7F E0                     215   	mov	er0,	#-1
+                                  216   CBLOCKEND 2 3 65
+                                  217   CBLOCKEND 2 2 68
+                                  218   
+                                  219   ;;  }
+                                  220   CLINEA 0000H 0001H 0044H 0003H 0003H
+00:0008 1F-FE                     221   	rt
+                                  222   
+                                  223   ;;   }
+                                  224   CLINEA 0000H 0000H 0041H 0004H 0004H
+00:000A                           225   _$L12 :
+                                  226   
+                                  227   ;;   MD0TON = RCADC_SAMPLING_MODE[MD0_T
+                                        ON]; 
+                                  228   CLINEA 0000H 0001H 0042H 0004H 002AH
+00:000A 08-90 00-00'              229   	l	r0,	NEAR _RCADC_SAM
+                                        PLING_MODE[er0]
+00:000E 11-90 C2-F2               230   	st	r0,	0f2c2h
+                                  231   
+                                  232   ;;   return (MELODY_DEPLOY_OK);
+                                  233   CLINEA 0000H 0001H 0043H 0004H 001DH
+00:0012 00 E0                     234   	mov	er0,	#0 
+00:0014 1F-FE                     235   	rt
+                                  236   CBLOCKEND 2 1 68
+                                  237   CFUNCTIONEND 2
+                                  238   
+                                  239   
+  --------------------------      240   	rseg $$MD0_LEN_buzz$melody
+                                  241   CFUNCTION 3
+                                  242   
+00:0000                           243   _MD0_LEN_buzz	:
+                                  244   CBLOCK 3 1 94
+                                  245   
+                                  246   ;; {
+                                  247   CLINEA 0000H 0001H 005EH 0002H 0002H
+                                  248   CBLOCK 3 2 94
+                                  249   CARGUMENT 46H 0002H 0024H "MD0_LEN" 02H
+                                         00H 01H
+                                  250   
+                                  251   ;;  if(MD0_LEN >= buzzLEN_mode) {
+                                  252   CLINEA 0000H 0001H 005FH 0003H 001FH
+00:0000 10 70                     253   	cmp	r0,	#010h
+00:0002 00 51                     254   	cmpc	r1,	#00h
+00:0004 02 C1                     255   	blt	_$L15
+                                  256   CBLOCK 3 3 95
+                                  257   
+                                  258   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  259   CLINEA 0000H 0001H 0060H 0004H 0020H
+00:0006 7F E0                     260   	mov	er0,	#-1
+                                  261   CBLOCKEND 3 3 97
+                                  262   CBLOCKEND 3 2 100
+                                  263   
+                                  264   ;;  }
+                                  265   CLINEA 0000H 0001H 0064H 0003H 0003H
+00:0008 1F-FE                     266   	rt
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   7 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  267   
+                                  268   ;;   }
+                                  269   CLINEA 0000H 0000H 0061H 0004H 0004H
+00:000A                           270   _$L15 :
+                                  271   
+                                  272   ;;   MD0LEN = RCADC_SAMPLING_MODE[MD0_L
+                                        EN]; 
+                                  273   CLINEA 0000H 0001H 0062H 0004H 002AH
+00:000A 08-90 00-00'              274   	l	r0,	NEAR _RCADC_SAM
+                                        PLING_MODE[er0]
+00:000E 11-90 C3-F2               275   	st	r0,	0f2c3h
+                                  276   
+                                  277   ;;   return (MELODY_DEPLOY_OK);
+                                  278   CLINEA 0000H 0001H 0063H 0004H 001DH
+00:0012 00 E0                     279   	mov	er0,	#0 
+00:0014 1F-FE                     280   	rt
+                                  281   CBLOCKEND 3 1 100
+                                  282   CFUNCTIONEND 3
+                                  283   
+                                  284   
+  --------------------------      285   	rseg $$MD0_TMP_melody$melody
+                                  286   CFUNCTION 4
+                                  287   
+00:0000                           288   _MD0_TMP_melody	:
+                                  289   CBLOCK 4 1 111
+                                  290   
+                                  291   ;; {
+                                  292   CLINEA 0000H 0001H 006FH 0002H 0002H
+                                  293   CBLOCK 4 2 111
+                                  294   CARGUMENT 46H 0002H 0024H "MD0_TMP" 02H
+                                         00H 01H
+                                  295   
+                                  296   ;;  if(MD0_TMP >= melodyTMP_mode) {
+                                  297   CLINEA 0000H 0001H 0070H 0003H 0021H
+00:0000 10 70                     298   	cmp	r0,	#010h
+00:0002 00 51                     299   	cmpc	r1,	#00h
+00:0004 02 C1                     300   	blt	_$L18
+                                  301   CBLOCK 4 3 112
+                                  302   
+                                  303   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  304   CLINEA 0000H 0001H 0071H 0004H 0020H
+00:0006 7F E0                     305   	mov	er0,	#-1
+                                  306   CBLOCKEND 4 3 114
+                                  307   CBLOCKEND 4 2 117
+                                  308   
+                                  309   ;;  }
+                                  310   CLINEA 0000H 0001H 0075H 0003H 0003H
+00:0008 1F-FE                     311   	rt
+                                  312   
+                                  313   ;;   }
+                                  314   CLINEA 0000H 0000H 0072H 0004H 0004H
+00:000A                           315   _$L18 :
+                                  316   
+                                  317   ;;   MD0TMP = RCADC_SAMPLING_MODE[MD0_T
+                                        MP]; 
+                                  318   CLINEA 0000H 0001H 0073H 0004H 002AH
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   8 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000A 08-90 00-00'              319   	l	r0,	NEAR _RCADC_SAM
+                                        PLING_MODE[er0]
+00:000E 11-90 C1-F2               320   	st	r0,	0f2c1h
+                                  321   
+                                  322   ;;   return (MELODY_DEPLOY_OK);
+                                  323   CLINEA 0000H 0001H 0074H 0004H 001DH
+00:0012 00 E0                     324   	mov	er0,	#0 
+00:0014 1F-FE                     325   	rt
+                                  326   CBLOCKEND 4 1 117
+                                  327   CFUNCTIONEND 4
+                                  328   
+                                  329   
+  --------------------------      330   	rseg $$MD0_TON_melody$melody
+                                  331   CFUNCTION 5
+                                  332   
+00:0000                           333   _MD0_TON_melody	:
+                                  334   CBLOCK 5 1 127
+                                  335   
+                                  336   ;; {
+                                  337   CLINEA 0000H 0001H 007FH 0002H 0002H
+                                  338   CBLOCK 5 2 127
+                                  339   CARGUMENT 46H 0001H 0014H "MD0_TON" 02H
+                                         00H 00H
+                                  340   
+                                  341   ;;  	 (MD0_TON <= (unsigned char)mel
+                                        odyTON_mode_MAX)) {
+                                  342   CLINEA 0000H 0000H 0081H 0005H 0035H
+                                  343   CBLOCK 5 3 129
+                                  344   
+                                  345   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  346   CLINEA 0000H 0001H 0082H 0004H 0020H
+00:0000 7F E0                     347   	mov	er0,	#-1
+                                  348   CBLOCKEND 5 3 131
+                                  349   CBLOCKEND 5 2 134
+                                  350   
+                                  351   ;;  }
+                                  352   CLINEA 0000H 0001H 0086H 0003H 0003H
+00:0002 1F-FE                     353   	rt
+                                  354   
+                                  355   ;;   return (MELODY_DEPLOY_OK);
+                                  356   CBLOCKEND 5 1 134
+                                  357   CFUNCTIONEND 5
+                                  358   
+                                  359   
+  --------------------------      360   	rseg $$MD0_LEN_melody$melody
+                                  361   CFUNCTION 6
+                                  362   
+00:0000                           363   _MD0_LEN_melody	:
+                                  364   CBLOCK 6 1 144
+                                  365   
+                                  366   ;; {
+                                  367   CLINEA 0000H 0001H 0090H 0002H 0002H
+                                  368   CBLOCK 6 2 144
+                                  369   CARGUMENT 46H 0001H 0014H "MD0_LEN" 02H
+                                         00H 00H
+                                  370   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   9 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  371   ;;  	 (MD0_LEN <= (unsigned char)mel
+                                        odyLEN_mode_MAX)) {
+                                  372   CLINEA 0000H 0000H 0092H 0005H 0035H
+                                  373   CBLOCK 6 3 146
+                                  374   
+                                  375   ;;   return (MELODY_DEPLOY_FAIL);	
+                                  376   CLINEA 0000H 0001H 0093H 0004H 0020H
+00:0000 7F E0                     377   	mov	er0,	#-1
+                                  378   CBLOCKEND 6 3 148
+                                  379   CBLOCKEND 6 2 151
+                                  380   
+                                  381   ;;  }
+                                  382   CLINEA 0000H 0001H 0097H 0003H 0003H
+00:0002 1F-FE                     383   	rt
+                                  384   
+                                  385   ;;   return (MELODY_DEPLOY_OK);
+                                  386   CBLOCKEND 6 1 151
+                                  387   CFUNCTIONEND 6
+                                  388   
+                                  389   	public _MD0_TON_melody
+                                  390   	public _MD0_CON
+                                  391   	public _MD0_TMP_buzz
+                                  392   	public _MD0_TON_buzz
+                                  393   	public _MD0_LEN_melody
+                                  394   	public _MD0_LEN_buzz
+                                  395   	public _MD0_TMP_melody
+                                  396   	extrn code near : _main
+                                  397   
+  --------------------------      398   	rseg $$TABRCADC_SAMPLING_MODE$m
+                                        elody
+00:0000                           399   _RCADC_SAMPLING_MODE :
+00:0000 00                        400   	db	00h
+00:0001 01                        401   	db	01h
+00:0002 02                        402   	db	02h
+00:0003 03                        403   	db	03h
+00:0004 04                        404   	db	04h
+00:0005 05                        405   	db	05h
+00:0006 06                        406   	db	06h
+00:0007 07                        407   	db	07h
+00:0008 08                        408   	db	08h
+00:0009 09                        409   	db	09h
+00:000A 0A                        410   	db	0ah
+00:000B 0B                        411   	db	0bh
+00:000C 0C                        412   	db	0ch
+00:000D 0D                        413   	db	0dh
+00:000E 0E                        414   	db	0eh
+00:000F 0F                        415   	db	0fh
+                                  416   
+                                  417   	end
+
+
+
+  Target       : ML610409 (nX-U8/100)
+  Memory Model : SMALL
+  Data   Model : NEAR
+  ROM WINDOW   : (not specified)
+  Internal RAM : E000H to E3FFH
+
+  Errors   : 0
+  Warnings : 0  (/Wrpeast)
+  Lines    : 417

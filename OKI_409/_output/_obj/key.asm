@@ -1,0 +1,631 @@
+;; Compile Options : /TM610409 /MS /near /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /Ilcdshow /Imelody /Ircadc /Itemphum /Itimers /IMACROA~1 /Ieternity /ICLKbuzz /SD /Om /W 1 /Fa_output\_obj\ 
+;; Version Number  : Ver.3.54.3
+;; File Name       : key.c
+
+	type (M610409) 
+	model small, near
+	$$NINITVAR segment data 2h #0h
+	$$NINITTAB segment table 2h any
+	$$KEY_VALUE$key segment code 2h #0h
+	$$KEY_WALK_ROW$key segment code 2h #0h
+	$$KEY_close$key segment code 2h #0h
+	$$KEY_indepen_scan$key segment code 2h #0h
+	$$KEY_independent$key segment code 2h #0h
+	$$KEY_long$key segment code 2h #0h
+	$$KEY_scanning$key segment code 2h #0h
+	$$KeyRead$key segment code 2h #0h
+CVERSION 3.54.3
+CGLOBAL 01H 03H 0000H "KEY_indepen_scan" 08H 02H 07H 00H 80H 04H 00H 00H 07H
+CGLOBAL 01H 03H 0000H "KeyRead" 08H 02H 03H 00H 83H 06H 00H 00H 07H
+CGLOBAL 01H 02H 0000H "KEY_VALUE" 08H 02H 02H 00H 80H 00H 00H 00H 00H
+CGLOBAL 01H 02H 0000H "KEY_WALK_ROW" 08H 02H 00H 00H 80H 00H 00H 00H 01H
+CGLOBAL 01H 02H 0000H "KEY_scanning" 08H 02H 01H 00H 81H 08H 00H 00H 01H
+CGLOBAL 01H 02H 0000H "KEY_close" 08H 02H 04H 00H 80H 00H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "KEY_independent" 08H 02H 06H 00H 80H 00H 00H 00H 07H
+CGLOBAL 01H 02H 0000H "KEY_long" 08H 02H 05H 00H 80H 00H 00H 00H 01H
+CSTRUCTTAG 0000H 0000H 0000H 0008H 00000001H "_Notag"
+CSTRUCTMEM 52H 00000001H 00000000H "b0" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000001H "b1" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000002H "b2" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000003H "b3" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000004H "b4" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000005H "b5" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000006H "b6" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000007H "b7" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "uint16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "byte" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "INT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "dword" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "int8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "uchar" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "UINT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "word" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 04H 00H 05H 00H 00H
+CGLOBAL 00H 42H 0001H "Cont" 02H 00H 00H
+CGLOBAL 00H 42H 0001H "cont" 02H 00H 00H
+CGLOBAL 00H 42H 0001H "Trg" 02H 00H 00H
+CFILE 0001H 00000822H "E:\\IDEU8\\Inc\\m610409.h"
+CFILE 0002H 00000034H "key\\key.h"
+CFILE 0003H 00000025H "MACROA~1\\MacroAndConst.h"
+CFILE 0000H 000000A7H "key\\key.c"
+
+	rseg $$KEY_WALK_ROW$key
+CFUNCTION 0
+
+_KEY_WALK_ROW	:
+CBLOCK 0 1 14
+
+;;  {
+CLINEA 0000H 0001H 000EH 0003H 0003H
+	mov	er2,	er0
+CBLOCK 0 2 14
+CARGUMENT 46H 0002H 0025H "WR_mode" 02H 00H 01H
+
+;;  	if(WR_mode > (unsigned int)KEY_SCANNING_WALK) {
+CLINEA 0000H 0001H 000FH 0004H 0032H
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L1
+CBLOCK 0 3 15
+
+;;	  	return ((unsigned int)KEY_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0010H 0005H 002BH
+	mov	er0,	#-1
+CBLOCKEND 0 3 17
+CBLOCKEND 0 2 29
+
+;;   }
+CLINEA 0000H 0001H 001DH 0004H 0004H
+	rt
+
+;;	  }
+CLINEA 0000H 0000H 0011H 0004H 0004H
+_$L1 :
+
+;;	  if(WR_mode == KEY_SCANNING_SORT)
+CLINEA 0000H 0001H 0012H 0004H 0023H
+	mov	er0,	er0
+	bne	_$L3
+CBLOCK 0 4 19
+
+;;         P50DIR = 0; P51DIR = 0; P52DIR = 1; P53DIR = 1;
+CLINEA 0000H 0001H 0014H 000AH 0038H
+	rb	0f229h.0
+	rb	0f229h.1
+	sb	0f229h.2
+	sb	0f229h.3
+
+;;         P50D = 0; P51D = 0; P52D = 1; P53D = 1; 	
+CLINEA 0000H 0001H 0015H 000AH 0032H
+	rb	0f228h.0
+	rb	0f228h.1
+	sb	0f228h.2
+	sb	0f228h.3
+
+;;      else if(WR_mode == KEY_SCANNING_WALK)
+CLINEA 0000H 0001H 0017H 0007H 002BH
+	bal	_$L6
+_$L3 :
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bne	_$L6
+CBLOCK 0 5 24
+
+;;          P50DIR = 1; P51DIR = 1; P52DIR = 0; P53DIR = 0;
+CLINEA 0000H 0001H 0019H 000BH 0039H
+	sb	0f229h.0
+	sb	0f229h.1
+	rb	0f229h.2
+	rb	0f229h.3
+
+;;          P50D = 1; P51D = 1; P52D = 0; P53D = 0; 	
+CLINEA 0000H 0001H 001AH 000BH 0033H
+	sb	0f228h.0
+	sb	0f228h.1
+	rb	0f228h.2
+	rb	0f228h.3
+CBLOCKEND 0 5 27
+
+;;         }
+CLINEA 0000H 0000H 001BH 000AH 000AH
+_$L6 :
+
+;;     return (KEY_DEPLOY_OK); 
+CLINEA 0000H 0001H 001CH 0006H 001DH
+	mov	er0,	#0 
+	rt
+CBLOCKEND 0 4 29
+CBLOCKEND 0 1 29
+CFUNCTIONEND 0
+
+
+	rseg $$KEY_scanning$key
+CFUNCTION 1
+
+_KEY_scanning	:
+CBLOCK 1 1 38
+
+;; {
+CLINEA 0000H 0001H 0026H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+CBLOCK 1 2 38
+CRET 000CH
+CLOCAL 46H 0002H 0026H 0002H "k0" 02H 00H 01H
+CLOCAL 46H 0002H 0027H 0002H "k1" 02H 00H 01H
+CLOCAL 4AH 0002H 0000H 0002H "k2" 02H 00H 01H
+CLOCAL 4AH 0002H 0000H 0002H "k3" 02H 00H 01H
+CLOCAL 46H 0002H 0028H 0002H "sum" 02H 00H 01H
+CSLOCAL 43H 0002H 0000H 0002H "clash" 02H 00H 01H
+
+;;   unsigned int k0=0,k1=0,k2=0,k3=0,sum=0;
+CLINEA 0000H 0001H 0027H 0004H 002AH
+	mov	er0,	#0 
+	mov	er4,	#0 
+	mov	er6,	#0 
+	mov	er8,	#0 
+
+;;     if(KEY_WALK_ROW(KEY_SCANNING_SORT) == KEY_DEPLOY_OK)  
+CLINEA 0000H 0001H 002AH 0006H 003BH
+	bl	_KEY_WALK_ROW
+	mov	er0,	er0
+	bne	_$L43
+
+;;      if(P50D == KEY_LOW && P51D == KEY_LOW)
+CLINEA 0000H 0001H 002BH 0007H 002CH
+	tb	0f228h.0
+	bne	_$L43
+	tb	0f228h.1
+	bne	_$L43
+CBLOCK 1 3 44
+
+;;         P52D = KEY_HIGH; P53D = KEY_HIGH;
+CLINEA 0000H 0001H 002DH 000AH 002AH
+	sb	0f228h.2
+	sb	0f228h.3
+
+;;        if(P52D == KEY_HIGH && P53D == KEY_HIGH) clash=KEY_CLASH_NO;
+CLINEA 0000H 0001H 002EH 0009H 0044H
+	tb	0f228h.2
+	beq	_$L18
+	tb	0f228h.3
+	beq	_$L18
+	mov	er0,	#0 
+	st	er0,	NEAR _$ST0
+
+;;           else if(P52D == KEY_LOW && P53D == KEY_LOW)  clash=KEY_CLASH_BE;
+CLINEA 0000H 0001H 002FH 000CH 004BH
+	bal	_$L26
+_$L18 :
+	tb	0f228h.2
+	bne	_$L26
+	tb	0f228h.3
+	bne	_$L26
+	mov	er0,	#1 
+	st	er0,	NEAR _$ST0
+_$L26 :
+
+;;         if(P52D == KEY_LOW && P53D == KEY_HIGH && clash==KEY_CLASH_NO) {k0 = 1; }
+CLINEA 0000H 0001H 0030H 000AH 0052H
+	tb	0f228h.2
+	bne	_$L33
+	tb	0f228h.3
+	beq	_$L33
+	l	er0,	NEAR _$ST0
+	bne	_$L33
+CBLOCK 1 4 48
+	mov	er4,	#1 
+CBLOCKEND 1 4 48
+_$L33 :
+
+;;         if(P53D == KEY_LOW && P52D == KEY_HIGH && clash==KEY_CLASH_NO) {k1 = 2; }
+CLINEA 0000H 0001H 0031H 000AH 0052H
+	tb	0f228h.3
+	bne	_$L43
+	tb	0f228h.2
+	beq	_$L43
+	l	er0,	NEAR _$ST0
+	bne	_$L43
+CBLOCK 1 5 49
+	mov	er6,	#2 
+CBLOCKEND 1 5 49
+_$L43 :
+CBLOCKEND 1 3 50
+
+;;     if(KEY_WALK_ROW(KEY_SCANNING_WALK) == KEY_DEPLOY_OK) 
+CLINEA 0000H 0001H 0034H 0006H 003AH
+	mov	er0,	#1 
+	bl	_KEY_WALK_ROW
+	mov	er0,	er0
+	bne	_$L103
+
+;;      if(P52D == KEY_LOW && P53D == KEY_LOW)
+CLINEA 0000H 0001H 0035H 0007H 002CH
+	tb	0f228h.2
+	bne	_$L103
+	tb	0f228h.3
+	bne	_$L103
+CBLOCK 1 6 54
+
+;;         P50D = KEY_HIGH; P51D = KEY_HIGH;
+CLINEA 0000H 0001H 0037H 000AH 002AH
+	sb	0f228h.0
+	sb	0f228h.1
+
+;;         if(P50D == KEY_HIGH && P51D == KEY_HIGH) clash=KEY_CLASH_NO;
+CLINEA 0000H 0001H 0038H 000AH 0045H
+	tb	0f228h.0
+	beq	_$L62
+	tb	0f228h.1
+	beq	_$L62
+	mov	er0,	#0 
+	st	er0,	NEAR _$ST0
+
+;;           else if(P50D == KEY_LOW && P51D == KEY_LOW)  clash=KEY_CLASH_BE;
+CLINEA 0000H 0001H 0039H 000CH 004BH
+	bal	_$L70
+_$L62 :
+	tb	0f228h.0
+	bne	_$L70
+	tb	0f228h.1
+	bne	_$L70
+	mov	er0,	#1 
+	st	er0,	NEAR _$ST0
+_$L70 :
+
+;;         if(P50D == KEY_LOW && P51D == KEY_HIGH && clash==KEY_CLASH_NO) 
+CLINEA 0000H 0001H 003AH 000AH 0048H
+	tb	0f228h.0
+	bne	_$L89
+	tb	0f228h.1
+	beq	_$L89
+	l	er0,	NEAR _$ST0
+	bne	_$L89
+CBLOCK 1 7 59
+
+;;		    if(k0 != 0)sum = k0+k2;
+CLINEA 0000H 0001H 003CH 0007H 001DH
+	mov	er4,	er4
+	beq	_$L87
+	mov	er8,	er4
+_$L87 :
+
+;;		    if(k1 != 0)sum = k1+k2;
+CLINEA 0000H 0001H 003DH 0007H 001DH
+	mov	er6,	er6
+	beq	_$L89
+	mov	er8,	er6
+_$L89 :
+CBLOCKEND 1 7 62
+
+;;         if(P51D == KEY_LOW && P50D == KEY_HIGH && clash==KEY_CLASH_NO) 
+CLINEA 0000H 0001H 003FH 000AH 0048H
+	tb	0f228h.1
+	bne	_$L103
+	tb	0f228h.0
+	beq	_$L103
+	l	er0,	NEAR _$ST0
+	bne	_$L103
+CBLOCK 1 8 64
+
+;;		    if(k0 != 0)sum = k0+k3;
+CLINEA 0000H 0001H 0041H 0007H 001DH
+	mov	er0,	er4
+	mov	er4,	er4
+	beq	_$L101
+	add	er0,	#2 
+	mov	er8,	er0
+_$L101 :
+
+;;		    if(k1 != 0)sum = k1+k3; 
+CLINEA 0000H 0001H 0042H 0007H 001EH
+	mov	er0,	er6
+	mov	er6,	er6
+	beq	_$L103
+	add	er0,	#2 
+	mov	er8,	er0
+_$L103 :
+CBLOCKEND 1 8 67
+CBLOCKEND 1 6 68
+
+;;    return (sum);	
+CLINEA 0000H 0001H 0045H 0005H 0012H
+	mov	er0,	er8
+CBLOCKEND 1 2 70
+
+;; }
+CLINEA 0000H 0000H 0046H 0002H 0002H
+	b	__regpopu8sw
+CBLOCKEND 1 1 70
+CFUNCTIONEND 1
+
+
+	rseg $$KEY_VALUE$key
+CFUNCTION 2
+
+_KEY_VALUE	:
+CBLOCK 2 1 80
+
+;;   {
+CLINEA 0000H 0001H 0050H 0004H 0004H
+CBLOCK 2 2 80
+CARGUMENT 46H 0002H 0024H "ke" 02H 00H 01H
+CLOCAL 46H 0001H 0014H 0002H "sum" 02H 00H 00H
+CBLOCK 2 3 83
+
+;;   	 switch(ke)
+CLINEA 0000H 0001H 0052H 0006H 000FH
+	cmp	r1,	#00h
+	bne	_$L110
+	cmp	r0,	#01h
+	beq	_$L111
+
+;;   	 switch(ke)
+CLINEA 0000H 0000H 0052H 0006H 000FH
+	cmp	r0,	#02h
+	beq	_$L112
+
+;;   	 switch(ke)
+CLINEA 0000H 0000H 0052H 0006H 000FH
+	cmp	r0,	#03h
+	beq	_$L113
+
+;;   	 switch(ke)
+CLINEA 0000H 0000H 0052H 0006H 000FH
+	cmp	r0,	#04h
+	beq	_$L114
+
+;;	   default : sum=(unsigned char)KEY_NO;	
+CLINEA 0000H 0001H 0058H 0005H 0029H
+_$L110 :
+	mov	r0,	#00h
+CBLOCKEND 2 3 89
+
+;;     return sum;
+CLINEA 0000H 0001H 005AH 0006H 0010H
+CBLOCKEND 2 2 91
+
+;;   }
+CLINEA 0000H 0000H 005BH 0004H 0004H
+	rt
+
+;;  	   case 1: sum=(unsigned char)KEY_0;break;
+CLINEA 0000H 0001H 0054H 0007H 002DH
+_$L111 :
+	mov	r0,	#01h
+	rt
+
+;;	   case 2: sum=(unsigned char)KEY_1;break;
+CLINEA 0000H 0001H 0055H 0005H 002BH
+_$L112 :
+	mov	r0,	#02h
+	rt
+
+;;	   case 3: sum=(unsigned char)KEY_2;break;
+CLINEA 0000H 0001H 0056H 0005H 002BH
+_$L113 :
+	mov	r0,	#04h
+	rt
+
+;;	   case 4: sum=(unsigned char)KEY_3;break;
+CLINEA 0000H 0001H 0057H 0005H 002BH
+_$L114 :
+	mov	r0,	#08h
+	rt
+CBLOCKEND 2 1 91
+CFUNCTIONEND 2
+
+
+	rseg $$KeyRead$key
+CFUNCTION 3
+
+_KeyRead	:
+CBLOCK 3 1 101
+
+;; {
+CLINEA 0000H 0001H 0065H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	r8,	r0
+CBLOCK 3 2 101
+CRET 000CH
+CARGUMENT 46H 0001H 0028H "key_mode" 02H 00H 00H
+CARGUMENT 46H 0002H 0031H "Tr" 04H 03H 00H 00H 00H
+CARGUMENT 42H 0002H 000EH "Co" 04H 03H 00H 00H 00H
+CLOCAL 4AH 0001H 0000H 0002H "ReadData" 02H 00H 00H
+
+;; 	*Tr = ReadData & (ReadData ^ Cont); //2
+CLINEA 0000H 0001H 0067H 0003H 0029H
+	l	r0,	NEAR _Cont
+	xor	r0,	r8
+	and	r0,	r8
+	st	r0,	[er2]
+
+;; 	*Co = ReadData; //3	
+CLINEA 0000H 0001H 0068H 0003H 0016H
+	l	bp,	14[fp]
+	st	r8,	[bp]
+CBLOCKEND 3 2 105
+
+;; } 
+CLINEA 0000H 0001H 0069H 0002H 0003H
+	b	__regpopu8sw
+CBLOCKEND 3 1 105
+CFUNCTIONEND 3
+
+
+	rseg $$KEY_close$key
+CFUNCTION 4
+
+_KEY_close	:
+CBLOCK 4 1 119
+
+;; {
+CLINEA 0000H 0001H 0077H 0002H 0002H
+CBLOCK 4 2 119
+CARGUMENT 46H 0001H 0014H "ke_clo" 02H 00H 00H
+
+;;   if(Trg == ke_clo) return ((unsigned int)key_close_yes);
+CLINEA 0000H 0001H 0078H 0004H 003AH
+	l	r1,	NEAR _Trg
+	cmp	r0,	r1
+	bne	_$L117
+	mov	er0,	#1 
+CBLOCKEND 4 2 122
+
+;; }
+CLINEA 0000H 0001H 007AH 0002H 0002H
+	rt
+
+;;    else return ((unsigned int)key_close_no); 
+CLINEA 0000H 0000H 0079H 0005H 002EH
+_$L117 :
+	mov	er0,	#0 
+	rt
+CBLOCKEND 4 1 122
+CFUNCTIONEND 4
+
+
+	rseg $$KEY_long$key
+CFUNCTION 5
+
+_KEY_long	:
+CBLOCK 5 1 137
+
+;; {
+CLINEA 0000H 0001H 0089H 0002H 0002H
+CBLOCK 5 2 137
+CARGUMENT 46H 0001H 0014H "ke_clo" 02H 00H 00H
+
+;;   if(cont == ke_clo) return ((unsigned int)key_close_yes);
+CLINEA 0000H 0001H 008AH 0004H 003BH
+	l	r1,	NEAR _cont
+	cmp	r0,	r1
+	bne	_$L121
+	mov	er0,	#1 
+CBLOCKEND 5 2 140
+
+;; }
+CLINEA 0000H 0001H 008CH 0002H 0002H
+	rt
+
+;;    else return ((unsigned int)key_close_no); 
+CLINEA 0000H 0000H 008BH 0005H 002EH
+_$L121 :
+	mov	er0,	#0 
+	rt
+CBLOCKEND 5 1 140
+CFUNCTIONEND 5
+
+
+	rseg $$KEY_independent$key
+CFUNCTION 6
+
+_KEY_independent	:
+CBLOCK 6 1 151
+
+;; {
+CLINEA 0000H 0001H 0097H 0002H 0002H
+CBLOCK 6 2 151
+
+;; 	P56DIR = 1; P57DIR = 1;
+CLINEA 0000H 0001H 0098H 0003H 0019H
+	sb	0f229h.6
+	sb	0f229h.7
+CBLOCKEND 6 2 153
+
+;; } 
+CLINEA 0000H 0001H 0099H 0002H 0003H
+	rt
+CBLOCKEND 6 1 153
+CFUNCTIONEND 6
+
+
+	rseg $$KEY_indepen_scan$key
+CFUNCTION 7
+
+_KEY_indepen_scan	:
+CBLOCK 7 1 162
+
+;; {
+CLINEA 0000H 0001H 00A2H 0002H 0002H
+	push	xr8
+	mov	er10,	er2
+	mov	er8,	er0
+CBLOCK 7 2 162
+CARGUMENT 46H 0002H 0028H "cay" 04H 03H 00H 00H 01H
+CARGUMENT 46H 0002H 0029H "CF" 04H 03H 00H 00H 01H
+
+;; 	if(P56D == 0) *CF = KEY_LOW;
+CLINEA 0000H 0001H 00A3H 0003H 001EH
+	tb	0f228h.6
+	bne	_$L126
+	mov	er2,	#0 
+
+;;	  else *CF = KEY_HIGH; 
+CLINEA 0000H 0001H 00A4H 0004H 0018H
+	bal	_$L128
+_$L126 :
+	mov	er2,	#1 
+_$L128 :
+	st	er2,	[er10]
+
+;; 	if(P57D == 0) *cay = KEY_LOW;
+CLINEA 0000H 0001H 00A5H 0003H 001FH
+	tb	0f228h.7
+	bne	_$L129
+	mov	er2,	#0 
+
+;;	  else *cay = KEY_HIGH; 
+CLINEA 0000H 0001H 00A6H 0004H 0019H
+	bal	_$L131
+_$L129 :
+	mov	er2,	#1 
+_$L131 :
+	st	er2,	[er8]
+CBLOCKEND 7 2 167
+
+;; }
+CLINEA 0000H 0001H 00A7H 0002H 0002H
+	pop	xr8
+	rt
+CBLOCKEND 7 1 167
+CFUNCTIONEND 7
+
+	public _KEY_indepen_scan
+	public _KeyRead
+	public _KEY_VALUE
+	public _KEY_WALK_ROW
+	public _KEY_scanning
+	public _KEY_close
+	public _KEY_independent
+	public _KEY_long
+	_Cont comm data 01h #00h
+	_cont comm data 01h #00h
+	_Trg comm data 01h #00h
+	extrn code near : _main
+
+	rseg $$NINITTAB
+	dw	00h
+
+	rseg $$NINITVAR
+_$ST0 :
+	ds	02h
+	extrn code : __regpushu8sw
+	extrn code : __regpopu8sw
+
+	end

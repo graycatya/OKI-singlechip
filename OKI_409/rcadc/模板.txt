@@ -1,0 +1,82 @@
+
+void P3rcAdc_monitor_on( void )
+{
+	P3DIR = 0x1F;		 
+	P3CON0 = 0x20;
+	P3CON1 = 0x20;		 
+	P3MOD0 = 0x3F;     
+}
+
+
+void P3rcAdc_monitor_off( void )
+{
+	P3DIR = 0;		
+	P35C0 = 0;
+	P35C1 = 0;		
+	P35MOD0 = 0;    
+}
+
+void P4rcAdc_monitor_on( void )
+{
+	P4DIR = 0xF0;		
+	P4CON0 = 0;
+	P4CON1 = 0;		
+	P4MOD0 = 0xF0; 
+	P4MOD1 = 0;      
+}
+
+
+void P4rcAdc_monitor_off( void )
+{
+	P4DIR = 0;		
+	P4CON0 = 0;
+	P4CON1 = 0;		
+	P4MOD0 = 0; 
+	P4MOD1 = 0;     
+}
+
+
+/**********************************
+ * 功能: A/D采样
+ * 参数: k
+ * 返回: 无
+**********************************/
+void Temperature()
+ {
+  static int AD=0; 
+
+  if(RARUN==0 && AD==0)
+   {
+     AD++;
+     RADMOD=0X03;
+     RARUN=1;
+   } 
+   if(RARUN==0 && AD==1)
+      {
+         AD++;
+         counta=RADCB1<<8 | RADCB0; 
+         RADCA0=0;
+         RADCA1=0;
+         RADCB0=0;
+         RADCB1=0; 
+      }
+  
+
+   if(RARUN==0 && AD==2) 
+     {
+            AD++;                            
+	  RADMOD=0X11;
+	  RARUN=1;	
+    }
+    if(RARUN==0 && AD==3)
+       {
+         AD=0;
+         countb=RADCA1<<8 | RADCA0; 
+         RADCA0=0;
+         RADCA1=0;
+         RADCB0=0;
+         RADCB1=0;     	
+       }
+
+
+   }

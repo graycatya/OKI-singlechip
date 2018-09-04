@@ -1,0 +1,401 @@
+;; Compile Options : /TM610409 /MS /near /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /Ilcdshow /Imelody /Ircadc /Itemphum /Itimers /IMACROA~1 /Ieternity /ICLKbuzz /SD /Om /W 1 /Fa_output\_obj\ 
+;; Version Number  : Ver.3.54.3
+;; File Name       : clkbuzz.c
+
+	type (M610409) 
+	model small, near
+	$$NINITVAR segment data 2h #0h
+	$$NINITTAB segment table 2h any
+	$$BUzz_CLKzhi$clkbuzz segment code 2h #0h
+	$$BUzz_keyjudnop$clkbuzz segment code 2h #0h
+	$$BUzz_keyjudper$clkbuzz segment code 2h #0h
+	$$CLK_time$clkbuzz segment code 2h #0h
+	$$TIME_ALG$clkbuzz segment code 2h #0h
+CVERSION 3.54.3
+CGLOBAL 01H 03H 0000H "CLK_time" 08H 02H 02H 00H 83H 08H 00H 00H 07H
+CGLOBAL 01H 03H 0000H "BUzz_keyjudnop" 08H 02H 04H 00H 83H 08H 00H 00H 07H
+CGLOBAL 01H 03H 0000H "BUzz_keyjudper" 08H 02H 03H 00H 80H 02H 00H 00H 07H
+CGLOBAL 01H 02H 0000H "BUzz_CLKzhi" 08H 02H 01H 00H 80H 00H 00H 00H 01H
+CGLOBAL 01H 02H 0000H "TIME_ALG" 08H 02H 00H 00H 81H 04H 00H 00H 01H
+CSTRUCTTAG 0000H 0000H 0000H 0008H 00000001H "_Notag"
+CSTRUCTMEM 52H 00000001H 00000000H "b0" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000001H "b1" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000002H "b2" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000003H "b3" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000004H "b4" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000005H "b5" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000006H "b6" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000007H "b7" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "uint16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "byte" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "INT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "dword" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "int8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "uchar" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "UINT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "word" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 04H 00H 05H 00H 00H
+CFILE 0001H 00000822H "E:\\IDEU8\\Inc\\m610409.h"
+CFILE 0002H 0000001BH "clkbuzz\\clkbuzz.h"
+CFILE 0003H 00000025H "MACROA~1\\MacroAndConst.h"
+CFILE 0000H 00000063H "clkbuzz\\clkbuzz.c"
+
+	rseg $$TIME_ALG$clkbuzz
+CFUNCTION 0
+
+_TIME_ALG	:
+CBLOCK 0 1 10
+
+;;  {
+CLINEA 0000H 0001H 000AH 0003H 0003H
+	push	lr
+	push	er10
+	mov	er10,	er2
+CBLOCK 0 2 10
+CRET 0002H
+CARGUMENT 46H 0002H 0024H "SHI" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "FEN" 02H 00H 01H
+CLOCAL 4AH 0002H 0000H 0002H "sum" 02H 00H 01H
+
+;;    return sum;
+CLINEA 0000H 0001H 000DH 0005H 000FH
+	mov	er2,	#60
+	bl	__imulu8sw
+	add	er0,	er10
+CBLOCKEND 0 2 14
+
+;;  } 
+CLINEA 0000H 0000H 000EH 0003H 0004H
+	pop	er10
+	pop	pc
+CBLOCKEND 0 1 14
+CFUNCTIONEND 0
+
+
+	rseg $$BUzz_CLKzhi$clkbuzz
+CFUNCTION 1
+
+_BUzz_CLKzhi	:
+CBLOCK 1 1 23
+
+;; {
+CLINEA 0000H 0001H 0017H 0002H 0002H
+CBLOCK 1 2 23
+CARGUMENT 46H 0002H 0024H "CLK_mar" 02H 00H 01H
+CARGUMENT 46H 0002H 0025H "ZHI" 02H 00H 01H
+CLOCAL 4AH 0002H 0000H 0002H "sum" 02H 00H 01H
+
+;;   return sum;	
+CLINEA 0000H 0001H 001AH 0004H 000FH
+	add	er0,	er2
+CBLOCKEND 1 2 27
+
+;; } 
+CLINEA 0000H 0000H 001BH 0002H 0003H
+	rt
+CBLOCKEND 1 1 27
+CFUNCTIONEND 1
+
+
+	rseg $$CLK_time$clkbuzz
+CFUNCTION 2
+
+_CLK_time	:
+CBLOCK 2 1 38
+
+;; { 
+CLINEA 0000H 0001H 0026H 0002H 0003H
+	push	lr
+	bl	__regpushu8sw
+	mov	er10,	er2
+	mov	er8,	er0
+CBLOCK 2 2 38
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "TI_zhi" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "CLK_zhi" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "CLK_MO" 02H 00H 01H
+CARGUMENT 42H 0002H 0010H "LCD_mod" 02H 00H 01H
+CARGUMENT 42H 0002H 0012H "key_per" 04H 03H 00H 00H 01H
+CARGUMENT 42H 0002H 0014H "key_nop" 04H 03H 00H 00H 01H
+CARGUMENT 42H 0002H 0016H "BU_beg" 04H 03H 00H 00H 01H
+CSLOCAL 43H 0002H 0000H 0002H "ki" 02H 00H 01H
+
+;;  if(LCD_mod != 0 && CLK_MO != 1) 
+CLINEA 0000H 0001H 0028H 0003H 0022H
+	l	er0,	16[fp]
+	beq	_$L13
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	beq	_$L13
+CBLOCK 2 3 41
+
+;;           *BU_beg=0; //SET键去除第一次按下无效
+CLINEA 0000H 0001H 002AH 000CH 002FH
+	l	bp,	22[fp]
+	mov	er0,	#0 
+	st	er0,	[bp]
+
+;;   	 if(TI_zhi == CLK_zhi) {ki=1; } //第一次取消误报 
+CLINEA 0000H 0001H 002BH 0006H 0035H
+	cmp	er2,	er8
+	bne	_$L10
+CBLOCK 2 4 43
+	mov	er0,	#1 
+	st	er0,	NEAR _$ST0
+
+;;   	  else if(TI_zhi != CLK_zhi) {ki=2; } //开始正确的闹钟运转 
+CLINEA 0000H 0001H 002CH 0007H 003FH
+	bal	_$L13
+_$L10 :
+	cmp	er2,	er8
+	beq	_$L13
+CBLOCK 2 5 44
+	mov	er0,	#2 
+	st	er0,	NEAR _$ST0
+CBLOCKEND 2 5 44
+_$L13 :
+CBLOCKEND 2 3 45
+CBLOCKEND 2 4 52
+
+;;  if(LCD_mod == 0 && CLK_MO != 1) //当在主界面情况下正常计数时开始判断闹钟是否响 
+CLINEA 0000H 0001H 002EH 0003H 0051H
+	l	er0,	16[fp]
+	bne	_$L24
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	beq	_$L24
+CBLOCK 2 6 47
+
+;;         if(TI_zhi != CLK_zhi) {ki=2; *BU_beg=0; } //第一次取消误报
+CLINEA 0000H 0001H 0030H 000AH 0043H
+	cmp	er10,	er8
+	beq	_$L22
+CBLOCK 2 7 48
+	mov	er0,	#2 
+	st	er0,	NEAR _$ST0
+	l	bp,	22[fp]
+	mov	er0,	#0 
+	st	er0,	[bp]
+CBLOCKEND 2 7 48
+_$L22 :
+
+;;         if(TI_zhi == CLK_zhi && *BU_beg==0 && ki == 2) {*key_per=1; *key_nop=1; ki = 1;}//正确的闹钟判断闹钟响
+CLINEA 0000H 0001H 0031H 000AH 006FH
+	cmp	er10,	er8
+	bne	_$L24
+	l	bp,	22[fp]
+	l	er0,	[bp]
+	bne	_$L24
+	l	er0,	NEAR _$ST0
+	cmp	r0,	#02h
+	cmpc	r1,	#00h
+	bne	_$L24
+CBLOCK 2 8 49
+	l	bp,	18[fp]
+	mov	er0,	#1 
+	st	er0,	[bp]
+	l	bp,	20[fp]
+	st	er0,	[bp]
+	st	er0,	NEAR _$ST0
+CBLOCKEND 2 8 49
+_$L24 :
+CBLOCKEND 2 6 51
+CBLOCKEND 2 2 52
+
+;; }
+CLINEA 0000H 0001H 0034H 0002H 0002H
+	b	__regpopu8sw
+CBLOCKEND 2 1 52
+CFUNCTIONEND 2
+
+
+	rseg $$BUzz_keyjudper$clkbuzz
+CFUNCTION 3
+
+_BUzz_keyjudper	:
+CBLOCK 3 1 61
+
+;;  {
+CLINEA 0000H 0001H 003DH 0003H 0003H
+	push	er8
+	mov	er8,	er0
+CBLOCK 3 2 61
+CARGUMENT 46H 0002H 0028H "key_nop" 04H 03H 00H 00H 01H
+CARGUMENT 46H 0002H 0025H "BUZZ_deg" 04H 03H 00H 00H 01H
+
+;;  	if(*key_nop == 1) 
+CLINEA 0000H 0001H 003EH 0004H 0015H
+	l	er0,	[er0]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bne	_$L35
+CBLOCK 3 3 63
+
+;;   	   *BUZZ_deg=*BUZZ_deg+1; 
+CLINEA 0000H 0001H 0040H 0008H 001EH
+	l	er0,	[er2]
+	add	er0,	#1 
+	st	er0,	[er2]
+
+;;            *key_nop=0;	
+CLINEA 0000H 0001H 0041H 000DH 0018H
+	mov	er2,	#0 
+	st	er2,	[er8]
+
+;;	   M0RUN=0;
+CLINEA 0000H 0001H 0042H 0005H 000CH
+	rb	0f2c0h.0
+CBLOCKEND 3 3 67
+
+;;     }   
+CLINEA 0000H 0000H 0043H 0006H 0009H
+_$L35 :
+CBLOCKEND 3 2 68
+
+;;  } 
+CLINEA 0000H 0001H 0044H 0003H 0004H
+	pop	er8
+	rt
+CBLOCKEND 3 1 68
+CFUNCTIONEND 3
+
+
+	rseg $$BUzz_keyjudnop$clkbuzz
+CFUNCTION 4
+
+_BUzz_keyjudnop	:
+CBLOCK 4 1 76
+
+;;  {
+CLINEA 0000H 0001H 004CH 0003H 0003H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 4 2 76
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "CLK_MO" 04H 03H 00H 00H 01H
+CARGUMENT 46H 0002H 0035H "key_per" 04H 03H 00H 00H 01H
+CARGUMENT 42H 0002H 000EH "KEY_nop" 04H 03H 00H 00H 01H
+CARGUMENT 42H 0002H 0010H "BUZZ_deg" 04H 03H 00H 00H 01H
+CARGUMENT 42H 0002H 0012H "BU_z" 04H 03H 00H 00H 01H
+
+;;  if(*KEY_nop == 1)M0RUN=0;
+CLINEA 0000H 0001H 004DH 0003H 001BH
+	l	bp,	14[fp]
+	l	bp,	[bp]
+	cmp	r12,	#01h
+	cmpc	r13,	#00h
+	bne	_$L38
+	rb	0f2c0h.0
+_$L38 :
+
+;;  if(*CLK_MO == 2) 
+CLINEA 0000H 0001H 004EH 0003H 0013H
+	l	bp,	[er0]
+	cmp	r12,	#02h
+	cmpc	r13,	#00h
+	bne	_$L40
+CBLOCK 4 3 79
+
+;;        *key_per=0;
+CLINEA 0000H 0001H 0050H 0009H 0013H
+	mov	er0,	#0 
+	st	er0,	[er10]
+
+;;        *KEY_nop=0;
+CLINEA 0000H 0001H 0051H 0009H 0013H
+	l	bp,	14[fp]
+	st	er0,	[bp]
+
+;;        *BUZZ_deg=0;
+CLINEA 0000H 0001H 0052H 0009H 0014H
+	l	bp,	16[fp]
+	st	er0,	[bp]
+
+;;        *BU_z=1;	
+CLINEA 0000H 0001H 0053H 0009H 0011H
+	l	bp,	18[fp]
+	mov	er0,	#1 
+	st	er0,	[bp]
+CBLOCKEND 4 3 84
+
+;;     }  
+CLINEA 0000H 0000H 0054H 0006H 0008H
+_$L40 :
+
+;;  if(*CLK_MO == 3) 
+CLINEA 0000H 0001H 0055H 0003H 0013H
+	l	er0,	[er8]
+	cmp	r0,	#03h
+	cmpc	r1,	#00h
+	bne	_$L42
+CBLOCK 4 4 86
+
+;;       *key_per=0;
+CLINEA 0000H 0001H 0057H 0008H 0012H
+	mov	bp,	#0 
+	st	bp,	[er10]
+
+;;       *KEY_nop=0;
+CLINEA 0000H 0001H 0058H 0008H 0012H
+	l	bp,	14[fp]
+	mov	er0,	#0 
+	st	er0,	[bp]
+
+;;       *CLK_MO=1;
+CLINEA 0000H 0001H 0059H 0008H 0011H
+	mov	bp,	#1 
+	st	bp,	[er8]
+
+;;       *BUZZ_deg=0;		
+CLINEA 0000H 0001H 005AH 0008H 0015H
+	l	bp,	16[fp]
+	st	er0,	[bp]
+CBLOCKEND 4 4 91
+
+;;     }   
+CLINEA 0000H 0000H 005BH 0006H 0009H
+_$L42 :
+CBLOCKEND 4 2 92
+
+;;   } 
+CLINEA 0000H 0001H 005CH 0004H 0005H
+	b	__regpopu8sw
+CBLOCKEND 4 1 92
+CFUNCTIONEND 4
+
+	public _CLK_time
+	public _BUzz_keyjudnop
+	public _BUzz_keyjudper
+	public _BUzz_CLKzhi
+	public _TIME_ALG
+	extrn code near : _main
+
+	rseg $$NINITTAB
+	dw	00h
+
+	rseg $$NINITVAR
+_$ST0 :
+	ds	02h
+	extrn code : __imulu8sw
+	extrn code : __regpushu8sw
+	extrn code : __regpopu8sw
+
+	end

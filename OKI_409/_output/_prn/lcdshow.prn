@@ -1,0 +1,2644 @@
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   1 
+ Source File: _output\_obj\lcdshow.asm
+ Object File: _output\_obj\lcdshow.obj
+ Date  : 2018/01/03 Wed.[14:06]
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                    1   ;; Compile Options : /TM610409 /MS /nea
+                                        r /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /
+                                        Ilcdshow /Imelody /Ircadc /Itemphum /It
+                                        imers /IMACROA~1 /Ieternity /ICLKbuzz /
+                                        SD /Om /W 1 /Fa_output\_obj\ 
+                                    2   ;; Version Number  : Ver.3.54.3
+                                    3   ;; File Name       : lcdshow.c
+                                    4   
+                                    5   	type (M610409) 
+                                    6   	model small, near
+                                    7   	$$NINITVAR segment data 2h #0h
+                                    8   	$$NINITTAB segment table 2h any
+                                    9   	$$CIK_glint$lcdshow segment cod
+                                        e 2h #0h
+                                   10   	$$DATA_INT$lcdshow segment code
+                                         2h #0h
+                                   11   	$$DATA_compare$lcdshow segment 
+                                        code 2h #0h
+                                   12   	$$MAX_MIN_realtime$lcdshow segm
+                                        ent code 2h #0h
+                                   13   	$$PICK_dataCOR$lcdshow segment 
+                                        code 2h #0h
+                                   14   	$$TEM_HUM_realtime$lcdshow segm
+                                        ent code 2h #0h
+                                   15   	$$TIM_FEN$lcdshow segment code 
+                                        2h #0h
+                                   16   	$$TIM_SHI$lcdshow segment code 
+                                        2h #0h
+                                   17   	$$UI_AIS_APM$lcdshow segment co
+                                        de 2h #0h
+                                   18   	$$UI_BUZZ$lcdshow segment code 
+                                        2h #0h
+                                   19   	$$UI_MODA$lcdshow segment code 
+                                        2h #0h
+                                   20   	$$UI_P$lcdshow segment code 2h 
+                                        #0h
+                                   21   	$$UI_TEMP_HUM$lcdshow segment c
+                                        ode 2h #0h
+                                   22   	$$UI_TIME$lcdshow segment code 
+                                        2h #0h
+                                   23   	$$UI_YE$lcdshow segment code 2h
+                                         #0h
+                                   24   	$$UI_YEAR_TIME$lcdshow segment 
+                                        code 2h #0h
+                                   25   	$$UI_all_CLMON$lcdshow segment 
+                                        code 2h #0h
+                                   26   CVERSION 3.54.3
+                                   27   CGLOBAL 01H 03H 0000H "DATA_compare" 08
+                                        H 02H 10H 00H 83H 08H 00H 00H 07H
+                                   28   CGLOBAL 01H 03H 0000H "UI_BUZZ" 08H 02H
+                                         00H 00H 80H 02H 00H 00H 07H
+                                   29   CGLOBAL 01H 03H 0000H "UI_AIS_APM" 08H 
+                                        02H 08H 00H 83H 04H 00H 00H 07H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   2 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   30   CGLOBAL 01H 03H 0000H "CIK_glint" 08H 0
+                                        2H 0AH 00H 80H 04H 00H 00H 07H
+                                   31   CGLOBAL 01H 03H 0000H "UI_P" 08H 02H 01
+                                        H 00H 80H 02H 00H 00H 07H
+                                   32   CGLOBAL 01H 03H 0000H "UI_TEMP_HUM" 08H
+                                         02H 0BH 00H 83H 0aH 00H 00H 07H
+                                   33   CGLOBAL 01H 03H 0000H "MAX_MIN_realtime
+                                        " 08H 02H 0DH 00H 80H 02H 00H 00H 07H
+                                   34   CGLOBAL 01H 03H 0000H "UI_YEAR_TIME" 08
+                                        H 02H 06H 00H 83H 08H 00H 00H 07H
+                                   35   CGLOBAL 01H 03H 0000H "UI_MODA" 08H 02H
+                                         07H 00H 80H 00H 00H 00H 07H
+                                   36   CGLOBAL 01H 03H 0000H "UI_all_CLMON" 08
+                                        H 02H 09H 00H 83H 08H 00H 00H 07H
+                                   37   CGLOBAL 01H 03H 0000H "UI_TIME" 08H 02H
+                                         05H 00H 83H 10H 00H 00H 07H
+                                   38   CGLOBAL 01H 03H 0000H "PICK_dataCOR" 08
+                                        H 02H 0EH 00H 80H 00H 00H 00H 07H
+                                   39   CGLOBAL 01H 03H 0000H "TEM_HUM_realtime
+                                        " 08H 02H 0CH 00H 81H 06H 00H 00H 07H
+                                   40   CGLOBAL 01H 03H 0000H "TIM_FEN" 08H 02H
+                                         04H 00H 80H 02H 00H 00H 07H
+                                   41   CGLOBAL 01H 03H 0000H "UI_YE" 08H 02H 0
+                                        2H 00H 83H 06H 00H 00H 07H
+                                   42   CGLOBAL 01H 03H 0000H "TIM_SHI" 08H 02H
+                                         03H 00H 83H 0eH 00H 00H 07H
+                                   43   CGLOBAL 01H 03H 0000H "DATA_INT" 08H 02
+                                        H 0FH 00H 83H 04H 00H 00H 07H
+                                   44   CSTRUCTTAG 0000H 0000H 0001H 0004H 0000
+                                        0008H "Ma_Mi"
+                                   45   CSTRUCTMEM 43H 00000002H 00000000H "max
+                                        _temp" 02H 00H 01H
+                                   46   CSTRUCTMEM 43H 00000002H 00000002H "min
+                                        _temp" 02H 00H 01H
+                                   47   CSTRUCTMEM 43H 00000002H 00000004H "max
+                                        _hum" 02H 00H 01H
+                                   48   CSTRUCTMEM 43H 00000002H 00000006H "min
+                                        _hum" 02H 00H 01H
+                                   49   CSTRUCTTAG 0000H 0000H 0000H 0008H 0000
+                                        0001H "_Notag"
+                                   50   CSTRUCTMEM 52H 00000001H 00000000H "b0"
+                                         02H 00H 00H
+                                   51   CSTRUCTMEM 52H 00000001H 00000001H "b1"
+                                         02H 00H 00H
+                                   52   CSTRUCTMEM 52H 00000001H 00000002H "b2"
+                                         02H 00H 00H
+                                   53   CSTRUCTMEM 52H 00000001H 00000003H "b3"
+                                         02H 00H 00H
+                                   54   CSTRUCTMEM 52H 00000001H 00000004H "b4"
+                                         02H 00H 00H
+                                   55   CSTRUCTMEM 52H 00000001H 00000005H "b5"
+                                         02H 00H 00H
+                                   56   CSTRUCTMEM 52H 00000001H 00000006H "b6"
+                                         02H 00H 00H
+                                   57   CSTRUCTMEM 52H 00000001H 00000007H "b7"
+                                         02H 00H 00H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   3 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   58   CTYPEDEF 0000H 0000H 42H "uint8" 02H 00
+                                        H 00H
+                                   59   CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00
+                                        H 02H
+                                   60   CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H
+                                         00H
+                                   61   CTYPEDEF 0000H 0000H 42H "uint32" 02H 0
+                                        0H 02H
+                                   62   CTYPEDEF 0000H 0000H 42H "uint16" 02H 0
+                                        0H 01H
+                                   63   CTYPEDEF 0000H 0000H 42H "byte" 02H 00H
+                                         00H
+                                   64   CTYPEDEF 0000H 0000H 43H "INT32" 02H 00
+                                        H 02H
+                                   65   CTYPEDEF 0000H 0000H 43H "INT16" 02H 00
+                                        H 01H
+                                   66   CTYPEDEF 0000H 0000H 42H "dword" 02H 00
+                                        H 02H
+                                   67   CTYPEDEF 0000H 0000H 43H "int8" 02H 00H
+                                         00H
+                                   68   CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H
+                                         01H
+                                   69   CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H
+                                         01H
+                                   70   CTYPEDEF 0000H 0000H 43H "int16" 02H 00
+                                        H 01H
+                                   71   CTYPEDEF 0000H 0000H 43H "int32" 02H 00
+                                        H 02H
+                                   72   CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00
+                                        H 00H
+                                   73   CTYPEDEF 0000H 0000H 42H "uint" 02H 00H
+                                         01H
+                                   74   CTYPEDEF 0000H 0000H 42H "uchar" 02H 00
+                                        H 00H
+                                   75   CTYPEDEF 0000H 0000H 42H "UINT16" 02H 0
+                                        0H 01H
+                                   76   CTYPEDEF 0000H 0000H 42H "UINT32" 02H 0
+                                        0H 02H
+                                   77   CTYPEDEF 0000H 0000H 42H "word" 02H 00H
+                                         01H
+                                   78   CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H
+                                         00H
+                                   79   CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H
+                                         00H
+                                   80   CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 
+                                        04H 00H 05H 00H 00H
+                                   81   CGLOBAL 01H 42H 0012H "NOISY1_bell" 0BH
+                                         01H 03H 00H 01H 03H 00H 01H 02H 00H 00
+                                        H 00H
+                                   82   CGLOBAL 01H 42H 000CH "table" 05H 01H 0
+                                        CH 00H 00H 00H
+                                   83   CGLOBAL 01H 42H 002AH "week" 0BH 01H 07
+                                        H 00H 01H 03H 00H 01H 02H 00H 00H 00H
+                                   84   CGLOBAL 01H 42H 0060H "TIME_system" 0BH
+                                         01H 02H 00H 01H 18H 00H 01H 02H 00H 00
+                                        H 00H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   4 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   85   CGLOBAL 01H 42H 0006H "NOISY0_bell" 08H
+                                         01H 03H 00H 01H 02H 00H 00H 00H
+                                   86   CFILE 0001H 00000057H "lcdshow\\lcdshow
+                                        .h"
+                                   87   CFILE 0002H 00000822H "E:\\IDEU8\\Inc\\
+                                        m610409.h"
+                                   88   CFILE 0003H 00000025H "MACROA~1\\MacroA
+                                        ndConst.h"
+                                   89   CFILE 0004H 0000001FH "temphum\\temphum
+                                        .h"
+                                   90   CFILE 0000H 000001CFH "lcdshow\\lcdshow
+                                        .c"
+                                   91   
+  --------------------------       92   	rseg $$UI_BUZZ$lcdshow
+                                   93   CFUNCTION 0
+                                   94   
+00:0000                            95   _UI_BUZZ	:
+                                   96   CBLOCK 0 1 56
+                                   97   
+                                   98   ;; {
+                                   99   CLINEA 0000H 0001H 0038H 0002H 0002H
+00:0000 5E-F8                     100   	push	er8
+00:0002 05-F8                     101   	mov	er8,	er0
+                                  102   CBLOCK 0 2 56
+                                  103   CARGUMENT 46H 0002H 0028H "P" 02H 00H 0
+                                        1H
+                                  104   CARGUMENT 46H 0002H 0025H "BU_bit" 02H 
+                                        00H 01H
+                                  105   
+                                  106   ;;         if(BU_bit==1)
+                                  107   CLINEA 0000H 0001H 0039H 000AH 0016H
+00:0004 01 72                     108   	cmp	r2,	#01h
+00:0006 00 53                     109   	cmpc	r3,	#00h
+00:0008 0C C8                     110   	bne	_$L1
+                                  111   CBLOCK 0 3 58
+                                  112   
+                                  113   ;;     	  	if(P==0)Buzz=LOW;  //´Ë
+                                        Ê±ÎªBUZZÉÁË¸ 
+                                  114   CLINEA 0000H 0001H 003BH 000AH 002DH
+00:000A 85-F8                     115   	mov	er8,	er8
+00:000C 03 C8                     116   	bne	_$L3
+00:000E 00 00                     117   	mov	r0,	#00h
+00:0010 11-90 1C-F1               118   	st	r0,	0f11ch
+00:0014                           119   _$L3 :
+                                  120   
+                                  121   ;;     	  	if(P==1)Buzz=HIGH;
+                                  122   CLINEA 0000H 0001H 003CH 000AH 001BH
+00:0014 01 78                     123   	cmp	r8,	#01h
+00:0016 00 59                     124   	cmpc	r9,	#00h
+00:0018 07 C8                     125   	bne	_$L7
+00:001A 01 00                     126   	mov	r0,	#01h
+00:001C 11-90 1C-F1               127   	st	r0,	0f11ch
+                                  128   CBLOCKEND 0 3 61
+                                  129   
+                                  130   ;;          else Buzz=LOW;
+                                  131   CLINEA 0000H 0001H 003EH 000BH 0018H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   5 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0020 03 CE                     132   	bal	_$L7
+00:0022                           133   _$L1 :
+00:0022 00 00                     134   	mov	r0,	#00h
+00:0024 11-90 1C-F1               135   	st	r0,	0f11ch
+00:0028                           136   _$L7 :
+                                  137   CBLOCKEND 0 2 63
+                                  138   
+                                  139   ;;  }
+                                  140   CLINEA 0000H 0001H 003FH 0003H 0003H
+00:0028 1E-F8                     141   	pop	er8
+00:002A 1F-FE                     142   	rt
+                                  143   CBLOCKEND 0 1 63
+                                  144   CFUNCTIONEND 0
+                                  145   
+                                  146   
+  --------------------------      147   	rseg $$UI_P$lcdshow
+                                  148   CFUNCTION 1
+                                  149   
+00:0000                           150   _UI_P	:
+                                  151   CBLOCK 1 1 71
+                                  152   
+                                  153   ;; {
+                                  154   CLINEA 0000H 0001H 0047H 0002H 0002H
+00:0000 5E-F8                     155   	push	er8
+00:0002 05-F8                     156   	mov	er8,	er0
+                                  157   CBLOCK 1 2 71
+                                  158   CARGUMENT 46H 0002H 0028H "P" 02H 00H 0
+                                        1H
+                                  159   CARGUMENT 46H 0002H 0025H "P_bit" 02H 0
+                                        0H 01H
+                                  160   
+                                  161   ;;  if(P_bit==1)Clk=HIGH;
+                                  162   CLINEA 0000H 0001H 0048H 0003H 0017H
+00:0004 25-F0                     163   	mov	er0,	er2
+00:0006 01 72                     164   	cmp	r2,	#01h
+00:0008 00 53                     165   	cmpc	r3,	#00h
+00:000A 04 C8                     166   	bne	_$L9
+00:000C 01 00                     167   	mov	r0,	#01h
+00:000E 11-90 00-F1               168   	st	r0,	0f100h
+                                  169   
+                                  170   ;;   else if(P_bit==2)Clk=LOW;	
+                                  171   CLINEA 0000H 0001H 0049H 0004H 001DH
+00:0012 16 CE                     172   	bal	_$L20
+00:0014                           173   _$L9 :
+00:0014 02 70                     174   	cmp	r0,	#02h
+00:0016 00 51                     175   	cmpc	r1,	#00h
+00:0018 04 C8                     176   	bne	_$L12
+00:001A 00 00                     177   	mov	r0,	#00h
+00:001C 11-90 00-F1               178   	st	r0,	0f100h
+                                  179   
+                                  180   ;;    else if(P_bit==3)
+                                  181   CLINEA 0000H 0001H 004AH 0005H 0015H
+00:0020 0F CE                     182   	bal	_$L20
+00:0022                           183   _$L12 :
+00:0022 03 70                     184   	cmp	r0,	#03h
+00:0024 00 51                     185   	cmpc	r1,	#00h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   6 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0026 0C C8                     186   	bne	_$L20
+                                  187   CBLOCK 1 3 75
+                                  188   
+                                  189   ;;	  if(P==0)Clk=LOW;      //´ËÊ±Î
+                                        ªÊ±ÖÓ¼ÆÊýÉÁË¸ 
+                                  190   CLINEA 0000H 0001H 004CH 0004H 002EH
+00:0028 85-F8                     191   	mov	er8,	er8
+00:002A 04 C8                     192   	bne	_$L17
+00:002C 00 00                     193   	mov	r0,	#00h
+00:002E 11-90 00-F1               194   	st	r0,	0f100h
+                                  195   
+                                  196   ;;  	   else if(P==1)Clk=HIGH; 
+                                  197   CLINEA 0000H 0001H 004DH 0007H 001DH
+00:0032 06 CE                     198   	bal	_$L20
+00:0034                           199   _$L17 :
+00:0034 01 78                     200   	cmp	r8,	#01h
+00:0036 00 59                     201   	cmpc	r9,	#00h
+00:0038 03 C8                     202   	bne	_$L20
+00:003A 01 00                     203   	mov	r0,	#01h
+00:003C 11-90 00-F1               204   	st	r0,	0f100h
+00:0040                           205   _$L20 :
+                                  206   CBLOCKEND 1 3 78
+                                  207   CBLOCKEND 1 2 79
+                                  208   
+                                  209   ;;  }
+                                  210   CLINEA 0000H 0001H 004FH 0003H 0003H
+00:0040 1E-F8                     211   	pop	er8
+00:0042 1F-FE                     212   	rt
+                                  213   CBLOCKEND 1 1 79
+                                  214   CFUNCTIONEND 1
+                                  215   
+                                  216   
+  --------------------------      217   	rseg $$UI_YE$lcdshow
+                                  218   CFUNCTION 2
+                                  219   
+00:0000                           220   _UI_YE	:
+                                  221   CBLOCK 2 1 88
+                                  222   
+                                  223   ;; {
+                                  224   CLINEA 0000H 0001H 0058H 0002H 0002H
+00:0000 CE-F8                     225   	push	lr
+00:0002 01-F0'00-00'              226   	bl	__regpushu8sw
+00:0006 05-F8                     227   	mov	er8,	er0
+                                  228   CBLOCK 2 2 88
+                                  229   CRET 000CH
+                                  230   CARGUMENT 46H 0002H 0032H "YETI_VALUE" 
+                                        02H 00H 01H
+                                  231   CARGUMENT 46H 0002H 002FH "BU_YT" 02H 0
+                                        0H 01H
+                                  232   CARGUMENT 42H 0002H 000EH "P" 02H 00H 0
+                                        1H
+                                  233   
+                                  234   ;;  	if(BU_YT==0)Year_Out=0x00; //Ä
+                                        êÓ¢ÎÄÏÔÊ¾£¨year£©
+                                  235   CLINEA 0000H 0001H 0059H 0004H 0032H
+00:0008 25-F2                     236   	mov	er2,	er2
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   7 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000A 03 C8                     237   	bne	_$L23
+00:000C 00 00                     238   	mov	r0,	#00h
+00:000E 11-90 04-F1               239   	st	r0,	0f104h
+00:0012                           240   _$L23 :
+                                  241   
+                                  242   ;;	if(BU_YT==1) //³£ÁÁÄ£Ê½ 
+                                  243   CLINEA 0000H 0001H 005AH 0002H 0019H
+00:0012 25-F0                     244   	mov	er0,	er2
+00:0014 01 72                     245   	cmp	r2,	#01h
+00:0016 00 53                     246   	cmpc	r3,	#00h
+00:0018 2A C8                     247   	bne	_$L25
+                                  248   CBLOCK 2 3 91
+                                  249   
+                                  250   ;;	 	Year_Out=0x01; //ÄêÓ¢ÎÄ
+                                        ÏÔÊ¾£¨year£©
+                                  251   CLINEA 0000H 0001H 005CH 0004H 0026H
+00:001A 01 00                     252   	mov	r0,	#01h
+00:001C 11-90 04-F1               253   	st	r0,	0f104h
+                                  254   
+                                  255   ;;    	year_time0=table[YETI_VALUE/100
+                                        0]; //ÄêÇ§Î» 
+                                  256   CLINEA 0000H 0001H 005DH 0006H 0031H
+00:0020 85-F0                     257   	mov	er0,	er8
+00:0022 E8 02                     258   	mov	r2,	#0e8h
+00:0024 03 03                     259   	mov	r3,	#03h
+00:0026 01-F0'00-00'              260   	bl	__uidivu8sw
+00:002A 08-90 00-00'              261   	l	r0,	NEAR _table[er0
+                                        ]
+00:002E 11-90 05-F1               262   	st	r0,	0f105h
+                                  263   
+                                  264   ;;  	    year_time1=table[YETI_VALUE
+                                        /100%10]; //Äê°ÙÎ»
+                                  265   CLINEA 0000H 0001H 005EH 0008H 0034H
+00:0032 85-F0                     266   	mov	er0,	er8
+00:0034 64 02                     267   	mov	r2,	#064h
+00:0036 29-F0                     268   	div	er0,	r2
+00:0038 05-F2                     269   	mov	er2,	er0
+00:003A 0A 00                     270   	mov	r0,	#0ah
+00:003C 09-F2                     271   	div	er2,	r0
+00:003E 00 01                     272   	mov	r1,	#00h
+00:0040 08-90 00-00'              273   	l	r0,	NEAR _table[er0
+                                        ]
+00:0044 11-90 06-F1               274   	st	r0,	0f106h
+                                  275   
+                                  276   ;;    	year_time2=table[YETI_VALUE/10%
+                                        10]; //ÄêÊ®Î»
+                                  277   CLINEA 0000H 0001H 005FH 0006H 0031H
+00:0048 85-F0                     278   	mov	er0,	er8
+00:004A 0A 02                     279   	mov	r2,	#0ah
+00:004C 29-F0                     280   	div	er0,	r2
+00:004E 05-F2                     281   	mov	er2,	er0
+00:0050 0A 00                     282   	mov	r0,	#0ah
+00:0052 09-F2                     283   	div	er2,	r0
+00:0054 00 01                     284   	mov	r1,	#00h
+00:0056 08-90 00-00'              285   	l	r0,	NEAR _table[er0
+                                        ]
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   8 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:005A 11-90 07-F1               286   	st	r0,	0f107h
+                                  287   
+                                  288   ;;    	year_time3=table[YETI_VALUE%10]
+                                        ; //Äê¸öÎ» 		
+                                  289   CLINEA 0000H 0001H 0060H 0006H 0031H
+00:005E 85-F2                     290   	mov	er2,	er8
+00:0060 0A 00                     291   	mov	r0,	#0ah
+00:0062 09-F2                     292   	div	er2,	r0
+00:0064 08-90 00-00'              293   	l	r0,	NEAR _table[er0
+                                        ]
+00:0068 11-90 08-F1               294   	st	r0,	0f108h
+                                  295   
+                                  296   ;;    else if(BU_YT==2) //ÉÁË¸Ä£Ê½ 
+                                  297   CLINEA 0000H 0001H 0062H 0005H 0021H
+00:006C 3B CE                     298   	bal	_$L33
+00:006E                           299   _$L25 :
+00:006E 02 70                     300   	cmp	r0,	#02h
+00:0070 00 51                     301   	cmpc	r1,	#00h
+00:0072 38 C8                     302   	bne	_$L33
+                                  303   CBLOCK 2 4 99
+                                  304   
+                                  305   ;;   	  Year_Out=0x01; //ÄêÓ¢ÎÄÏÔÊ¾£¨
+                                        year£©
+                                  306   CLINEA 0000H 0001H 0064H 0007H 0029H
+00:0074 01 00                     307   	mov	r0,	#01h
+00:0076 11-90 04-F1               308   	st	r0,	0f104h
+                                  309   
+                                  310   ;;      if(P==0) //Ãð 
+                                  311   CLINEA 0000H 0001H 0065H 0007H 0014H
+00:007A 4E B0                     312   	l	er0,	14[fp]
+00:007C 0A C8                     313   	bne	_$L30
+                                  314   CBLOCK 2 5 102
+                                  315   
+                                  316   ;;    	year_time0=0; //ÄêÇ§Î» 
+                                  317   CLINEA 0000H 0001H 0067H 0006H 001CH
+00:007E 00 00                     318   	mov	r0,	#00h
+00:0080 11-90 05-F1               319   	st	r0,	0f105h
+                                  320   
+                                  321   ;;  	    year_time1=0; //Äê°ÙÎ»
+                                  322   CLINEA 0000H 0001H 0068H 0008H 001DH
+00:0084 11-90 06-F1               323   	st	r0,	0f106h
+                                  324   
+                                  325   ;;    	year_time2=0; //ÄêÊ®Î»
+                                  326   CLINEA 0000H 0001H 0069H 0006H 001BH
+00:0088 11-90 07-F1               327   	st	r0,	0f107h
+                                  328   
+                                  329   ;;    	year_time3=0; //Äê¸öÎ»    	
+                                        	
+                                  330   CLINEA 0000H 0001H 006AH 0006H 0021H
+00:008C 11-90 08-F1               331   	st	r0,	0f108h
+                                  332   
+                                  333   ;;	  else if(P==1) //ÁÁ 
+                                  334   CLINEA 0000H 0001H 006CH 0004H 0016H
+00:0090 29 CE                     335   	bal	_$L33
+00:0092                           336   _$L30 :
+00:0092 01 70                     337   	cmp	r0,	#01h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   9 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0094 00 51                     338   	cmpc	r1,	#00h
+00:0096 26 C8                     339   	bne	_$L33
+                                  340   CBLOCK 2 6 109
+                                  341   
+                                  342   ;;    	year_time0=table[YETI_VALUE/100
+                                        0]; //ÄêÇ§Î» 
+                                  343   CLINEA 0000H 0001H 006EH 0006H 0031H
+00:0098 85-F0                     344   	mov	er0,	er8
+00:009A E8 02                     345   	mov	r2,	#0e8h
+00:009C 03 03                     346   	mov	r3,	#03h
+00:009E 01-F0'00-00'              347   	bl	__uidivu8sw
+00:00A2 08-90 00-00'              348   	l	r0,	NEAR _table[er0
+                                        ]
+00:00A6 11-90 05-F1               349   	st	r0,	0f105h
+                                  350   
+                                  351   ;;  	    year_time1=table[YETI_VALUE
+                                        /100%10]; //Äê°ÙÎ»
+                                  352   CLINEA 0000H 0001H 006FH 0008H 0034H
+00:00AA 85-F0                     353   	mov	er0,	er8
+00:00AC 64 02                     354   	mov	r2,	#064h
+00:00AE 29-F0                     355   	div	er0,	r2
+00:00B0 05-F2                     356   	mov	er2,	er0
+00:00B2 0A 00                     357   	mov	r0,	#0ah
+00:00B4 09-F2                     358   	div	er2,	r0
+00:00B6 00 01                     359   	mov	r1,	#00h
+00:00B8 08-90 00-00'              360   	l	r0,	NEAR _table[er0
+                                        ]
+00:00BC 11-90 06-F1               361   	st	r0,	0f106h
+                                  362   
+                                  363   ;;    	year_time2=table[YETI_VALUE/10%
+                                        10]; //ÄêÊ®Î»
+                                  364   CLINEA 0000H 0001H 0070H 0006H 0031H
+00:00C0 85-F0                     365   	mov	er0,	er8
+00:00C2 0A 02                     366   	mov	r2,	#0ah
+00:00C4 29-F0                     367   	div	er0,	r2
+00:00C6 05-F2                     368   	mov	er2,	er0
+00:00C8 0A 00                     369   	mov	r0,	#0ah
+00:00CA 09-F2                     370   	div	er2,	r0
+00:00CC 00 01                     371   	mov	r1,	#00h
+00:00CE 08-90 00-00'              372   	l	r0,	NEAR _table[er0
+                                        ]
+00:00D2 11-90 07-F1               373   	st	r0,	0f107h
+                                  374   
+                                  375   ;;    	year_time3=table[YETI_VALUE%10]
+                                        ; //Äê¸öÎ»	   	 
+                                  376   CLINEA 0000H 0001H 0071H 0006H 0034H
+00:00D6 85-F2                     377   	mov	er2,	er8
+00:00D8 0A 00                     378   	mov	r0,	#0ah
+00:00DA 09-F2                     379   	div	er2,	r0
+00:00DC 08-90 00-00'              380   	l	r0,	NEAR _table[er0
+                                        ]
+00:00E0 11-90 08-F1               381   	st	r0,	0f108h
+                                  382   CBLOCKEND 2 6 114
+                                  383   
+                                  384   ;;       }	
+                                  385   CLINEA 0000H 0000H 0072H 0008H 0009H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  10 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:00E4                           386   _$L33 :
+                                  387   CBLOCKEND 2 4 115
+                                  388   CBLOCKEND 2 5 116
+                                  389   CBLOCKEND 2 3 116
+                                  390   CBLOCKEND 2 2 116
+                                  391   
+                                  392   ;; } 
+                                  393   CLINEA 0000H 0001H 0074H 0002H 0003H
+00:00E4 00-F0'00-00'              394   	b	__regpopu8sw
+                                  395   CBLOCKEND 2 1 116
+                                  396   CFUNCTIONEND 2
+                                  397   
+                                  398   
+  --------------------------      399   	rseg $$TIM_SHI$lcdshow
+                                  400   CFUNCTION 3
+                                  401   
+00:0000                           402   _TIM_SHI	:
+                                  403   CBLOCK 3 1 126
+                                  404   
+                                  405   ;;  {
+                                  406   CLINEA 0000H 0001H 007EH 0003H 0003H
+00:0000 CE-F8                     407   	push	lr
+00:0002 01-F0'00-00'              408   	bl	__regpushu8sw
+00:0006 25-FA                     409   	mov	er10,	er2
+00:0008 05-F8                     410   	mov	er8,	er0
+                                  411   CBLOCK 3 2 126
+                                  412   CRET 000CH
+                                  413   CARGUMENT 46H 0002H 0032H "TIM_VALUE" 0
+                                        2H 00H 01H
+                                  414   CARGUMENT 46H 0002H 0033H "TIM_ZHI" 02H
+                                         00H 01H
+                                  415   CARGUMENT 42H 0002H 000EH "P" 02H 00H 0
+                                        1H
+                                  416   
+                                  417   ;;      if(P==0) //Ãð 
+                                  418   CLINEA 0000H 0001H 007FH 0007H 0014H
+00:000A 4E B0                     419   	l	er0,	14[fp]
+00:000C 06 C8                     420   	bne	_$L36
+                                  421   CBLOCK 3 3 128
+                                  422   
+                                  423   ;;       	year_time0=0; //Ê±Ê®Î» 
+                                  424   CLINEA 0000H 0001H 0081H 0009H 001FH
+00:000E 00 00                     425   	mov	r0,	#00h
+00:0010 11-90 05-F1               426   	st	r0,	0f105h
+                                  427   
+                                  428   ;;  	    year_time1=0; //Ê±¸öÎ»   	
+                                        	
+                                  429   CLINEA 0000H 0001H 0082H 0008H 0022H
+00:0014 11-90 06-F1               430   	st	r0,	0f106h
+                                  431   
+                                  432   ;;	  else if(P==1) //ÁÁ 
+                                  433   CLINEA 0000H 0001H 0084H 0004H 0016H
+00:0018 20 CE                     434   	bal	_$L39
+00:001A                           435   _$L36 :
+00:001A 01 70                     436   	cmp	r0,	#01h
+00:001C 00 51                     437   	cmpc	r1,	#00h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  11 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:001E 1D C8                     438   	bne	_$L39
+                                  439   CBLOCK 3 4 133
+                                  440   
+                                  441   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  442   CLINEA 0000H 0000H 0086H 0000H 0000H
+00:0020 A5-F0                     443   	mov	er0,	er10
+00:0022 30 E2                     444   	mov	er2,	#48
+00:0024 01-F0'00-00'              445   	bl	__imulu8sw
+00:0028 05-F2                     446   	mov	er2,	er0
+00:002A 05-F4                     447   	mov	er4,	er0
+00:002C 85-F0                     448   	mov	er0,	er8
+00:002E 86-F0                     449   	add	er0,	er8
+00:0030 05-F6                     450   	mov	er6,	er0
+                                  451   
+                                  452   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  453   CLINEA 0000H 0001H 0086H 0004H 0049H
+00:0032 25-FC                     454   	mov	bp,	er2
+00:0034 06-FC                     455   	add	bp,	er0
+00:0036 C8-90 00-00'              456   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:003A 3F 70                     457   	cmp	r0,	#03fh
+00:003C 02 C8                     458   	bne	_$L41
+00:003E 00 00                     459   	mov	r0,	#00h
+                                  460   
+                                  461   ;;		 else year_time0=TIME_s
+                                        ystem[TIM_ZHI][TIM_VALUE][0];
+                                  462   CLINEA 0000H 0001H 0087H 0004H 0036H
+00:0040 04 CE                     463   	bal	_$L43
+00:0042                           464   _$L41 :
+00:0042 45-FC                     465   	mov	bp,	er4
+00:0044 66-FC                     466   	add	bp,	er6
+00:0046 C8-90 00-00'              467   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:004A                           468   _$L43 :
+00:004A 11-90 05-F1               469   	st	r0,	0f105h
+                                  470   
+                                  471   ;;  	      year_time1=TIME_system[TI
+                                        M_ZHI][TIM_VALUE][1]; //Ê±¸öÎ»	   	
+                                         
+                                  472   CLINEA 0000H 0001H 0088H 000AH 0046H
+00:004E 45-FC                     473   	mov	bp,	er4
+00:0050 66-FC                     474   	add	bp,	er6
+00:0052 C8-90 00-00'              475   	l	r0,	NEAR _TIME_syst
+                                        em+01h[bp]
+00:0056 11-90 06-F1               476   	st	r0,	0f106h
+                                  477   CBLOCKEND 3 4 137
+                                  478   
+                                  479   ;;       }    	
+                                  480   CLINEA 0000H 0000H 0089H 0008H 000DH
+00:005A                           481   _$L39 :
+                                  482   CBLOCKEND 3 3 138
+                                  483   CBLOCKEND 3 2 138
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  12 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  484   
+                                  485   ;;   }
+                                  486   CLINEA 0000H 0001H 008AH 0004H 0004H
+00:005A 00-F0'00-00'              487   	b	__regpopu8sw
+                                  488   CBLOCKEND 3 1 138
+                                  489   CFUNCTIONEND 3
+                                  490   
+                                  491   
+  --------------------------      492   	rseg $$TIM_FEN$lcdshow
+                                  493   CFUNCTION 4
+                                  494   
+00:0000                           495   _TIM_FEN	:
+                                  496   CBLOCK 4 1 147
+                                  497   
+                                  498   ;;  {
+                                  499   CLINEA 0000H 0001H 0093H 0003H 0003H
+00:0000 5E-F8                     500   	push	er8
+00:0002 05-F8                     501   	mov	er8,	er0
+                                  502   CBLOCK 4 2 147
+                                  503   CARGUMENT 46H 0002H 0028H "MAR_VALUE" 0
+                                        2H 00H 01H
+                                  504   CARGUMENT 46H 0002H 0025H "P" 02H 00H 0
+                                        1H
+                                  505   
+                                  506   ;;      if(P==0) //Ãð 
+                                  507   CLINEA 0000H 0001H 0094H 0007H 0014H
+00:0004 25-F2                     508   	mov	er2,	er2
+00:0006 06 C8                     509   	bne	_$L45
+                                  510   CBLOCK 4 3 149
+                                  511   
+                                  512   ;;    	year_time2=0; //·ÖÊ®Î»
+                                  513   CLINEA 0000H 0001H 0096H 0006H 001BH
+00:0008 00 00                     514   	mov	r0,	#00h
+00:000A 11-90 07-F1               515   	st	r0,	0f107h
+                                  516   
+                                  517   ;;    	year_time3=0; //·Ö¸öÎ»    	
+                                        	
+                                  518   CLINEA 0000H 0001H 0097H 0006H 0021H
+00:000E 11-90 08-F1               519   	st	r0,	0f108h
+                                  520   
+                                  521   ;;	  else if(P==1) //ÁÁ 
+                                  522   CLINEA 0000H 0001H 0099H 0004H 0016H
+00:0012 12 CE                     523   	bal	_$L48
+00:0014                           524   _$L45 :
+00:0014 01 72                     525   	cmp	r2,	#01h
+00:0016 00 53                     526   	cmpc	r3,	#00h
+00:0018 0F C8                     527   	bne	_$L48
+                                  528   CBLOCK 4 4 154
+                                  529   
+                                  530   ;;    	  year_time2=table[MAR_VALUE/10
+                                        ]; //·ÖÊ®Î»
+                                  531   CLINEA 0000H 0001H 009BH 0008H 002FH
+00:001A 85-F0                     532   	mov	er0,	er8
+00:001C 0A 02                     533   	mov	r2,	#0ah
+00:001E 29-F0                     534   	div	er0,	r2
+00:0020 08-90 00-00'              535   	l	r0,	NEAR _table[er0
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  13 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                        ]
+00:0024 11-90 07-F1               536   	st	r0,	0f107h
+                                  537   
+                                  538   ;;    	  year_time3=table[MAR_VALUE%10
+                                        ]; //·Ö¸öÎ» 	   	 
+                                  539   CLINEA 0000H 0001H 009CH 0008H 0036H
+00:0028 85-F2                     540   	mov	er2,	er8
+00:002A 0A 00                     541   	mov	r0,	#0ah
+00:002C 09-F2                     542   	div	er2,	r0
+00:002E 00 01                     543   	mov	r1,	#00h
+00:0030 08-90 00-00'              544   	l	r0,	NEAR _table[er0
+                                        ]
+00:0034 11-90 08-F1               545   	st	r0,	0f108h
+                                  546   CBLOCKEND 4 4 157
+                                  547   
+                                  548   ;;       }    	
+                                  549   CLINEA 0000H 0000H 009DH 0008H 000DH
+00:0038                           550   _$L48 :
+                                  551   CBLOCKEND 4 3 158
+                                  552   CBLOCKEND 4 2 158
+                                  553   
+                                  554   ;;   }
+                                  555   CLINEA 0000H 0001H 009EH 0004H 0004H
+00:0038 1E-F8                     556   	pop	er8
+00:003A 1F-FE                     557   	rt
+                                  558   CBLOCKEND 4 1 158
+                                  559   CFUNCTIONEND 4
+                                  560   
+                                  561   
+  --------------------------      562   	rseg $$UI_TIME$lcdshow
+                                  563   CFUNCTION 5
+                                  564   
+00:0000                           565   _UI_TIME	:
+                                  566   CBLOCK 5 1 167
+                                  567   
+                                  568   ;; {
+                                  569   CLINEA 0000H 0001H 00A7H 0002H 0002H
+00:0000 CE-F8                     570   	push	lr
+00:0002 01-F0'00-00'              571   	bl	__regpushu8sw
+00:0006 05-F8                     572   	mov	er8,	er0
+00:0008 25-FA                     573   	mov	er10,	er2
+                                  574   CBLOCK 5 2 167
+                                  575   CRET 000CH
+                                  576   CARGUMENT 46H 0002H 0032H "TIM_VALUE" 0
+                                        2H 00H 01H
+                                  577   CARGUMENT 46H 0002H 0033H "MAR_VALUE" 0
+                                        2H 00H 01H
+                                  578   CARGUMENT 42H 0002H 000EH "TIM_ZHI" 02H
+                                         00H 01H
+                                  579   CARGUMENT 42H 0002H 0010H "BU_YT" 02H 0
+                                        0H 01H
+                                  580   CARGUMENT 42H 0002H 0012H "P" 02H 00H 0
+                                        1H
+                                  581   
+                                  582   ;;	if(BU_YT==1) //³£ÁÁÄ£Ê½ 
+                                  583   CLINEA 0000H 0001H 00A8H 0002H 0019H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  14 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000A 50 B0                     584   	l	er0,	16[fp]
+00:000C 01 70                     585   	cmp	r0,	#01h
+00:000E 00 51                     586   	cmpc	r1,	#00h
+00:0010 2D C8                     587   	bne	_$L51
+                                  588   CBLOCK 5 3 169
+                                  589   
+                                  590   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  591   CLINEA 0000H 0000H 00AAH 0000H 0000H
+00:0012 4E B0                     592   	l	er0,	14[fp]
+00:0014 30 E2                     593   	mov	er2,	#48
+00:0016 01-F0'00-00'              594   	bl	__imulu8sw
+00:001A 05-F2                     595   	mov	er2,	er0
+00:001C 05-F4                     596   	mov	er4,	er0
+00:001E 85-F0                     597   	mov	er0,	er8
+00:0020 86-F0                     598   	add	er0,	er8
+00:0022 05-F6                     599   	mov	er6,	er0
+                                  600   
+                                  601   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  602   CLINEA 0000H 0001H 00AAH 0004H 0049H
+00:0024 25-FC                     603   	mov	bp,	er2
+00:0026 06-FC                     604   	add	bp,	er0
+00:0028 C8-90 00-00'              605   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:002C 3F 70                     606   	cmp	r0,	#03fh
+00:002E 02 C8                     607   	bne	_$L53
+00:0030 00 00                     608   	mov	r0,	#00h
+                                  609   
+                                  610   ;;		 else year_time0=TIME_s
+                                        ystem[TIM_ZHI][TIM_VALUE][0];
+                                  611   CLINEA 0000H 0001H 00ABH 0004H 0036H
+00:0032 04 CE                     612   	bal	_$L55
+00:0034                           613   _$L53 :
+00:0034 45-FC                     614   	mov	bp,	er4
+00:0036 66-FC                     615   	add	bp,	er6
+00:0038 C8-90 00-00'              616   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:003C                           617   _$L55 :
+00:003C 11-90 05-F1               618   	st	r0,	0f105h
+                                  619   
+                                  620   ;;  	      year_time1=TIME_system[TI
+                                        M_ZHI][TIM_VALUE][1]; //Ê±¸öÎ»
+                                  621   CLINEA 0000H 0001H 00ACH 000AH 0040H
+00:0040 45-FC                     622   	mov	bp,	er4
+00:0042 66-FC                     623   	add	bp,	er6
+00:0044 C8-90 00-00'              624   	l	r0,	NEAR _TIME_syst
+                                        em+01h[bp]
+00:0048 11-90 06-F1               625   	st	r0,	0f106h
+                                  626   
+                                  627   ;;    	  year_time2=table[MAR_VALUE/10
+                                        ]; //·ÖÊ®Î»
+                                  628   CLINEA 0000H 0001H 00ADH 0008H 002FH
+00:004C A5-F0                     629   	mov	er0,	er10
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  15 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:004E 0A 02                     630   	mov	r2,	#0ah
+00:0050 29-F0                     631   	div	er0,	r2
+00:0052 08-90 00-00'              632   	l	r0,	NEAR _table[er0
+                                        ]
+00:0056 11-90 07-F1               633   	st	r0,	0f107h
+                                  634   
+                                  635   ;;    	  year_time3=table[MAR_VALUE%10
+                                        ]; //·Ö¸öÎ» 		
+                                  636   CLINEA 0000H 0001H 00AEH 0008H 0032H
+00:005A A5-F2                     637   	mov	er2,	er10
+00:005C 0A 00                     638   	mov	r0,	#0ah
+00:005E 09-F2                     639   	div	er2,	r0
+00:0060 00 01                     640   	mov	r1,	#00h
+00:0062 08-90 00-00'              641   	l	r0,	NEAR _table[er0
+                                        ]
+00:0066 11-90 08-F1               642   	st	r0,	0f108h
+                                  643   
+                                  644   ;;    else if(BU_YT==2)    //Ê±ÉÁË¸Ä£Ê½
+                                        	
+                                  645   CLINEA 0000H 0001H 00B0H 0005H 0026H
+00:006A 3E CE                     646   	bal	_$L60
+00:006C                           647   _$L51 :
+00:006C 02 70                     648   	cmp	r0,	#02h
+00:006E 00 51                     649   	cmpc	r1,	#00h
+00:0070 17 C8                     650   	bne	_$L57
+                                  651   CBLOCK 5 4 177
+                                  652   
+                                  653   ;;       year_time2=table[MAR_VALUE/10]
+                                        ; //·ÖÊ®Î»
+                                  654   CLINEA 0000H 0001H 00B2H 0008H 002FH
+00:0072 A5-F0                     655   	mov	er0,	er10
+00:0074 0A 02                     656   	mov	r2,	#0ah
+00:0076 29-F0                     657   	div	er0,	r2
+00:0078 08-90 00-00'              658   	l	r0,	NEAR _table[er0
+                                        ]
+00:007C 11-90 07-F1               659   	st	r0,	0f107h
+                                  660   
+                                  661   ;;       year_time3=table[MAR_VALUE%10]
+                                        ; //·Ö¸öÎ»
+                                  662   CLINEA 0000H 0001H 00B3H 0008H 002FH
+00:0080 A5-F2                     663   	mov	er2,	er10
+00:0082 0A 00                     664   	mov	r0,	#0ah
+00:0084 09-F2                     665   	div	er2,	r0
+00:0086 00 01                     666   	mov	r1,	#00h
+00:0088 08-90 00-00'              667   	l	r0,	NEAR _table[er0
+                                        ]
+00:008C 11-90 08-F1               668   	st	r0,	0f108h
+                                  669   
+                                  670   ;;	    TIM_SHI(TIM_VALUE, TIM_ZHI,
+                                         P);
+                                  671   CLINEA 0000H 0001H 00B4H 0006H 0024H
+00:0090 52 B0                     672   	l	er0,	18[fp]
+00:0092 5E-F0                     673   	push	er0
+00:0094 4E B2                     674   	l	er2,	14[fp]
+00:0096 85-F0                     675   	mov	er0,	er8
+00:0098 01-F0'00-00'              676   	bl	_TIM_SHI
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  16 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:009C 02 E1                     677   	add	sp,	#2 
+                                  678   
+                                  679   ;;    else if(BU_YT==3)    //·ÖÉÁË¸Ä£Ê½
+                                         
+                                  680   CLINEA 0000H 0001H 00B6H 0005H 0026H
+00:009E 24 CE                     681   	bal	_$L60
+00:00A0                           682   _$L57 :
+00:00A0 03 70                     683   	cmp	r0,	#03h
+00:00A2 00 51                     684   	cmpc	r1,	#00h
+00:00A4 21 C8                     685   	bne	_$L60
+                                  686   CBLOCK 5 5 183
+                                  687   
+                                  688   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  689   CLINEA 0000H 0000H 00B8H 0000H 0000H
+00:00A6 4E B0                     690   	l	er0,	14[fp]
+00:00A8 30 E2                     691   	mov	er2,	#48
+00:00AA 01-F0'00-00'              692   	bl	__imulu8sw
+00:00AE 05-F2                     693   	mov	er2,	er0
+00:00B0 05-F4                     694   	mov	er4,	er0
+00:00B2 85-F0                     695   	mov	er0,	er8
+00:00B4 86-F0                     696   	add	er0,	er8
+00:00B6 05-F6                     697   	mov	er6,	er0
+                                  698   
+                                  699   ;;	 	if(TIME_system[TIM_ZHI]
+                                        [TIM_VALUE][0]==0x3f) year_time0=LOW; /
+                                        /Ê±Ê®Î» 
+                                  700   CLINEA 0000H 0001H 00B8H 0004H 0049H
+00:00B8 25-FC                     701   	mov	bp,	er2
+00:00BA 06-FC                     702   	add	bp,	er0
+00:00BC C8-90 00-00'              703   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:00C0 3F 70                     704   	cmp	r0,	#03fh
+00:00C2 02 C8                     705   	bne	_$L62
+00:00C4 00 00                     706   	mov	r0,	#00h
+                                  707   
+                                  708   ;;		 else year_time0=TIME_s
+                                        ystem[TIM_ZHI][TIM_VALUE][0];
+                                  709   CLINEA 0000H 0001H 00B9H 0004H 0036H
+00:00C6 04 CE                     710   	bal	_$L64
+00:00C8                           711   _$L62 :
+00:00C8 45-FC                     712   	mov	bp,	er4
+00:00CA 66-FC                     713   	add	bp,	er6
+00:00CC C8-90 00-00'              714   	l	r0,	NEAR _TIME_syst
+                                        em[bp]
+00:00D0                           715   _$L64 :
+00:00D0 11-90 05-F1               716   	st	r0,	0f105h
+                                  717   
+                                  718   ;;  	      year_time1=TIME_system[TI
+                                        M_ZHI][TIM_VALUE][1]; //Ê±¸öÎ»
+                                  719   CLINEA 0000H 0001H 00BAH 000AH 0040H
+00:00D4 45-FC                     720   	mov	bp,	er4
+00:00D6 66-FC                     721   	add	bp,	er6
+00:00D8 C8-90 00-00'              722   	l	r0,	NEAR _TIME_syst
+                                        em+01h[bp]
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  17 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:00DC 11-90 06-F1               723   	st	r0,	0f106h
+                                  724   
+                                  725   ;;          TIM_FEN(MAR_VALUE, P);	
+                                  726   CLINEA 0000H 0001H 00BBH 000BH 0021H
+00:00E0 52 B2                     727   	l	er2,	18[fp]
+00:00E2 A5-F0                     728   	mov	er0,	er10
+00:00E4 01-F0'00-00'              729   	bl	_TIM_FEN
+                                  730   CBLOCKEND 5 5 188
+                                  731   
+                                  732   ;;     } 
+                                  733   CLINEA 0000H 0000H 00BCH 0006H 0007H
+00:00E8                           734   _$L60 :
+                                  735   CBLOCKEND 5 4 189
+                                  736   CBLOCKEND 5 3 189
+                                  737   CBLOCKEND 5 2 189
+                                  738   
+                                  739   ;; } 
+                                  740   CLINEA 0000H 0001H 00BDH 0002H 0003H
+00:00E8 00-F0'00-00'              741   	b	__regpopu8sw
+                                  742   CBLOCKEND 5 1 189
+                                  743   CFUNCTIONEND 5
+                                  744   
+                                  745   
+  --------------------------      746   	rseg $$UI_YEAR_TIME$lcdshow
+                                  747   CFUNCTION 6
+                                  748   
+00:0000                           749   _UI_YEAR_TIME	:
+                                  750   CBLOCK 6 1 199
+                                  751   
+                                  752   ;; {
+                                  753   CLINEA 0000H 0001H 00C7H 0002H 0002H
+00:0000 CE-F8                     754   	push	lr
+00:0002 01-F0'00-00'              755   	bl	__regpushu8sw
+00:0006 25-FA                     756   	mov	er10,	er2
+00:0008 05-F8                     757   	mov	er8,	er0
+                                  758   CBLOCK 6 2 199
+                                  759   CRET 000CH
+                                  760   CARGUMENT 46H 0002H 0032H "P" 02H 00H 0
+                                        1H
+                                  761   CARGUMENT 46H 0002H 0033H "DISP_MON" 02
+                                        H 00H 01H
+                                  762   CARGUMENT 42H 0002H 000EH "CLK_mode" 02
+                                        H 00H 01H
+                                  763   CARGUMENT 42H 0002H 0010H "Mon" 02H 00H
+                                         01H
+                                  764   CARGUMENT 42H 0002H 0012H "dat_AIM" 02H
+                                         00H 01H
+                                  765   
+                                  766   ;;   if(DISP_MON==0) //ÔÂ/ÈÕ³£ÁÁ 
+                                  767   CLINEA 0000H 0001H 00C8H 0004H 001FH
+00:000A 25-F2                     768   	mov	er2,	er2
+00:000C 26 C8                     769   	bne	_$L66
+                                  770   CBLOCK 6 3 201
+                                  771   
+                                  772   ;;      if(Mon/10==0) Mon_Da0=LOW;
+                                  773   CLINEA 0000H 0000H 00CAH 0000H 0000H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  18 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000E 50 B0                     774   	l	er0,	16[fp]
+00:0010 0A 02                     775   	mov	r2,	#0ah
+00:0012 29-F0                     776   	div	er0,	r2
+                                  777   
+                                  778   ;;      if(Mon/10==0) Mon_Da0=LOW;
+                                  779   CLINEA 0000H 0001H 00CAH 0007H 0020H
+00:0014 05-F0                     780   	mov	er0,	er0
+00:0016 02 C8                     781   	bne	_$L68
+00:0018 00 00                     782   	mov	r0,	#00h
+                                  783   
+                                  784   ;;     else Mon_Da0=table[Mon/10];
+                                  785   CLINEA 0000H 0001H 00CBH 0006H 0020H
+00:001A 02 CE                     786   	bal	_$L70
+00:001C                           787   _$L68 :
+00:001C 08-90 00-00'              788   	l	r0,	NEAR _table[er0
+                                        ]
+00:0020                           789   _$L70 :
+00:0020 11-90 10-F1               790   	st	r0,	0f110h
+                                  791   
+                                  792   ;;      Mon_Da1=table[Mon%10]; 
+                                  793   CLINEA 0000H 0001H 00CCH 0007H 001DH
+00:0024 50 B2                     794   	l	er2,	16[fp]
+00:0026 0A 00                     795   	mov	r0,	#0ah
+00:0028 09-F2                     796   	div	er2,	r0
+00:002A 00 01                     797   	mov	r1,	#00h
+00:002C 08-90 00-00'              798   	l	r0,	NEAR _table[er0
+                                        ]
+00:0030 11-90 11-F1               799   	st	r0,	0f111h
+                                  800   
+                                  801   ;;      if(dat_AIM/10==0) Mon_Da2=LOW;
+                                  802   CLINEA 0000H 0000H 00CDH 0000H 0000H
+00:0034 52 B0                     803   	l	er0,	18[fp]
+00:0036 0A 02                     804   	mov	r2,	#0ah
+00:0038 29-F0                     805   	div	er0,	r2
+                                  806   
+                                  807   ;;      if(dat_AIM/10==0) Mon_Da2=LOW;
+                                  808   CLINEA 0000H 0001H 00CDH 0007H 0024H
+00:003A 05-F0                     809   	mov	er0,	er0
+00:003C 02 C8                     810   	bne	_$L71
+00:003E 00 00                     811   	mov	r0,	#00h
+                                  812   
+                                  813   ;;     else Mon_Da2=table[dat_AIM/10]; 
+                                  814   CLINEA 0000H 0001H 00CEH 0006H 0025H
+00:0040 02 CE                     815   	bal	_$L73
+00:0042                           816   _$L71 :
+00:0042 08-90 00-00'              817   	l	r0,	NEAR _table[er0
+                                        ]
+00:0046                           818   _$L73 :
+00:0046 11-90 12-F1               819   	st	r0,	0f112h
+                                  820   
+                                  821   ;;      Mon_Da3=table[dat_AIM%10]; 
+                                  822   CLINEA 0000H 0001H 00CFH 0007H 0021H
+00:004A 52 B2                     823   	l	er2,	18[fp]
+00:004C 0A 00                     824   	mov	r0,	#0ah
+00:004E 09-F2                     825   	div	er2,	r0
+00:0050 00 01                     826   	mov	r1,	#00h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  19 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0052 08-90 00-00'              827   	l	r0,	NEAR _table[er0
+                                        ]
+00:0056 11-90 13-F1               828   	st	r0,	0f113h
+                                  829   CBLOCKEND 6 3 208
+                                  830   
+                                  831   ;;     }
+                                  832   CLINEA 0000H 0000H 00D0H 0006H 0006H
+00:005A                           833   _$L66 :
+                                  834   
+                                  835   ;;  if(DISP_MON == 2)
+                                  836   CLINEA 0000H 0001H 00D1H 0003H 0013H
+00:005A 02 7A                     837   	cmp	r10,	#02h
+00:005C 00 5B                     838   	cmpc	r11,	#00h
+00:005E 02 C9                     839   	beq	_$M7
+00:0060 00-F0'00-00'              840   	b	_$L98
+00:0064                           841   _$M7 :
+                                  842   CBLOCK 6 4 210
+                                  843   
+                                  844   ;;   if(CLK_mode == 2) //ÔÂÉÁË¸/ÈÕ³£ÁÁ 
+                                  845   CLINEA 0000H 0001H 00D3H 0004H 0025H
+00:0064 4E B0                     846   	l	er0,	14[fp]
+00:0066 02 70                     847   	cmp	r0,	#02h
+00:0068 00 51                     848   	cmpc	r1,	#00h
+00:006A 32 C8                     849   	bne	_$L76
+                                  850   CBLOCK 6 5 212
+                                  851   
+                                  852   ;;   	  if(dat_AIM/10==0) Mon_Da2=LOW
+                                        ;
+                                  853   CLINEA 0000H 0000H 00D5H 0000H 0000H
+00:006C 52 B0                     854   	l	er0,	18[fp]
+00:006E 0A 02                     855   	mov	r2,	#0ah
+00:0070 29-F0                     856   	div	er0,	r2
+                                  857   
+                                  858   ;;   	  if(dat_AIM/10==0) Mon_Da2=LOW
+                                        ;
+                                  859   CLINEA 0000H 0001H 00D5H 0007H 0024H
+00:0072 05-F0                     860   	mov	er0,	er0
+00:0074 02 C8                     861   	bne	_$L78
+00:0076 00 00                     862   	mov	r0,	#00h
+                                  863   
+                                  864   ;;       else Mon_Da2=table[dat_AIM/10]
+                                        ; 
+                                  865   CLINEA 0000H 0001H 00D6H 0008H 0027H
+00:0078 02 CE                     866   	bal	_$L80
+00:007A                           867   _$L78 :
+00:007A 08-90 00-00'              868   	l	r0,	NEAR _table[er0
+                                        ]
+00:007E                           869   _$L80 :
+00:007E 11-90 12-F1               870   	st	r0,	0f112h
+                                  871   
+                                  872   ;;       Mon_Da3=table[dat_AIM%10];    
+                                        	  
+                                  873   CLINEA 0000H 0001H 00D7H 0008H 0028H
+00:0082 52 B2                     874   	l	er2,	18[fp]
+00:0084 0A 00                     875   	mov	r0,	#0ah
+00:0086 09-F2                     876   	div	er2,	r0
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  20 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0088 00 01                     877   	mov	r1,	#00h
+00:008A 08-90 00-00'              878   	l	r0,	NEAR _table[er0
+                                        ]
+00:008E 11-90 13-F1               879   	st	r0,	0f113h
+                                  880   
+                                  881   ;;  	  if(P==0)
+                                  882   CLINEA 0000H 0001H 00D8H 0006H 000DH
+00:0092 85-F8                     883   	mov	er8,	er8
+00:0094 04 C8                     884   	bne	_$L81
+                                  885   CBLOCK 6 6 217
+                                  886   
+                                  887   ;;        Mon_Da0=0;
+                                  888   CLINEA 0000H 0001H 00DAH 0009H 0012H
+00:0096 00 00                     889   	mov	r0,	#00h
+00:0098 11-90 10-F1               890   	st	r0,	0f110h
+                                  891   
+                                  892   ;;  	   else if(P==1)
+                                  893   CLINEA 0000H 0001H 00DDH 0007H 0013H
+00:009C 16 CE                     894   	bal	_$L84
+00:009E                           895   _$L81 :
+00:009E 01 78                     896   	cmp	r8,	#01h
+00:00A0 00 59                     897   	cmpc	r9,	#00h
+00:00A2 02 C9                     898   	beq	_$M8
+00:00A4 00-F0'00-00'              899   	b	_$L98
+00:00A8                           900   _$M8 :
+                                  901   CBLOCK 6 7 222
+                                  902   
+                                  903   ;;   	    if(Mon/10==0) Mon_Da0=LOW;
+                                  904   CLINEA 0000H 0000H 00DFH 0000H 0000H
+00:00A8 50 B0                     905   	l	er0,	16[fp]
+00:00AA 0A 02                     906   	mov	r2,	#0ah
+00:00AC 29-F0                     907   	div	er0,	r2
+                                  908   
+                                  909   ;;   	    if(Mon/10==0) Mon_Da0=LOW;
+                                  910   CLINEA 0000H 0001H 00DFH 0009H 0022H
+00:00AE 05-F0                     911   	mov	er0,	er0
+00:00B0 02 C8                     912   	bne	_$L86
+00:00B2 00 00                     913   	mov	r0,	#00h
+                                  914   
+                                  915   ;;         else Mon_Da0=table[Mon/10]; 
+                                  916   CLINEA 0000H 0001H 00E0H 000AH 0025H
+00:00B4 02 CE                     917   	bal	_$L88
+00:00B6                           918   _$L86 :
+00:00B6 08-90 00-00'              919   	l	r0,	NEAR _table[er0
+                                        ]
+00:00BA                           920   _$L88 :
+00:00BA 11-90 10-F1               921   	st	r0,	0f110h
+                                  922   
+                                  923   ;;          Mon_Da1=table[Mon%10];
+                                  924   CLINEA 0000H 0001H 00E1H 000BH 0020H
+00:00BE 50 B2                     925   	l	er2,	16[fp]
+00:00C0 0A 00                     926   	mov	r0,	#0ah
+00:00C2 09-F2                     927   	div	er2,	r0
+00:00C4 00 01                     928   	mov	r1,	#00h
+00:00C6 08-90 00-00'              929   	l	r0,	NEAR _table[er0
+                                        ]
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  21 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  930   CBLOCKEND 6 7 226
+                                  931   
+                                  932   ;;	    }	
+                                  933   CLINEA 0000H 0000H 00E2H 0006H 0007H
+00:00CA                           934   _$L84 :
+00:00CA 11-90 11-F1               935   	st	r0,	0f111h
+                                  936   
+                                  937   ;;   else if(CLK_mode==3) //ÈÕÉÁË¸/ÔÂ³£
+                                        ÁÁ 
+                                  938   CLINEA 0000H 0001H 00E4H 0004H 0028H
+00:00CE 34 CE                     939   	bal	_$L98
+00:00D0                           940   _$L76 :
+00:00D0 03 70                     941   	cmp	r0,	#03h
+00:00D2 00 51                     942   	cmpc	r1,	#00h
+00:00D4 31 C8                     943   	bne	_$L98
+                                  944   CBLOCK 6 8 229
+                                  945   
+                                  946   ;;      if(Mon/10==0) Mon_Da0=LOW;
+                                  947   CLINEA 0000H 0000H 00E6H 0000H 0000H
+00:00D6 50 B0                     948   	l	er0,	16[fp]
+00:00D8 0A 02                     949   	mov	r2,	#0ah
+00:00DA 29-F0                     950   	div	er0,	r2
+                                  951   
+                                  952   ;;      if(Mon/10==0) Mon_Da0=LOW;
+                                  953   CLINEA 0000H 0001H 00E6H 0007H 0020H
+00:00DC 05-F0                     954   	mov	er0,	er0
+00:00DE 02 C8                     955   	bne	_$L92
+00:00E0 00 00                     956   	mov	r0,	#00h
+                                  957   
+                                  958   ;;       else Mon_Da0=table[Mon/10]; 
+                                  959   CLINEA 0000H 0001H 00E7H 0008H 0023H
+00:00E2 02 CE                     960   	bal	_$L94
+00:00E4                           961   _$L92 :
+00:00E4 08-90 00-00'              962   	l	r0,	NEAR _table[er0
+                                        ]
+00:00E8                           963   _$L94 :
+00:00E8 11-90 10-F1               964   	st	r0,	0f110h
+                                  965   
+                                  966   ;;        Mon_Da1=table[Mon%10]; 
+                                  967   CLINEA 0000H 0001H 00E8H 0009H 001FH
+00:00EC 50 B2                     968   	l	er2,	16[fp]
+00:00EE 0A 00                     969   	mov	r0,	#0ah
+00:00F0 09-F2                     970   	div	er2,	r0
+00:00F2 00 01                     971   	mov	r1,	#00h
+00:00F4 08-90 00-00'              972   	l	r0,	NEAR _table[er0
+                                        ]
+00:00F8 11-90 11-F1               973   	st	r0,	0f111h
+                                  974   
+                                  975   ;;  	  if(P==0)
+                                  976   CLINEA 0000H 0001H 00E9H 0006H 000DH
+00:00FC 85-F8                     977   	mov	er8,	er8
+00:00FE 06 C8                     978   	bne	_$L95
+                                  979   CBLOCK 6 9 234
+                                  980   
+                                  981   ;;        Mon_Da2=0;
+                                  982   CLINEA 0000H 0001H 00EBH 0009H 0012H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  22 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0100 00 00                     983   	mov	r0,	#00h
+00:0102 11-90 12-F1               984   	st	r0,	0f112h
+                                  985   
+                                  986   ;;        Mon_Da3=0;  	   	 
+                                  987   CLINEA 0000H 0001H 00ECH 0009H 001AH
+00:0106 11-90 13-F1               988   	st	r0,	0f113h
+                                  989   
+                                  990   ;;  	   else if(P==1)
+                                  991   CLINEA 0000H 0001H 00EEH 0007H 0013H
+00:010A 16 CE                     992   	bal	_$L98
+00:010C                           993   _$L95 :
+00:010C 01 78                     994   	cmp	r8,	#01h
+00:010E 00 59                     995   	cmpc	r9,	#00h
+00:0110 13 C8                     996   	bne	_$L98
+                                  997   CBLOCK 6 10 239
+                                  998   
+                                  999   ;;   	  if(dat_AIM/10==0) Mon_Da2=LOW
+                                        ;
+                                 1000   CLINEA 0000H 0000H 00F0H 0000H 0000H
+00:0112 52 B0                    1001   	l	er0,	18[fp]
+00:0114 0A 02                    1002   	mov	r2,	#0ah
+00:0116 29-F0                    1003   	div	er0,	r2
+                                 1004   
+                                 1005   ;;   	  if(dat_AIM/10==0) Mon_Da2=LOW
+                                        ;
+                                 1006   CLINEA 0000H 0001H 00F0H 0007H 0024H
+00:0118 05-F0                    1007   	mov	er0,	er0
+00:011A 02 C8                    1008   	bne	_$L100
+00:011C 00 00                    1009   	mov	r0,	#00h
+                                 1010   
+                                 1011   ;;       else Mon_Da2=table[dat_AIM/10]
+                                        ; 
+                                 1012   CLINEA 0000H 0001H 00F1H 0008H 0027H
+00:011E 02 CE                    1013   	bal	_$L102
+00:0120                          1014   _$L100 :
+00:0120 08-90 00-00'             1015   	l	r0,	NEAR _table[er0
+                                        ]
+00:0124                          1016   _$L102 :
+00:0124 11-90 12-F1              1017   	st	r0,	0f112h
+                                 1018   
+                                 1019   ;;       Mon_Da3=table[dat_AIM%10];
+                                 1020   CLINEA 0000H 0001H 00F2H 0008H 0021H
+00:0128 52 B2                    1021   	l	er2,	18[fp]
+00:012A 0A 00                    1022   	mov	r0,	#0ah
+00:012C 09-F2                    1023   	div	er2,	r0
+00:012E 00 01                    1024   	mov	r1,	#00h
+00:0130 08-90 00-00'             1025   	l	r0,	NEAR _table[er0
+                                        ]
+00:0134 11-90 13-F1              1026   	st	r0,	0f113h
+                                 1027   CBLOCKEND 6 10 243
+                                 1028   
+                                 1029   ;;	    }   	
+                                 1030   CLINEA 0000H 0000H 00F3H 0006H 000AH
+00:0138                          1031   _$L98 :
+                                 1032   CBLOCKEND 6 8 244
+                                 1033   CBLOCKEND 6 9 250
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  23 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1034   CBLOCKEND 6 4 245
+                                 1035   CBLOCKEND 6 5 250
+                                 1036   CBLOCKEND 6 6 250
+                                 1037   
+                                 1038   ;;  if(DISP_MON==1) //ÄÖÖÓÄ£Ê½ÉÁË¸ 
+                                 1039   CLINEA 0000H 0001H 00F6H 0003H 0021H
+00:0138 01 7A                    1040   	cmp	r10,	#01h
+00:013A 00 5B                    1041   	cmpc	r11,	#00h
+00:013C 08 C8                    1042   	bne	_$L105
+                                 1043   CBLOCK 6 11 247
+                                 1044   
+                                 1045   ;;      if(CLK_mode == 3)CIK_glint(P, d
+                                        at_AIM);
+                                 1046   CLINEA 0000H 0001H 00F8H 0007H 002DH
+00:013E 4E B0                    1047   	l	er0,	14[fp]
+00:0140 03 70                    1048   	cmp	r0,	#03h
+00:0142 00 51                    1049   	cmpc	r1,	#00h
+00:0144 04 C8                    1050   	bne	_$L105
+00:0146 52 B2                    1051   	l	er2,	18[fp]
+00:0148 85-F0                    1052   	mov	er0,	er8
+00:014A 01-F0'00-00'             1053   	bl	_CIK_glint
+00:014E                          1054   _$L105 :
+                                 1055   CBLOCKEND 6 11 249
+                                 1056   CBLOCKEND 6 2 250
+                                 1057   
+                                 1058   ;;  }
+                                 1059   CLINEA 0000H 0001H 00FAH 0003H 0003H
+00:014E 00-F0'00-00'             1060   	b	__regpopu8sw
+                                 1061   CBLOCKEND 6 1 250
+                                 1062   CFUNCTIONEND 6
+                                 1063   
+                                 1064   
+  --------------------------     1065   	rseg $$UI_MODA$lcdshow
+                                 1066   CFUNCTION 7
+                                 1067   
+00:0000                          1068   _UI_MODA	:
+                                 1069   CBLOCK 7 1 258
+                                 1070   
+                                 1071   ;; {
+                                 1072   CLINEA 0000H 0001H 0102H 0002H 0002H
+                                 1073   CBLOCK 7 2 258
+                                 1074   CARGUMENT 46H 0002H 0024H "MO_BIT" 02H 
+                                        00H 01H
+                                 1075   
+                                 1076   ;;   if(MO_BIT==1)MonDa_Day=0; 
+                                 1077   CLINEA 0000H 0001H 0103H 0004H 001DH
+00:0000 01 70                    1078   	cmp	r0,	#01h
+00:0002 00 51                    1079   	cmpc	r1,	#00h
+00:0004 04 C8                    1080   	bne	_$L108
+00:0006 00 00                    1081   	mov	r0,	#00h
+00:0008 11-90 02-F1              1082   	st	r0,	0f102h
+                                 1083   
+                                 1084   ;;    else if(MO_BIT==2)MonDa_Day=0x05;
+                                        	
+                                 1085   CLINEA 0000H 0001H 0104H 0005H 0026H
+00:000C 1F-FE                    1086   	rt
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  24 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000E                          1087   _$L108 :
+00:000E 02 70                    1088   	cmp	r0,	#02h
+00:0010 00 51                    1089   	cmpc	r1,	#00h
+00:0012 03 C8                    1090   	bne	_$L111
+00:0014 05 00                    1091   	mov	r0,	#05h
+00:0016 11-90 02-F1              1092   	st	r0,	0f102h
+00:001A                          1093   _$L111 :
+                                 1094   CBLOCKEND 7 2 261
+                                 1095   
+                                 1096   ;;  } 
+                                 1097   CLINEA 0000H 0001H 0105H 0003H 0004H
+00:001A 1F-FE                    1098   	rt
+                                 1099   CBLOCKEND 7 1 261
+                                 1100   CFUNCTIONEND 7
+                                 1101   
+                                 1102   
+  --------------------------     1103   	rseg $$UI_AIS_APM$lcdshow
+                                 1104   CFUNCTION 8
+                                 1105   
+00:0000                          1106   _UI_AIS_APM	:
+                                 1107   CBLOCK 8 1 270
+                                 1108   
+                                 1109   ;; {
+                                 1110   CLINEA 0000H 0001H 010EH 0002H 0002H
+00:0000 CE-F8                    1111   	push	lr
+00:0002 01-F0'00-00'             1112   	bl	__regpushu8sw
+00:0006 25-FA                    1113   	mov	er10,	er2
+                                 1114   CBLOCK 8 2 270
+                                 1115   CRET 000CH
+                                 1116   CARGUMENT 46H 0002H 0030H "AS_bit" 02H 
+                                        00H 01H
+                                 1117   CARGUMENT 46H 0002H 0035H "AP_bit" 02H 
+                                        00H 01H
+                                 1118   CARGUMENT 42H 0002H 000EH "mode_ap" 02H
+                                         00H 01H
+                                 1119   
+                                 1120   ;;   if(AS_bit==1)AiSe=0x03; //AIMset³£
+                                        ÁÁ 
+                                 1121   CLINEA 0000H 0001H 010FH 0004H 0028H
+00:0008 01 70                    1122   	cmp	r0,	#01h
+00:000A 00 51                    1123   	cmpc	r1,	#00h
+00:000C 02 C8                    1124   	bne	_$L114
+00:000E 03 00                    1125   	mov	r0,	#03h
+                                 1126   
+                                 1127   ;;    else if(AS_bit==2)AiSe=0x02;//set
+                                        ³£ÁÁ 
+                                 1128   CLINEA 0000H 0001H 0110H 0005H 002AH
+00:0010 06 CE                    1129   	bal	_$L119
+00:0012                          1130   _$L114 :
+00:0012 02 70                    1131   	cmp	r0,	#02h
+00:0014 00 51                    1132   	cmpc	r1,	#00h
+00:0016 02 C8                    1133   	bne	_$L117
+00:0018 02 00                    1134   	mov	r0,	#02h
+                                 1135   
+                                 1136   ;;	 else AiSe=LOW;//Ãð 
+                                 1137   CLINEA 0000H 0001H 0111H 0003H 0014H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  25 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:001A 01 CE                    1138   	bal	_$L119
+00:001C                          1139   _$L117 :
+00:001C 00 00                    1140   	mov	r0,	#00h
+00:001E                          1141   _$L119 :
+00:001E 11-90 03-F1              1142   	st	r0,	0f103h
+                                 1143   
+                                 1144   ;;   if(mode_ap == 1) //12/24ÔÊÐíÅÐ¶Ï 
+                                 1145   CLINEA 0000H 0001H 0113H 0004H 0024H
+00:0022 4E B0                    1146   	l	er0,	14[fp]
+00:0024 01 70                    1147   	cmp	r0,	#01h
+00:0026 00 51                    1148   	cmpc	r1,	#00h
+00:0028 0D C8                    1149   	bne	_$L120
+                                 1150   CBLOCK 8 3 276
+                                 1151   
+                                 1152   ;;   if(AP_bit==1)A_PM=0x01; //AM³£ÁÁ 
+                                 1153   CLINEA 0000H 0001H 0115H 0004H 0024H
+00:002A A5-F0                    1154   	mov	er0,	er10
+00:002C 01 7A                    1155   	cmp	r10,	#01h
+00:002E 00 5B                    1156   	cmpc	r11,	#00h
+00:0030 02 C8                    1157   	bne	_$L122
+00:0032 01 00                    1158   	mov	r0,	#01h
+                                 1159   
+                                 1160   ;;    else if(AP_bit==2)A_PM =0x02;//PM
+                                        ³£ÁÁ 
+                                 1161   CLINEA 0000H 0001H 0116H 0005H 002AH
+00:0034 04 CE                    1162   	bal	_$L125
+00:0036                          1163   _$L122 :
+00:0036 02 70                    1164   	cmp	r0,	#02h
+00:0038 00 51                    1165   	cmpc	r1,	#00h
+00:003A 07 C8                    1166   	bne	_$L127
+00:003C 02 00                    1167   	mov	r0,	#02h
+00:003E                          1168   _$L125 :
+00:003E 11-90 1D-F1              1169   	st	r0,	0f11dh
+                                 1170   CBLOCKEND 8 3 279
+                                 1171   
+                                 1172   ;;	 else A_PM=LOW;//Ãð	
+                                 1173   CLINEA 0000H 0001H 0118H 0003H 0015H
+00:0042 03 CE                    1174   	bal	_$L127
+00:0044                          1175   _$L120 :
+00:0044 00 00                    1176   	mov	r0,	#00h
+00:0046 11-90 1D-F1              1177   	st	r0,	0f11dh
+00:004A                          1178   _$L127 :
+                                 1179   CBLOCKEND 8 2 281
+                                 1180   
+                                 1181   ;;  } 
+                                 1182   CLINEA 0000H 0001H 0119H 0003H 0004H
+00:004A 00-F0'00-00'             1183   	b	__regpopu8sw
+                                 1184   CBLOCKEND 8 1 281
+                                 1185   CFUNCTIONEND 8
+                                 1186   
+                                 1187   
+  --------------------------     1188   	rseg $$UI_all_CLMON$lcdshow
+                                 1189   CFUNCTION 9
+                                 1190   
+00:0000                          1191   _UI_all_CLMON	:
+                                 1192   CBLOCK 9 1 290
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  26 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1193   
+                                 1194   ;; {
+                                 1195   CLINEA 0000H 0001H 0122H 0002H 0002H
+00:0000 CE-F8                    1196   	push	lr
+00:0002 01-F0'00-00'             1197   	bl	__regpushu8sw
+00:0006 25-FA                    1198   	mov	er10,	er2
+00:0008 05-F8                    1199   	mov	er8,	er0
+                                 1200   CBLOCK 9 2 290
+                                 1201   CRET 000CH
+                                 1202   CARGUMENT 46H 0002H 0032H "all" 02H 00H
+                                         01H
+                                 1203   CARGUMENT 46H 0002H 0033H "cl" 02H 00H 
+                                        01H
+                                 1204   CARGUMENT 42H 0002H 000EH "alcl_bit" 02
+                                        H 00H 01H
+                                 1205   
+                                 1206   ;;   if(alcl_bit==1)
+                                 1207   CLINEA 0000H 0001H 0123H 0004H 0012H
+00:000A 4E B0                    1208   	l	er0,	14[fp]
+00:000C 01 70                    1209   	cmp	r0,	#01h
+00:000E 00 51                    1210   	cmpc	r1,	#00h
+00:0010 31 C8                    1211   	bne	_$L129
+                                 1212   CBLOCK 9 3 292
+                                 1213   
+                                 1214   ;;   	  Day_0=NOISY1_bell[cl-1][0][0]
+                                        ; 
+                                 1215   CLINEA 0000H 0001H 0125H 0007H 0025H
+00:0012 25-F0                    1216   	mov	er0,	er2
+00:0014 06 E2                    1217   	mov	er2,	#6 
+00:0016 01-F0'00-00'             1218   	bl	__imulu8sw
+00:001A 08-90 00-00'             1219   	l	r0,	NEAR _NOISY1_be
+                                        ll-06h[er0]
+00:001E 11-90 0A-F1              1220   	st	r0,	0f10ah
+                                 1221   
+                                 1222   ;;	  Day_1=NOISY1_bell[cl-1][0][1]
+                                        ;  
+                                 1223   CLINEA 0000H 0001H 0126H 0004H 0023H
+00:0022 A5-F0                    1224   	mov	er0,	er10
+00:0024 06 E2                    1225   	mov	er2,	#6 
+00:0026 01-F0'00-00'             1226   	bl	__imulu8sw
+00:002A 08-90 00-00'             1227   	l	r0,	NEAR _NOISY1_be
+                                        ll-05h[er0]
+00:002E 11-90 0B-F1              1228   	st	r0,	0f10bh
+                                 1229   
+                                 1230   ;;	  Day_2=NOISY1_bell[cl-1][1][0]
+                                        ;  
+                                 1231   CLINEA 0000H 0001H 0127H 0004H 0023H
+00:0032 A5-F0                    1232   	mov	er0,	er10
+00:0034 06 E2                    1233   	mov	er2,	#6 
+00:0036 01-F0'00-00'             1234   	bl	__imulu8sw
+00:003A 08-90 00-00'             1235   	l	r0,	NEAR _NOISY1_be
+                                        ll-04h[er0]
+00:003E 11-90 0C-F1              1236   	st	r0,	0f10ch
+                                 1237   
+                                 1238   ;;	  Day_3=NOISY1_bell[cl-1][1][1]
+                                        ;  
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  27 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1239   CLINEA 0000H 0001H 0128H 0004H 0023H
+00:0042 A5-F0                    1240   	mov	er0,	er10
+00:0044 06 E2                    1241   	mov	er2,	#6 
+00:0046 01-F0'00-00'             1242   	bl	__imulu8sw
+00:004A 08-90 00-00'             1243   	l	r0,	NEAR _NOISY1_be
+                                        ll-03h[er0]
+00:004E 11-90 0D-F1              1244   	st	r0,	0f10dh
+                                 1245   
+                                 1246   ;;	  Day_4=NOISY1_bell[cl-1][2][0]
+                                        ;  
+                                 1247   CLINEA 0000H 0001H 0129H 0004H 0023H
+00:0052 A5-F0                    1248   	mov	er0,	er10
+00:0054 06 E2                    1249   	mov	er2,	#6 
+00:0056 01-F0'00-00'             1250   	bl	__imulu8sw
+00:005A 08-90 00-00'             1251   	l	r0,	NEAR _NOISY1_be
+                                        ll-02h[er0]
+00:005E 11-90 0E-F1              1252   	st	r0,	0f10eh
+                                 1253   
+                                 1254   ;;	  Day_5=NOISY1_bell[cl-1][2][1]
+                                        ; 	
+                                 1255   CLINEA 0000H 0001H 012AH 0004H 0023H
+00:0062 A5-F0                    1256   	mov	er0,	er10
+00:0064 06 E2                    1257   	mov	er2,	#6 
+00:0066 01-F0'00-00'             1258   	bl	__imulu8sw
+00:006A 08-90 00-00'             1259   	l	r0,	NEAR _NOISY1_be
+                                        ll-01h[er0]
+00:006E 11-90 0F-F1              1260   	st	r0,	0f10fh
+                                 1261   
+                                 1262   ;;   else if(alcl_bit==2)
+                                 1263   CLINEA 0000H 0001H 012CH 0004H 0017H
+00:0072 33 CE                    1264   	bal	_$L132
+00:0074                          1265   _$L129 :
+00:0074 02 70                    1266   	cmp	r0,	#02h
+00:0076 00 51                    1267   	cmpc	r1,	#00h
+00:0078 30 C8                    1268   	bne	_$L132
+                                 1269   CBLOCK 9 4 301
+                                 1270   
+                                 1271   ;;          Day_0=week[all][0][0]; 
+                                 1272   CLINEA 0000H 0001H 012EH 000BH 0021H
+00:007A 85-F0                    1273   	mov	er0,	er8
+00:007C 06 E2                    1274   	mov	er2,	#6 
+00:007E 01-F0'00-00'             1275   	bl	__imulu8sw
+00:0082 08-90 00-00'             1276   	l	r0,	NEAR _week[er0]
+00:0086 11-90 0A-F1              1277   	st	r0,	0f10ah
+                                 1278   
+                                 1279   ;;	  Day_1=week[all][0][1]; 
+                                 1280   CLINEA 0000H 0001H 012FH 0004H 001AH
+00:008A 85-F0                    1281   	mov	er0,	er8
+00:008C 06 E2                    1282   	mov	er2,	#6 
+00:008E 01-F0'00-00'             1283   	bl	__imulu8sw
+00:0092 08-90 00-00'             1284   	l	r0,	NEAR _week+01h[
+                                        er0]
+00:0096 11-90 0B-F1              1285   	st	r0,	0f10bh
+                                 1286   
+                                 1287   ;;	  Day_2=week[all][1][0]; 
+                                 1288   CLINEA 0000H 0001H 0130H 0004H 001AH
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  28 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:009A 85-F0                    1289   	mov	er0,	er8
+00:009C 06 E2                    1290   	mov	er2,	#6 
+00:009E 01-F0'00-00'             1291   	bl	__imulu8sw
+00:00A2 08-90 00-00'             1292   	l	r0,	NEAR _week+02h[
+                                        er0]
+00:00A6 11-90 0C-F1              1293   	st	r0,	0f10ch
+                                 1294   
+                                 1295   ;;	  Day_3=week[all][1][1]; 
+                                 1296   CLINEA 0000H 0001H 0131H 0004H 001AH
+00:00AA 85-F0                    1297   	mov	er0,	er8
+00:00AC 06 E2                    1298   	mov	er2,	#6 
+00:00AE 01-F0'00-00'             1299   	bl	__imulu8sw
+00:00B2 08-90 00-00'             1300   	l	r0,	NEAR _week+03h[
+                                        er0]
+00:00B6 11-90 0D-F1              1301   	st	r0,	0f10dh
+                                 1302   
+                                 1303   ;;	  Day_4=week[all][2][0]; 
+                                 1304   CLINEA 0000H 0001H 0132H 0004H 001AH
+00:00BA 85-F0                    1305   	mov	er0,	er8
+00:00BC 06 E2                    1306   	mov	er2,	#6 
+00:00BE 01-F0'00-00'             1307   	bl	__imulu8sw
+00:00C2 08-90 00-00'             1308   	l	r0,	NEAR _week+04h[
+                                        er0]
+00:00C6 11-90 0E-F1              1309   	st	r0,	0f10eh
+                                 1310   
+                                 1311   ;;	  Day_5=week[all][2][1]; 	
+                                 1312   CLINEA 0000H 0001H 0133H 0004H 001BH
+00:00CA 85-F0                    1313   	mov	er0,	er8
+00:00CC 06 E2                    1314   	mov	er2,	#6 
+00:00CE 01-F0'00-00'             1315   	bl	__imulu8sw
+00:00D2 08-90 00-00'             1316   	l	r0,	NEAR _week+05h[
+                                        er0]
+00:00D6 11-90 0F-F1              1317   	st	r0,	0f10fh
+                                 1318   CBLOCKEND 9 4 308
+                                 1319   
+                                 1320   ;;	 }	
+                                 1321   CLINEA 0000H 0000H 0134H 0003H 0004H
+00:00DA                          1322   _$L132 :
+                                 1323   CBLOCKEND 9 3 309
+                                 1324   CBLOCKEND 9 2 309
+                                 1325   
+                                 1326   ;;  } 
+                                 1327   CLINEA 0000H 0001H 0135H 0003H 0004H
+00:00DA 00-F0'00-00'             1328   	b	__regpopu8sw
+                                 1329   CBLOCKEND 9 1 309
+                                 1330   CFUNCTIONEND 9
+                                 1331   
+                                 1332   
+  --------------------------     1333   	rseg $$CIK_glint$lcdshow
+                                 1334   CFUNCTION 10
+                                 1335   
+00:0000                          1336   _CIK_glint	:
+                                 1337   CBLOCK 10 1 317
+                                 1338   
+                                 1339   ;; {
+                                 1340   CLINEA 0000H 0001H 013DH 0002H 0002H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  29 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0000 6E-F8                    1341   	push	xr8
+00:0002 05-F8                    1342   	mov	er8,	er0
+00:0004 25-FA                    1343   	mov	er10,	er2
+                                 1344   CBLOCK 10 2 317
+                                 1345   CARGUMENT 46H 0002H 0028H "P" 02H 00H 0
+                                        1H
+                                 1346   CARGUMENT 46H 0002H 0029H "da_AIM" 02H 
+                                        00H 01H
+                                 1347   
+                                 1348   ;;      Mon_Da0=0;
+                                 1349   CLINEA 0000H 0001H 013EH 0007H 0010H
+00:0006 00 00                    1350   	mov	r0,	#00h
+00:0008 11-90 10-F1              1351   	st	r0,	0f110h
+                                 1352   
+                                 1353   ;;      Mon_Da1=0; 
+                                 1354   CLINEA 0000H 0001H 013FH 0007H 0011H
+00:000C 11-90 11-F1              1355   	st	r0,	0f111h
+                                 1356   
+                                 1357   ;;   	  if(P==0)
+                                 1358   CLINEA 0000H 0001H 0140H 0007H 000EH
+00:0010 85-F8                    1359   	mov	er8,	er8
+00:0012 05 C8                    1360   	bne	_$L135
+                                 1361   CBLOCK 10 3 321
+                                 1362   
+                                 1363   ;;        Mon_Da2=0;
+                                 1364   CLINEA 0000H 0001H 0142H 0009H 0012H
+00:0014 11-90 12-F1              1365   	st	r0,	0f112h
+                                 1366   
+                                 1367   ;;        Mon_Da3=0;  	   	 
+                                 1368   CLINEA 0000H 0001H 0143H 0009H 001AH
+00:0018 11-90 13-F1              1369   	st	r0,	0f113h
+                                 1370   
+                                 1371   ;;	  else if(P==1)	
+                                 1372   CLINEA 0000H 0001H 0145H 0004H 0011H
+00:001C 0F CE                    1373   	bal	_$L138
+00:001E                          1374   _$L135 :
+00:001E 01 78                    1375   	cmp	r8,	#01h
+00:0020 00 59                    1376   	cmpc	r9,	#00h
+00:0022 0C C8                    1377   	bne	_$L138
+                                 1378   CBLOCK 10 4 326
+                                 1379   
+                                 1380   ;;         Mon_Da2=NOISY0_bell[da_AIM-1
+                                        ][0];
+                                 1381   CLINEA 0000H 0001H 0147H 000AH 002AH
+00:0024 A5-F0                    1382   	mov	er0,	er10
+00:0026 A6-F0                    1383   	add	er0,	er10
+00:0028 08-90 00-00'             1384   	l	r0,	NEAR _NOISY0_be
+                                        ll-02h[er0]
+00:002C 11-90 12-F1              1385   	st	r0,	0f112h
+                                 1386   
+                                 1387   ;;         Mon_Da3=NOISY0_bell[da_AIM-1
+                                        ][1]; 					
+                                            		   		   
+                                 1388   CLINEA 0000H 0001H 0148H 000AH 003EH
+00:0030 A5-F0                    1389   	mov	er0,	er10
+00:0032 A6-F0                    1390   	add	er0,	er10
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  30 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0034 08-90 00-00'             1391   	l	r0,	NEAR _NOISY0_be
+                                        ll-01h[er0]
+00:0038 11-90 13-F1              1392   	st	r0,	0f113h
+                                 1393   CBLOCKEND 10 4 329
+                                 1394   
+                                 1395   ;;	    }   	
+                                 1396   CLINEA 0000H 0000H 0149H 0006H 000AH
+00:003C                          1397   _$L138 :
+                                 1398   CBLOCKEND 10 3 330
+                                 1399   CBLOCKEND 10 2 330
+                                 1400   
+                                 1401   ;;  } 
+                                 1402   CLINEA 0000H 0001H 014AH 0003H 0004H
+00:003C 2E-F8                    1403   	pop	xr8
+00:003E 1F-FE                    1404   	rt
+                                 1405   CBLOCKEND 10 1 330
+                                 1406   CFUNCTIONEND 10
+                                 1407   
+                                 1408   
+  --------------------------     1409   	rseg $$UI_TEMP_HUM$lcdshow
+                                 1410   CFUNCTION 11
+                                 1411   
+00:0000                          1412   _UI_TEMP_HUM	:
+                                 1413   CBLOCK 11 1 340
+                                 1414   
+                                 1415   ;;  {
+                                 1416   CLINEA 0000H 0001H 0154H 0003H 0003H
+00:0000 CE-F8                    1417   	push	lr
+00:0002 01-F0'00-00'             1418   	bl	__regpushu8sw
+00:0006 25-FA                    1419   	mov	er10,	er2
+00:0008 05-F8                    1420   	mov	er8,	er0
+                                 1421   CBLOCK 11 2 340
+                                 1422   CRET 000CH
+                                 1423   CARGUMENT 46H 0002H 0032H "P" 02H 00H 0
+                                        1H
+                                 1424   CARGUMENT 47H 0002H 0033H "TEM_data" 02
+                                        H 00H 01H
+                                 1425   CARGUMENT 43H 0002H 000EH "HUM_data" 02
+                                        H 00H 01H
+                                 1426   CARGUMENT 43H 0002H 0010H "T_H" 06H 03H
+                                         00H 00H 05H 01H 00H
+                                 1427   CARGUMENT 42H 0002H 0012H "MAI_MON" 02H
+                                         00H 01H
+                                 1428   CARGUMENT 42H 0002H 0014H "MAI_K" 02H 0
+                                        0H 01H
+                                 1429   CARGUMENT 43H 0002H 0016H "c_f" 02H 00H
+                                         01H
+                                 1430   
+                                 1431   ;;  	if(MAI_MON==1 && MAI_K==0) //ÏÔ
+                                        Ê¾ÊµÊ±ÎÂÊª¶È 
+                                 1432   CLINEA 0000H 0001H 0155H 0004H 002FH
+00:000A 52 B0                    1433   	l	er0,	18[fp]
+00:000C 01 70                    1434   	cmp	r0,	#01h
+00:000E 00 51                    1435   	cmpc	r1,	#00h
+00:0010 07 C8                    1436   	bne	_$L141
+00:0012 54 B0                    1437   	l	er0,	20[fp]
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  31 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0014 05 C8                    1438   	bne	_$L141
+                                 1439   CBLOCK 11 3 342
+                                 1440   
+                                 1441   ;;       TEM_HUM_realtime(TEM_data, HUM
+                                        _data);  
+                                 1442   CLINEA 0000H 0001H 0158H 0008H 002EH
+00:0016 4E B2                    1443   	l	er2,	14[fp]
+00:0018 A5-F0                    1444   	mov	er0,	er10
+00:001A 01-F0'00-00'             1445   	bl	_TEM_HUM_realtime
+                                 1446   
+                                 1447   ;;    else if(MAI_MON==2 && MAI_K==0) /
+                                        /ÏÔÊ¾×îÐ¡ÎÂÊª¶È  
+                                 1448   CLINEA 0000H 0001H 015AH 0005H 0036H
+00:001E 1D CE                    1449   	bal	_$L157
+00:0020                          1450   _$L141 :
+00:0020 52 B0                    1451   	l	er0,	18[fp]
+00:0022 02 70                    1452   	cmp	r0,	#02h
+00:0024 00 51                    1453   	cmpc	r1,	#00h
+00:0026 0B C8                    1454   	bne	_$L149
+00:0028 54 B0                    1455   	l	er0,	20[fp]
+00:002A 09 C8                    1456   	bne	_$L149
+                                 1457   CBLOCK 11 4 347
+                                 1458   
+                                 1459   ;;       TEM_HUM_realtime(C_FCUTOVER(T_
+                                        H->min_temp, c_f), T_H->min_hum);	
+                                 1460   CLINEA 0000H 0001H 015CH 0008H 0047H
+00:002C 56 B2                    1461   	l	er2,	22[fp]
+00:002E 50 BC                    1462   	l	bp,	16[fp]
+00:0030 02 B0                    1463   	l	er0,	2[bp]
+00:0032 01-F0'00-00'             1464   	bl	_C_FCUTOVER
+00:0036 06 B2                    1465   	l	er2,	6[bp]
+00:0038 01-F0'00-00'             1466   	bl	_TEM_HUM_realtime
+                                 1467   
+                                 1468   ;;    else if(MAI_MON==3 && MAI_K==0) /
+                                        /ÏÔÊ¾×î´óÎÂÊª¶È 
+                                 1469   CLINEA 0000H 0001H 015FH 0005H 0035H
+00:003C 0E CE                    1470   	bal	_$L157
+00:003E                          1471   _$L149 :
+00:003E 52 B0                    1472   	l	er0,	18[fp]
+00:0040 03 70                    1473   	cmp	r0,	#03h
+00:0042 00 51                    1474   	cmpc	r1,	#00h
+00:0044 0A C8                    1475   	bne	_$L157
+00:0046 54 B0                    1476   	l	er0,	20[fp]
+00:0048 08 C8                    1477   	bne	_$L157
+                                 1478   CBLOCK 11 5 352
+                                 1479   
+                                 1480   ;;       TEM_HUM_realtime(C_FCUTOVER(T_
+                                        H->max_temp, c_f), T_H->max_hum);	
+                                 1481   CLINEA 0000H 0001H 0161H 0008H 0047H
+00:004A 56 B2                    1482   	l	er2,	22[fp]
+00:004C 50 BC                    1483   	l	bp,	16[fp]
+00:004E C2-90                    1484   	l	er0,	[bp]
+00:0050 01-F0'00-00'             1485   	bl	_C_FCUTOVER
+00:0054 04 B2                    1486   	l	er2,	4[bp]
+00:0056 01-F0'00-00'             1487   	bl	_TEM_HUM_realtime
+                                 1488   CBLOCKEND 11 5 355
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  32 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1489   
+                                 1490   ;;      }
+                                 1491   CLINEA 0000H 0000H 0163H 0007H 0007H
+00:005A                          1492   _$L157 :
+                                 1493   CBLOCKEND 11 4 361
+                                 1494   
+                                 1495   ;;    if(MAI_K==1) //ÖØÖÃ×î´óÐ¡ÏÔÊ¾
+                                 1496   CLINEA 0000H 0001H 0164H 0005H 0021H
+00:005A 54 B0                    1497   	l	er0,	20[fp]
+00:005C 01 70                    1498   	cmp	r0,	#01h
+00:005E 00 51                    1499   	cmpc	r1,	#00h
+00:0060 06 C8                    1500   	bne	_$L164
+                                 1501   CBLOCKEND 11 3 361
+                                 1502   CBLOCK 11 6 357
+                                 1503   
+                                 1504   ;; 	   TEM_HUM_realtime(-600, -600)
+                                        ;
+                                 1505   CLINEA 0000H 0001H 0166H 0006H 0022H
+00:0062 A8 02                    1506   	mov	r2,	#0a8h
+00:0064 FD 03                    1507   	mov	r3,	#0fdh
+00:0066 A8 00                    1508   	mov	r0,	#0a8h
+00:0068 FD 01                    1509   	mov	r1,	#0fdh
+00:006A 01-F0'00-00'             1510   	bl	_TEM_HUM_realtime
+                                 1511   CBLOCKEND 11 6 359
+                                 1512   
+                                 1513   ;;	  } 
+                                 1514   CLINEA 0000H 0000H 0167H 0004H 0005H
+00:006E                          1515   _$L164 :
+                                 1516   
+                                 1517   ;;	  MAX_MIN_realtime(P, MAI_MON);
+                                 1518   CLINEA 0000H 0001H 0168H 0004H 0020H
+00:006E 52 B2                    1519   	l	er2,	18[fp]
+00:0070 85-F0                    1520   	mov	er0,	er8
+00:0072 01-F0'00-00'             1521   	bl	_MAX_MIN_realtime
+                                 1522   CBLOCKEND 11 2 361
+                                 1523   
+                                 1524   ;;  } 
+                                 1525   CLINEA 0000H 0001H 0169H 0003H 0004H
+00:0076 00-F0'00-00'             1526   	b	__regpopu8sw
+                                 1527   CBLOCKEND 11 1 361
+                                 1528   CFUNCTIONEND 11
+                                 1529   
+                                 1530   
+  --------------------------     1531   	rseg $$TEM_HUM_realtime$lcdshow
+                                 1532   CFUNCTION 12
+                                 1533   
+00:0000                          1534   _TEM_HUM_realtime	:
+                                 1535   CBLOCK 12 1 369
+                                 1536   
+                                 1537   ;; {
+                                 1538   CLINEA 0000H 0001H 0171H 0002H 0002H
+00:0000 CE-F8                    1539   	push	lr
+00:0002 6E-F8                    1540   	push	xr8
+00:0004 05-F8                    1541   	mov	er8,	er0
+00:0006 25-FA                    1542   	mov	er10,	er2
+                                 1543   CBLOCK 12 2 369
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  33 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1544   CRET 0004H
+                                 1545   CARGUMENT 47H 0002H 0028H "TE_data" 02H
+                                         00H 01H
+                                 1546   CARGUMENT 47H 0002H 0029H "HU_data" 02H
+                                         00H 01H
+                                 1547   
+                                 1548   ;; 	if(TE_data>-600)
+                                 1549   CLINEA 0000H 0001H 0173H 0003H 0012H
+00:0008 A8 70                    1550   	cmp	r0,	#0a8h
+00:000A FD 51                    1551   	cmpc	r1,	#0fdh
+00:000C 3C C7                    1552   	bles	_$L167
+                                 1553   CBLOCK 12 3 372
+                                 1554   
+                                 1555   ;;     if(TE_data<0)carry=HIGH; //¸ººÅ 
+                                 1556   CLINEA 0000H 0001H 0175H 0006H 0025H
+00:000E 05-F0                    1557   	mov	er0,	er0
+00:0010 04 CC                    1558   	bps	_$L169
+00:0012 01 00                    1559   	mov	r0,	#01h
+00:0014 11-90 09-F1              1560   	st	r0,	0f109h
+                                 1561   
+                                 1562   ;;      else if(TE_data>=0)carry=LOW;  
+                                            
+                                 1563   CLINEA 0000H 0001H 0176H 0007H 0029H
+00:0018 05 CE                    1564   	bal	_$L172
+00:001A                          1565   _$L169 :
+00:001A 85-F0                    1566   	mov	er0,	er8
+00:001C 03 CD                    1567   	bns	_$L172
+00:001E 00 00                    1568   	mov	r0,	#00h
+00:0020 11-90 09-F1              1569   	st	r0,	0f109h
+00:0024                          1570   _$L172 :
+                                 1571   
+                                 1572   ;;     if(TE_data>=1000)Temp_0=HIGH; //
+                                        ¹ýÁË100ºó 
+                                 1573   CLINEA 0000H 0001H 0177H 0006H 002FH
+00:0024 85-F0                    1574   	mov	er0,	er8
+00:0026 E8 78                    1575   	cmp	r8,	#0e8h
+00:0028 03 59                    1576   	cmpc	r9,	#03h
+00:002A 04 C5                    1577   	blts	_$L174
+00:002C 01 00                    1578   	mov	r0,	#01h
+00:002E 11-90 14-F1              1579   	st	r0,	0f114h
+                                 1580   
+                                 1581   ;;      else if(TE_data<1000)Temp_0=LOW
+                                        ;
+                                 1582   CLINEA 0000H 0001H 0178H 0007H 0026H
+00:0032 06 CE                    1583   	bal	_$L177
+00:0034                          1584   _$L174 :
+00:0034 E8 70                    1585   	cmp	r0,	#0e8h
+00:0036 03 51                    1586   	cmpc	r1,	#03h
+00:0038 03 C4                    1587   	bges	_$L177
+00:003A 00 00                    1588   	mov	r0,	#00h
+00:003C 11-90 14-F1              1589   	st	r0,	0f114h
+00:0040                          1590   _$L177 :
+                                 1591   
+                                 1592   ;;     if(TE_data<100)Temp_1=LOW;
+                                 1593   CLINEA 0000H 0001H 0179H 0006H 001FH
+00:0040 85-F0                    1594   	mov	er0,	er8
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  34 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0042 64 78                    1595   	cmp	r8,	#064h
+00:0044 00 59                    1596   	cmpc	r9,	#00h
+00:0046 02 C4                    1597   	bges	_$L179
+00:0048 00 00                    1598   	mov	r0,	#00h
+                                 1599   
+                                 1600   ;; 	  else Temp_1=table[TE_data/100
+                                        %10]; 
+                                 1601   CLINEA 0000H 0001H 017AH 0005H 0027H
+00:004A 09 CE                    1602   	bal	_$L181
+00:004C                          1603   _$L179 :
+00:004C 64 02                    1604   	mov	r2,	#064h
+00:004E 00 03                    1605   	mov	r3,	#00h
+00:0050 01-F0'00-00'             1606   	bl	__idivu8sw
+00:0054 0A E2                    1607   	mov	er2,	#10
+00:0056 01-F0'00-00'             1608   	bl	__imodu8sw
+00:005A 08-90 00-00'             1609   	l	r0,	NEAR _table[er0
+                                        ]
+00:005E                          1610   _$L181 :
+00:005E 11-90 15-F1              1611   	st	r0,	0f115h
+                                 1612   
+                                 1613   ;;  	       Temp_2=table[TE_data/10%
+                                        10]; 
+                                 1614   CLINEA 0000H 0001H 017BH 000BH 0027H
+00:0062 85-F0                    1615   	mov	er0,	er8
+00:0064 0A E2                    1616   	mov	er2,	#10
+00:0066 01-F0'00-00'             1617   	bl	__idivu8sw
+00:006A 0A E2                    1618   	mov	er2,	#10
+00:006C 01-F0'00-00'             1619   	bl	__imodu8sw
+00:0070 08-90 00-00'             1620   	l	r0,	NEAR _table[er0
+                                        ]
+00:0074 11-90 16-F1              1621   	st	r0,	0f116h
+                                 1622   
+                                 1623   ;;  	       Temp_3=table[TE_data%10]
+                                        ; 
+                                 1624   CLINEA 0000H 0001H 017CH 000BH 0024H
+00:0078 85-F0                    1625   	mov	er0,	er8
+00:007A 0A E2                    1626   	mov	er2,	#10
+00:007C 01-F0'00-00'             1627   	bl	__imodu8sw
+00:0080 08-90 00-00'             1628   	l	r0,	NEAR _table[er0
+                                        ]
+                                 1629   CBLOCKEND 12 3 381
+                                 1630   
+                                 1631   ;;     else 
+                                 1632   CLINEA 0000H 0001H 017EH 0006H 000AH
+00:0084 06 CE                    1633   	bal	_$L182
+00:0086                          1634   _$L167 :
+                                 1635   CBLOCK 12 4 383
+                                 1636   
+                                 1637   ;;       Temp_1=table[11]; 
+                                 1638   CLINEA 0000H 0001H 0180H 0008H 0019H
+00:0086 10-90 00-00'             1639   	l	r0,	NEAR _table+0bh
+00:008A 11-90 15-F1              1640   	st	r0,	0f115h
+                                 1641   
+                                 1642   ;;  	   Temp_2=table[11]; 
+                                 1643   CLINEA 0000H 0001H 0181H 0007H 0018H
+00:008E 11-90 16-F1              1644   	st	r0,	0f116h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  35 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1645   
+                                 1646   ;;  	   Temp_3=table[11];	
+                                 1647   CLINEA 0000H 0001H 0182H 0007H 0018H
+                                 1648   CBLOCKEND 12 4 387
+                                 1649   
+                                 1650   ;;       }
+                                 1651   CLINEA 0000H 0000H 0183H 0008H 0008H
+00:0092                          1652   _$L182 :
+00:0092 11-90 17-F1              1653   	st	r0,	0f117h
+                                 1654   
+                                 1655   ;;  	 if(HU_data>-600)
+                                 1656   CLINEA 0000H 0001H 0185H 0005H 0014H
+00:0096 A5-F0                    1657   	mov	er0,	er10
+00:0098 A8 7A                    1658   	cmp	r10,	#0a8h
+00:009A FD 5B                    1659   	cmpc	r11,	#0fdh
+00:009C 18 C7                    1660   	bles	_$L183
+                                 1661   CBLOCK 12 5 390
+                                 1662   
+                                 1663   ;;  	  if(HU_data<10)Hum_0=LOW;
+                                 1664   CLINEA 0000H 0001H 0187H 0006H 001DH
+00:009E 0A 7A                    1665   	cmp	r10,	#0ah
+00:00A0 00 5B                    1666   	cmpc	r11,	#00h
+00:00A2 04 C4                    1667   	bges	_$L185
+00:00A4 00 00                    1668   	mov	r0,	#00h
+00:00A6 11-90 18-F1              1669   	st	r0,	0f118h
+                                 1670   
+                                 1671   ;;  	   else if(HU_data>=10)Hum_0=ta
+                                        ble[HU_data/10];
+                                 1672   CLINEA 0000H 0001H 0188H 0007H 0032H
+00:00AA 0A CE                    1673   	bal	_$L188
+00:00AC                          1674   _$L185 :
+00:00AC 0A 70                    1675   	cmp	r0,	#0ah
+00:00AE 00 51                    1676   	cmpc	r1,	#00h
+00:00B0 07 C5                    1677   	blts	_$L188
+00:00B2 0A E2                    1678   	mov	er2,	#10
+00:00B4 01-F0'00-00'             1679   	bl	__idivu8sw
+00:00B8 08-90 00-00'             1680   	l	r0,	NEAR _table[er0
+                                        ]
+00:00BC 11-90 18-F1              1681   	st	r0,	0f118h
+00:00C0                          1682   _$L188 :
+                                 1683   
+                                 1684   ;;  	   Hum_1=table[HU_data%10];	
+                                 1685   CLINEA 0000H 0001H 0189H 0007H 001FH
+00:00C0 A5-F0                    1686   	mov	er0,	er10
+00:00C2 0A E2                    1687   	mov	er2,	#10
+00:00C4 01-F0'00-00'             1688   	bl	__imodu8sw
+00:00C8 08-90 00-00'             1689   	l	r0,	NEAR _table[er0
+                                        ]
+                                 1690   CBLOCKEND 12 5 394
+                                 1691   
+                                 1692   ;;     else
+                                 1693   CLINEA 0000H 0001H 018BH 0006H 0009H
+00:00CC 04 CE                    1694   	bal	_$L190
+00:00CE                          1695   _$L183 :
+                                 1696   CBLOCK 12 6 396
+                                 1697   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  36 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1698   ;;   	   Hum_0=table[11];
+                                 1699   CLINEA 0000H 0001H 018DH 0008H 0017H
+00:00CE 10-90 00-00'             1700   	l	r0,	NEAR _table+0bh
+00:00D2 11-90 18-F1              1701   	st	r0,	0f118h
+                                 1702   
+                                 1703   ;;  	   Hum_1=table[11];
+                                 1704   CLINEA 0000H 0001H 018EH 0007H 0016H
+                                 1705   CBLOCKEND 12 6 399
+                                 1706   
+                                 1707   ;;      }
+                                 1708   CLINEA 0000H 0000H 018FH 0007H 0007H
+00:00D6                          1709   _$L190 :
+00:00D6 11-90 19-F1              1710   	st	r0,	0f119h
+                                 1711   CBLOCKEND 12 2 400
+                                 1712   
+                                 1713   ;;  } 
+                                 1714   CLINEA 0000H 0001H 0190H 0003H 0004H
+00:00DA 2E-F8                    1715   	pop	xr8
+00:00DC 8E-F2                    1716   	pop	pc
+                                 1717   CBLOCKEND 12 1 400
+                                 1718   CFUNCTIONEND 12
+                                 1719   
+                                 1720   
+  --------------------------     1721   	rseg $$MAX_MIN_realtime$lcdshow
+                                 1722   CFUNCTION 13
+                                 1723   
+00:0000                          1724   _MAX_MIN_realtime	:
+                                 1725   CBLOCK 13 1 408
+                                 1726   
+                                 1727   ;; {
+                                 1728   CLINEA 0000H 0001H 0198H 0002H 0002H
+00:0000 5E-F8                    1729   	push	er8
+00:0002 05-F8                    1730   	mov	er8,	er0
+                                 1731   CBLOCK 13 2 408
+                                 1732   CARGUMENT 46H 0002H 0028H "P" 02H 00H 0
+                                        1H
+                                 1733   CARGUMENT 46H 0002H 0025H "MAI_MON" 02H
+                                         00H 01H
+                                 1734   
+                                 1735   ;;  	if(MAI_MON==1) Min_Max=LOW;
+                                 1736   CLINEA 0000H 0001H 0199H 0004H 001EH
+00:0004 25-F0                    1737   	mov	er0,	er2
+00:0006 01 72                    1738   	cmp	r2,	#01h
+00:0008 00 53                    1739   	cmpc	r3,	#00h
+00:000A 04 C8                    1740   	bne	_$L192
+00:000C 00 00                    1741   	mov	r0,	#00h
+00:000E 11-90 01-F1              1742   	st	r0,	0f101h
+                                 1743   
+                                 1744   ;;     else if(MAI_MON==2)
+                                 1745   CLINEA 0000H 0001H 019AH 0006H 0018H
+00:0012 1D CE                    1746   	bal	_$L208
+00:0014                          1747   _$L192 :
+00:0014 02 70                    1748   	cmp	r0,	#02h
+00:0016 00 51                    1749   	cmpc	r1,	#00h
+00:0018 0B C8                    1750   	bne	_$L195
+                                 1751   CBLOCK 13 3 411
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  37 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1752   
+                                 1753   ;;  	    if(P==0)Min_Max=LOW;
+                                 1754   CLINEA 0000H 0001H 019CH 0008H 001BH
+00:001A 85-F8                    1755   	mov	er8,	er8
+00:001C 02 C8                    1756   	bne	_$L197
+00:001E 00 00                    1757   	mov	r0,	#00h
+                                 1758   
+                                 1759   ;;	   	 else if(P==1) Min_Max=
+                                        0x01;
+                                 1760   CLINEA 0000H 0001H 019DH 0007H 0021H
+00:0020 04 CE                    1761   	bal	_$L200
+00:0022                          1762   _$L197 :
+00:0022 01 78                    1763   	cmp	r8,	#01h
+00:0024 00 59                    1764   	cmpc	r9,	#00h
+00:0026 13 C8                    1765   	bne	_$L208
+00:0028 01 00                    1766   	mov	r0,	#01h
+00:002A                          1767   _$L200 :
+00:002A 11-90 01-F1              1768   	st	r0,	0f101h
+                                 1769   
+                                 1770   ;;	 else if(MAI_MON==3)
+                                 1771   CLINEA 0000H 0001H 019FH 0003H 0015H
+00:002E 0F CE                    1772   	bal	_$L208
+00:0030                          1773   _$L195 :
+00:0030 03 70                    1774   	cmp	r0,	#03h
+00:0032 00 51                    1775   	cmpc	r1,	#00h
+00:0034 0C C8                    1776   	bne	_$L208
+                                 1777   CBLOCK 13 4 416
+                                 1778   
+                                 1779   ;;  	    if(P==0)Min_Max=LOW;
+                                 1780   CLINEA 0000H 0001H 01A1H 0008H 001BH
+00:0036 85-F8                    1781   	mov	er8,	er8
+00:0038 04 C8                    1782   	bne	_$L205
+00:003A 00 00                    1783   	mov	r0,	#00h
+00:003C 11-90 01-F1              1784   	st	r0,	0f101h
+                                 1785   
+                                 1786   ;;	   	 else if(P==1) Min_Max=
+                                        0x02;
+                                 1787   CLINEA 0000H 0001H 01A2H 0007H 0021H
+00:0040 06 CE                    1788   	bal	_$L208
+00:0042                          1789   _$L205 :
+00:0042 01 78                    1790   	cmp	r8,	#01h
+00:0044 00 59                    1791   	cmpc	r9,	#00h
+00:0046 03 C8                    1792   	bne	_$L208
+00:0048 02 00                    1793   	mov	r0,	#02h
+00:004A 11-90 01-F1              1794   	st	r0,	0f101h
+00:004E                          1795   _$L208 :
+                                 1796   CBLOCKEND 13 4 419
+                                 1797   CBLOCKEND 13 3 420
+                                 1798   CBLOCKEND 13 2 420
+                                 1799   
+                                 1800   ;;  }
+                                 1801   CLINEA 0000H 0001H 01A4H 0003H 0003H
+00:004E 1E-F8                    1802   	pop	er8
+00:0050 1F-FE                    1803   	rt
+                                 1804   CBLOCKEND 13 1 420
+                                 1805   CFUNCTIONEND 13
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  38 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1806   
+                                 1807   
+  --------------------------     1808   	rseg $$PICK_dataCOR$lcdshow
+                                 1809   CFUNCTION 14
+                                 1810   
+00:0000                          1811   _PICK_dataCOR	:
+                                 1812   CBLOCK 14 1 428
+                                 1813   
+                                 1814   ;; {
+                                 1815   CLINEA 0000H 0001H 01ACH 0002H 0002H
+00:0000 05-F2                    1816   	mov	er2,	er0
+                                 1817   CBLOCK 14 2 428
+                                 1818   CARGUMENT 46H 0002H 0025H "DATA_bit" 02
+                                        H 00H 01H
+                                 1819   
+                                 1820   ;;   P_BAT=0x01; 
+                                 1821   CLINEA 0000H 0001H 01ADH 0004H 000FH
+00:0002 01 00                    1822   	mov	r0,	#01h
+00:0004 11-90 1A-F1              1823   	st	r0,	0f11ah
+                                 1824   
+                                 1825   ;;   if(DATA_bit==1)C_F_H=0x05; //C¶ÈÏÔ
+                                        Ê¾ 
+                                 1826   CLINEA 0000H 0001H 01AEH 0004H 0028H
+00:0008 01 72                    1827   	cmp	r2,	#01h
+00:000A 00 53                    1828   	cmpc	r3,	#00h
+00:000C 04 C8                    1829   	bne	_$L211
+00:000E 05 00                    1830   	mov	r0,	#05h
+00:0010 11-90 1B-F1              1831   	st	r0,	0f11bh
+                                 1832   
+                                 1833   ;;    else if(DATA_bit==0)C_F_H=0x03;	
+                                        //F¶ÈÏÔÊ¾ 
+                                 1834   CLINEA 0000H 0001H 01AFH 0005H 002EH
+00:0014 1F-FE                    1835   	rt
+00:0016                          1836   _$L211 :
+00:0016 25-F2                    1837   	mov	er2,	er2
+00:0018 03 C8                    1838   	bne	_$L214
+00:001A 03 00                    1839   	mov	r0,	#03h
+00:001C 11-90 1B-F1              1840   	st	r0,	0f11bh
+00:0020                          1841   _$L214 :
+                                 1842   CBLOCKEND 14 2 432
+                                 1843   
+                                 1844   ;;  }
+                                 1845   CLINEA 0000H 0001H 01B0H 0003H 0003H
+00:0020 1F-FE                    1846   	rt
+                                 1847   CBLOCKEND 14 1 432
+                                 1848   CFUNCTIONEND 14
+                                 1849   
+                                 1850   
+  --------------------------     1851   	rseg $$DATA_INT$lcdshow
+                                 1852   CFUNCTION 15
+                                 1853   
+00:0000                          1854   _DATA_INT	:
+                                 1855   CBLOCK 15 1 442
+                                 1856   
+                                 1857   ;; {
+                                 1858   CLINEA 0000H 0001H 01BAH 0002H 0002H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  39 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0000 CE-F8                    1859   	push	lr
+00:0002 01-F0'00-00'             1860   	bl	__regpushu8sw
+                                 1861   CBLOCK 15 2 442
+                                 1862   CRET 000CH
+                                 1863   CARGUMENT 47H 0002H 0030H "TEMP_DATA" 0
+                                        2H 00H 01H
+                                 1864   CARGUMENT 47H 0002H 0031H "HUM_DATA" 02
+                                        H 00H 01H
+                                 1865   CARGUMENT 43H 0002H 000EH "M_m" 06H 03H
+                                         00H 00H 05H 01H 00H
+                                 1866   
+                                 1867   ;;   	M_m->min_temp=TEMP_DATA;
+                                 1868   CLINEA 0000H 0001H 01BBH 0005H 001CH
+00:0006 4E BC                    1869   	l	bp,	14[fp]
+00:0008 82 B0                    1870   	st	er0,	2[bp]
+                                 1871   
+                                 1872   ;;   	M_m->max_temp=TEMP_DATA;
+                                 1873   CLINEA 0000H 0001H 01BCH 0005H 001CH
+00:000A C3-90                    1874   	st	er0,	[bp]
+                                 1875   
+                                 1876   ;;   	M_m->min_hum=HUM_DATA;
+                                 1877   CLINEA 0000H 0001H 01BDH 0005H 001AH
+00:000C 86 B2                    1878   	st	er2,	6[bp]
+                                 1879   
+                                 1880   ;;   	M_m->max_hum=HUM_DATA;
+                                 1881   CLINEA 0000H 0001H 01BEH 0005H 001AH
+00:000E 84 B2                    1882   	st	er2,	4[bp]
+                                 1883   CBLOCKEND 15 2 447
+                                 1884   
+                                 1885   ;;  }
+                                 1886   CLINEA 0000H 0001H 01BFH 0003H 0003H
+00:0010 00-F0'00-00'             1887   	b	__regpopu8sw
+                                 1888   CBLOCKEND 15 1 447
+                                 1889   CFUNCTIONEND 15
+                                 1890   
+                                 1891   
+  --------------------------     1892   	rseg $$DATA_compare$lcdshow
+                                 1893   CFUNCTION 16
+                                 1894   
+00:0000                          1895   _DATA_compare	:
+                                 1896   CBLOCK 16 1 456
+                                 1897   
+                                 1898   ;; {
+                                 1899   CLINEA 0000H 0001H 01C8H 0002H 0002H
+00:0000 CE-F8                    1900   	push	lr
+00:0002 01-F0'00-00'             1901   	bl	__regpushu8sw
+00:0006 05-F8                    1902   	mov	er8,	er0
+00:0008 25-FA                    1903   	mov	er10,	er2
+                                 1904   CBLOCK 16 2 456
+                                 1905   CRET 000CH
+                                 1906   CARGUMENT 47H 0002H 0034H "TEMP_DATA" 0
+                                        2H 00H 01H
+                                 1907   CARGUMENT 47H 0002H 0035H "HUM_DATA" 02
+                                        H 00H 01H
+                                 1908   CARGUMENT 43H 0002H 000EH "M_ai" 06H 03
+                                        H 00H 00H 05H 01H 00H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  40 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1909   
+                                 1910   ;;   	if(TEMP_DATA < M_ai->min_temp)M
+                                        _ai->min_temp=TEMP_DATA;
+                                 1911   CLINEA 0000H 0001H 01C9H 0005H 003BH
+00:000A 4E BC                    1912   	l	bp,	14[fp]
+00:000C 02 BC                    1913   	l	bp,	2[bp]
+00:000E C7-F0                    1914   	cmp	er0,	bp
+00:0010 02 C4                    1915   	bges	_$L218
+00:0012 4E BC                    1916   	l	bp,	14[fp]
+00:0014 82 B0                    1917   	st	er0,	2[bp]
+00:0016                          1918   _$L218 :
+                                 1919   
+                                 1920   ;;   	if(TEMP_DATA > M_ai->max_temp)M
+                                        _ai->max_temp=TEMP_DATA;
+                                 1921   CLINEA 0000H 0001H 01CAH 0005H 003BH
+00:0016 4E BC                    1922   	l	bp,	14[fp]
+00:0018 C2-9C                    1923   	l	bp,	[bp]
+00:001A C7-F0                    1924   	cmp	er0,	bp
+00:001C 02 C7                    1925   	bles	_$L220
+00:001E 4E BC                    1926   	l	bp,	14[fp]
+00:0020 C3-98                    1927   	st	er8,	[bp]
+00:0022                          1928   _$L220 :
+                                 1929   
+                                 1930   ;;   	if(HUM_DATA < M_ai->min_hum)M_a
+                                        i->min_hum=HUM_DATA;
+                                 1931   CLINEA 0000H 0001H 01CBH 0005H 0037H
+00:0022 4E BC                    1932   	l	bp,	14[fp]
+00:0024 06 BC                    1933   	l	bp,	6[bp]
+00:0026 C7-FA                    1934   	cmp	er10,	bp
+00:0028 02 C4                    1935   	bges	_$L222
+00:002A 4E BC                    1936   	l	bp,	14[fp]
+00:002C 86 BA                    1937   	st	er10,	6[bp]
+00:002E                          1938   _$L222 :
+                                 1939   
+                                 1940   ;;   	if(HUM_DATA > M_ai->max_hum)M_a
+                                        i->max_hum=HUM_DATA;
+                                 1941   CLINEA 0000H 0001H 01CCH 0005H 0037H
+00:002E 4E BC                    1942   	l	bp,	14[fp]
+00:0030 04 BC                    1943   	l	bp,	4[bp]
+00:0032 C7-FA                    1944   	cmp	er10,	bp
+00:0034 02 C7                    1945   	bles	_$L224
+00:0036 4E BC                    1946   	l	bp,	14[fp]
+00:0038 84 BA                    1947   	st	er10,	4[bp]
+00:003A                          1948   _$L224 :
+                                 1949   CBLOCKEND 16 2 461
+                                 1950   
+                                 1951   ;;  }
+                                 1952   CLINEA 0000H 0001H 01CDH 0003H 0003H
+00:003A 00-F0'00-00'             1953   	b	__regpopu8sw
+                                 1954   CBLOCKEND 16 1 461
+                                 1955   CFUNCTIONEND 16
+                                 1956   
+                                 1957   	public _DATA_compare
+                                 1958   	public _UI_BUZZ
+                                 1959   	public _UI_AIS_APM
+                                 1960   	public _CIK_glint
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  41 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                 1961   	public _UI_P
+                                 1962   	public _NOISY1_bell
+                                 1963   	public _UI_TEMP_HUM
+                                 1964   	public _MAX_MIN_realtime
+                                 1965   	public _table
+                                 1966   	public _UI_YEAR_TIME
+                                 1967   	public _UI_MODA
+                                 1968   	public _UI_all_CLMON
+                                 1969   	public _week
+                                 1970   	public _UI_TIME
+                                 1971   	public _PICK_dataCOR
+                                 1972   	public _TEM_HUM_realtime
+                                 1973   	public _TIM_FEN
+                                 1974   	public _UI_YE
+                                 1975   	public _TIM_SHI
+                                 1976   	public _TIME_system
+                                 1977   	public _DATA_INT
+                                 1978   	public _NOISY0_bell
+                                 1979   	extrn code near : _C_FCUTOVER
+                                 1980   	extrn code near : _main
+                                 1981   
+  --------------------------     1982   	rseg $$NINITTAB
+??:0000 3F                       1983   	db	03fh
+??:0001 3F                       1984   	db	03fh
+??:0002 3F                       1985   	db	03fh
+??:0003 06                       1986   	db	06h
+??:0004 3F                       1987   	db	03fh
+??:0005 5B                       1988   	db	05bh
+??:0006 3F                       1989   	db	03fh
+??:0007 4F                       1990   	db	04fh
+??:0008 3F                       1991   	db	03fh
+??:0009 66                       1992   	db	066h
+??:000A 3F                       1993   	db	03fh
+??:000B 6D                       1994   	db	06dh
+??:000C 3F                       1995   	db	03fh
+??:000D 7D                       1996   	db	07dh
+??:000E 3F                       1997   	db	03fh
+??:000F 07                       1998   	db	07h
+??:0010 3F                       1999   	db	03fh
+??:0011 7F                       2000   	db	07fh
+??:0012 3F                       2001   	db	03fh
+??:0013 6F                       2002   	db	06fh
+??:0014 06                       2003   	db	06h
+??:0015 3F                       2004   	db	03fh
+??:0016 06                       2005   	db	06h
+??:0017 06                       2006   	db	06h
+??:0018 06                       2007   	db	06h
+??:0019 5B                       2008   	db	05bh
+??:001A 06                       2009   	db	06h
+??:001B 4F                       2010   	db	04fh
+??:001C 06                       2011   	db	06h
+??:001D 66                       2012   	db	066h
+??:001E 06                       2013   	db	06h
+??:001F 6D                       2014   	db	06dh
+??:0020 06                       2015   	db	06h
+??:0021 7D                       2016   	db	07dh
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  42 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+??:0022 06                       2017   	db	06h
+??:0023 07                       2018   	db	07h
+??:0024 06                       2019   	db	06h
+??:0025 7F                       2020   	db	07fh
+??:0026 06                       2021   	db	06h
+??:0027 6F                       2022   	db	06fh
+??:0028 5B                       2023   	db	05bh
+??:0029 3F                       2024   	db	03fh
+??:002A 5B                       2025   	db	05bh
+??:002B 06                       2026   	db	06h
+??:002C 5B                       2027   	db	05bh
+??:002D 5B                       2028   	db	05bh
+??:002E 5B                       2029   	db	05bh
+??:002F 4F                       2030   	db	04fh
+??:0030 06                       2031   	db	06h
+??:0031 5B                       2032   	db	05bh
+??:0032 3F                       2033   	db	03fh
+??:0033 06                       2034   	db	06h
+??:0034 3F                       2035   	db	03fh
+??:0035 5B                       2036   	db	05bh
+??:0036 3F                       2037   	db	03fh
+??:0037 4F                       2038   	db	04fh
+??:0038 3F                       2039   	db	03fh
+??:0039 66                       2040   	db	066h
+??:003A 3F                       2041   	db	03fh
+??:003B 6D                       2042   	db	06dh
+??:003C 3F                       2043   	db	03fh
+??:003D 7D                       2044   	db	07dh
+??:003E 3F                       2045   	db	03fh
+??:003F 07                       2046   	db	07h
+??:0040 3F                       2047   	db	03fh
+??:0041 7F                       2048   	db	07fh
+??:0042 3F                       2049   	db	03fh
+??:0043 6F                       2050   	db	06fh
+??:0044 06                       2051   	db	06h
+??:0045 3F                       2052   	db	03fh
+??:0046 06                       2053   	db	06h
+??:0047 06                       2054   	db	06h
+??:0048 06                       2055   	db	06h
+??:0049 5B                       2056   	db	05bh
+??:004A 3F                       2057   	db	03fh
+??:004B 06                       2058   	db	06h
+??:004C 3F                       2059   	db	03fh
+??:004D 5B                       2060   	db	05bh
+??:004E 3F                       2061   	db	03fh
+??:004F 4F                       2062   	db	04fh
+??:0050 3F                       2063   	db	03fh
+??:0051 66                       2064   	db	066h
+??:0052 3F                       2065   	db	03fh
+??:0053 6D                       2066   	db	06dh
+??:0054 3F                       2067   	db	03fh
+??:0055 7D                       2068   	db	07dh
+??:0056 3F                       2069   	db	03fh
+??:0057 07                       2070   	db	07h
+??:0058 3F                       2071   	db	03fh
+??:0059 7F                       2072   	db	07fh
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  43 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+??:005A 3F                       2073   	db	03fh
+??:005B 6F                       2074   	db	06fh
+??:005C 06                       2075   	db	06h
+??:005D 3F                       2076   	db	03fh
+??:005E 06                       2077   	db	06h
+??:005F 06                       2078   	db	06h
+??:0060 6D                       2079   	db	06dh
+??:0061 01                       2080   	db	01h
+??:0062 3E                       2081   	db	03eh
+??:0063 00                       2082   	db	00h
+??:0064 36                       2083   	db	036h
+??:0065 18                       2084   	db	018h
+??:0066 36                       2085   	db	036h
+??:0067 50                       2086   	db	050h
+??:0068 3F                       2087   	db	03fh
+??:0069 00                       2088   	db	00h
+??:006A 36                       2089   	db	036h
+??:006B 18                       2090   	db	018h
+??:006C 01                       2091   	db	01h
+??:006D 24                       2092   	db	024h
+??:006E 3E                       2093   	db	03eh
+??:006F 00                       2094   	db	00h
+??:0070 79                       2095   	db	079h
+??:0071 01                       2096   	db	01h
+??:0072 36                       2097   	db	036h
+??:0073 0A                       2098   	db	0ah
+??:0074 79                       2099   	db	079h
+??:0075 01                       2100   	db	01h
+??:0076 0F                       2101   	db	0fh
+??:0077 24                       2102   	db	024h
+??:0078 01                       2103   	db	01h
+??:0079 24                       2104   	db	024h
+??:007A 76                       2105   	db	076h
+??:007B 01                       2106   	db	01h
+??:007C 3E                       2107   	db	03eh
+??:007D 00                       2108   	db	00h
+??:007E 71                       2109   	db	071h
+??:007F 01                       2110   	db	01h
+??:0080 73                       2111   	db	073h
+??:0081 09                       2112   	db	09h
+??:0082 09                       2113   	db	09h
+??:0083 24                       2114   	db	024h
+??:0084 6D                       2115   	db	06dh
+??:0085 01                       2116   	db	01h
+??:0086 77                       2117   	db	077h
+??:0087 01                       2118   	db	01h
+??:0088 01                       2119   	db	01h
+??:0089 24                       2120   	db	024h
+??:008A 40                       2121   	db	040h
+??:008B 40                       2122   	db	040h
+??:008C 00                       2123   	db	00h
+??:008D 37                       2124   	db	037h
+??:008E 00                       2125   	db	00h
+??:008F 06                       2126   	db	06h
+??:0090 3F                       2127   	db	03fh
+??:0091 00                       2128   	db	00h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  44 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+??:0092 71                       2129   	db	071h
+??:0093 01                       2130   	db	01h
+??:0094 71                       2131   	db	071h
+??:0095 01                       2132   	db	01h
+??:0096 73                       2133   	db	073h
+??:0097 09                       2134   	db	09h
+??:0098 79                       2135   	db	079h
+??:0099 01                       2136   	db	01h
+??:009A 73                       2137   	db	073h
+??:009B 01                       2138   	db	01h
+??:009C 00                       2139   	db	00h
+??:009D 00                       2140   	db	00h
+??:009E 3F                       2141   	db	03fh
+??:009F 00                       2142   	db	00h
+??:00A0 01                       2143   	db	01h
+??:00A1 24                       2144   	db	024h
+??:00A2 3F                       2145   	db	03fh
+??:00A3 06                       2146   	db	06h
+??:00A4 5B                       2147   	db	05bh
+??:00A5 4F                       2148   	db	04fh
+??:00A6 66                       2149   	db	066h
+??:00A7 6D                       2150   	db	06dh
+??:00A8 7D                       2151   	db	07dh
+??:00A9 07                       2152   	db	07h
+??:00AA 7F                       2153   	db	07fh
+??:00AB 6F                       2154   	db	06fh
+??:00AC 00                       2155   	db	00h
+??:00AD 40                       2156   	db	040h
+                                 2157   
+  --------------------------     2158   	rseg $$NINITVAR
+00:0000                          2159   _TIME_system :
+00:0000                          2160   	ds	060h
+00:0060                          2161   _week :
+00:0060                          2162   	ds	02ah
+00:008A                          2163   _NOISY0_bell :
+00:008A                          2164   	ds	06h
+00:0090                          2165   _NOISY1_bell :
+00:0090                          2166   	ds	012h
+00:00A2                          2167   _table :
+00:00A2                          2168   	ds	0ch
+                                 2169   	extrn code : __imulu8sw
+                                 2170   	extrn code : __imodu8sw
+                                 2171   	extrn code : __idivu8sw
+                                 2172   	extrn code : __uidivu8sw
+                                 2173   	extrn code : __regpushu8sw
+                                 2174   	extrn code : __regpopu8sw
+                                 2175   
+                                 2176   	end
+
+
+
+  Target       : ML610409 (nX-U8/100)
+  Memory Model : SMALL
+  Data   Model : NEAR
+  ROM WINDOW   : (not specified)
+  Internal RAM : E000H to E3FFH
+
+  Errors   : 0
+  Warnings : 0  (/Wrpeast)
+  Lines    : 2176

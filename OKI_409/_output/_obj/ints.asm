@@ -1,0 +1,1305 @@
+;; Compile Options : /TM610409 /MS /near /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /Ilcdshow /Imelody /Ircadc /Itemphum /Itimers /IMACROA~1 /Ieternity /ICLKbuzz /SD /Om /W 1 /Fa_output\_obj\ 
+;; Version Number  : Ver.3.54.3
+;; File Name       : ints.c
+
+	type (M610409) 
+	model small, near
+	$$IE1_init$ints segment code 2h #0h
+	$$IE2_init$ints segment code 2h #0h
+	$$IE3_init$ints segment code 2h #0h
+	$$IE4_init$ints segment code 2h #0h
+	$$IE5_init$ints segment code 2h #0h
+	$$IE6_init$ints segment code 2h #0h
+	$$IE7_init$ints segment code 2h #0h
+	$$IRQ0_init$ints segment code 2h #0h
+	$$IRQ1_init$ints segment code 2h #0h
+	$$IRQ2_init$ints segment code 2h #0h
+	$$IRQ3_init$ints segment code 2h #0h
+	$$IRQ4_init$ints segment code 2h #0h
+	$$IRQ5_init$ints segment code 2h #0h
+	$$IRQ6_init$ints segment code 2h #0h
+	$$IRQ7_init$ints segment code 2h #0h
+CVERSION 3.54.3
+CGLOBAL 01H 03H 0000H "IRQ0_init" 08H 02H 07H 00H 80H 00H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ2_init" 08H 02H 09H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ4_init" 08H 02H 0BH 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ6_init" 08H 02H 0DH 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE2_init" 08H 02H 01H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE4_init" 08H 02H 03H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE6_init" 08H 02H 05H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ1_init" 08H 02H 08H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ3_init" 08H 02H 0AH 00H 80H 04H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ5_init" 08H 02H 0CH 00H 80H 04H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IRQ7_init" 08H 02H 0EH 00H 80H 04H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE1_init" 08H 02H 00H 00H 83H 06H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE3_init" 08H 02H 02H 00H 80H 04H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE5_init" 08H 02H 04H 00H 80H 04H 00H 00H 01H
+CGLOBAL 01H 03H 0000H "IE7_init" 08H 02H 06H 00H 80H 04H 00H 00H 01H
+CSTRUCTTAG 0000H 0000H 0000H 0008H 00000001H "_Notag"
+CSTRUCTMEM 52H 00000001H 00000000H "b0" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000001H "b1" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000002H "b2" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000003H "b3" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000004H "b4" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000005H "b5" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000006H "b6" 02H 00H 00H
+CSTRUCTMEM 52H 00000001H 00000007H "b7" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "uint16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "byte" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "INT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "INT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "dword" 02H 00H 02H
+CTYPEDEF 0000H 0000H 43H "int8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 43H "int32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "uint" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "uchar" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "UINT16" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "UINT32" 02H 00H 02H
+CTYPEDEF 0000H 0000H 42H "word" 02H 00H 01H
+CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H 00H
+CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H 00H
+CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 04H 00H 05H 00H 00H
+CFILE 0001H 00000822H "E:\\IDEU8\\Inc\\m610409.h"
+CFILE 0002H 00000035H "interr~1\\ints.h"
+CFILE 0003H 00000025H "MACROA~1\\MacroAndConst.h"
+CFILE 0000H 00000137H "interr~1\\ints.c"
+
+	rseg $$IE1_init$ints
+CFUNCTION 0
+
+_IE1_init	:
+CBLOCK 0 1 20
+
+;; {
+CLINEA 0000H 0001H 0014H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 0 2 20
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "EP_00" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "EP_01" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "EP_02" 02H 00H 01H
+CARGUMENT 42H 0002H 0010H "EP_03" 02H 00H 01H
+CARGUMENT 42H 0002H 0012H "EP_04" 02H 00H 01H
+
+;;      EP_04 > INTS_HIGH) {
+CLINEA 0000H 0001H 0017H 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L2
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L2
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L2
+	l	er0,	16[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L2
+	l	er0,	18[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L1
+_$L2 :
+CBLOCK 0 3 23
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0018H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 0 3 25
+CBLOCKEND 0 2 30
+
+;; } 
+CLINEA 0000H 0001H 001EH 0002H 0003H
+_$L0 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 0019H 0009H 000BH
+_$L1 :
+
+;;	EP00 = EP_00; EP01 = EP_01;
+CLINEA 0000H 0001H 001AH 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M1
+	sb	0f011h.0
+	bal	_$M2
+_$M1 :
+	rb	0f011h.0
+_$M2 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M3
+	sb	0f011h.1
+	bal	_$M4
+_$M3 :
+	rb	0f011h.1
+_$M4 :
+
+;;	EP02 = EP_02; EP03 = EP_03;
+CLINEA 0000H 0001H 001BH 0002H 001CH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M5
+	sb	0f011h.2
+	bal	_$M6
+_$M5 :
+	rb	0f011h.2
+_$M6 :
+	l	r0,	16[fp]
+	and	r0,	#01h
+	beq	_$M7
+	sb	0f011h.3
+	bal	_$M8
+_$M7 :
+	rb	0f011h.3
+_$M8 :
+
+;;	EP04 = EP_04;
+CLINEA 0000H 0001H 001CH 0002H 000EH
+	l	r0,	18[fp]
+	and	r0,	#01h
+	beq	_$M9
+	sb	0f011h.4
+	bal	_$M10
+_$M9 :
+	rb	0f011h.4
+_$M10 :
+
+;;   return (INTS_DEPLOY_OK);	   	
+CLINEA 0000H 0001H 001DH 0004H 0020H
+	mov	er0,	#0 
+	bal	_$L0
+CBLOCKEND 0 1 30
+CFUNCTIONEND 0
+
+
+	rseg $$IE2_init$ints
+CFUNCTION 1
+
+_IE2_init	:
+CBLOCK 1 1 43
+
+;; {
+CLINEA 0000H 0001H 002BH 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 1 2 43
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "ESIO_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "ESIO_1" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "EP_5" 02H 00H 01H
+
+;;      EP_5 > INTS_HIGH) {
+CLINEA 0000H 0001H 002DH 0007H 0019H
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L19
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L19
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L18
+_$L19 :
+CBLOCK 1 3 45
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 002EH 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 1 3 47
+CBLOCKEND 1 2 51
+
+;; }
+CLINEA 0000H 0001H 0033H 0002H 0002H
+_$L17 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 002FH 0009H 000BH
+_$L18 :
+
+;;	ESIO0 = ESIO_0; ESIO1 = ESIO_1;
+CLINEA 0000H 0001H 0030H 0002H 0020H
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M12
+	sb	0f012h.0
+	bal	_$M13
+_$M12 :
+	rb	0f012h.0
+_$M13 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M14
+	sb	0f012h.1
+	bal	_$M15
+_$M14 :
+	rb	0f012h.1
+_$M15 :
+
+;;	EP5 = EP_5; 
+CLINEA 0000H 0001H 0031H 0002H 000DH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M16
+	sb	0f012h.3
+	bal	_$M17
+_$M16 :
+	rb	0f012h.3
+_$M17 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 0032H 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L17
+CBLOCKEND 1 1 51
+CFUNCTIONEND 1
+
+
+	rseg $$IE3_init$ints
+CFUNCTION 2
+
+_IE3_init	:
+CBLOCK 2 1 63
+
+;; {
+CLINEA 0000H 0001H 003FH 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 2 2 63
+CARGUMENT 46H 0002H 0028H "ETM_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "ETM_1" 02H 00H 01H
+
+;;   if(ETM_0 > INTS_HIGH || ETM_1 > INTS_HIGH) {
+CLINEA 0000H 0001H 0040H 0004H 002FH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L30
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L29
+_$L30 :
+CBLOCK 2 3 64
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0041H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 2 3 66
+CBLOCKEND 2 2 69
+
+;; }
+CLINEA 0000H 0001H 0045H 0002H 0002H
+_$L28 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 0042H 0009H 000BH
+_$L29 :
+
+;;	ETM0 = ETM_0; ETM1 = ETM_1;
+CLINEA 0000H 0001H 0043H 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M19
+	sb	0f013h.0
+	bal	_$M20
+_$M19 :
+	rb	0f013h.0
+_$M20 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M21
+	sb	0f013h.1
+	bal	_$M22
+_$M21 :
+	rb	0f013h.1
+_$M22 :
+
+;;   return (INTS_DEPLOY_OK);	  	
+CLINEA 0000H 0001H 0044H 0004H 001FH
+	mov	er0,	#0 
+	bal	_$L28
+CBLOCKEND 2 1 69
+CFUNCTIONEND 2
+
+
+	rseg $$IE4_init$ints
+CFUNCTION 3
+
+_IE4_init	:
+CBLOCK 3 1 82
+
+;; {
+CLINEA 0000H 0001H 0052H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 3 2 82
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "EUA_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "EMD_0" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "ER_AD" 02H 00H 01H
+
+;;      ER_AD > INTS_HIGH) {
+CLINEA 0000H 0001H 0054H 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L38
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L38
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L37
+_$L38 :
+CBLOCK 3 3 84
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0055H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 3 3 86
+CBLOCKEND 3 2 90
+
+;; }
+CLINEA 0000H 0001H 005AH 0002H 0002H
+_$L36 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 0056H 0009H 000BH
+_$L37 :
+
+;;	EUA0 = EUA_0; EMD0 = EMD_0;
+CLINEA 0000H 0001H 0057H 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M24
+	sb	0f014h.0
+	bal	_$M25
+_$M24 :
+	rb	0f014h.0
+_$M25 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M26
+	sb	0f014h.2
+	bal	_$M27
+_$M26 :
+	rb	0f014h.2
+_$M27 :
+
+;;	ERAD = ER_AD; 
+CLINEA 0000H 0001H 0058H 0002H 000FH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M28
+	sb	0f014h.5
+	bal	_$M29
+_$M28 :
+	rb	0f014h.5
+_$M29 :
+
+;;   return (INTS_DEPLOY_OK);	   	
+CLINEA 0000H 0001H 0059H 0004H 0020H
+	mov	er0,	#0 
+	bal	_$L36
+CBLOCKEND 3 1 90
+CFUNCTIONEND 3
+
+
+	rseg $$IE5_init$ints
+CFUNCTION 4
+
+_IE5_init	:
+CBLOCK 4 1 102
+
+;; {
+CLINEA 0000H 0001H 0066H 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 4 2 102
+CARGUMENT 46H 0002H 0028H "ETM_2" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "ETM_3" 02H 00H 01H
+
+;;   if(ETM_2 > INTS_HIGH || ETM_3 > INTS_HIGH) {
+CLINEA 0000H 0001H 0067H 0004H 002FH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L49
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L48
+_$L49 :
+CBLOCK 4 3 103
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0068H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 4 3 105
+CBLOCKEND 4 2 108
+
+;; }
+CLINEA 0000H 0001H 006CH 0002H 0002H
+_$L47 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 0069H 0009H 000BH
+_$L48 :
+
+;;	ETM2 = ETM_2; ETM3 = ETM_3;
+CLINEA 0000H 0001H 006AH 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M31
+	sb	0f015h.4
+	bal	_$M32
+_$M31 :
+	rb	0f015h.4
+_$M32 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M33
+	sb	0f015h.5
+	bal	_$M34
+_$M33 :
+	rb	0f015h.5
+_$M34 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 006BH 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L47
+CBLOCKEND 4 1 108
+CFUNCTIONEND 4
+
+
+	rseg $$IE6_init$ints
+CFUNCTION 5
+
+_IE6_init	:
+CBLOCK 5 1 121
+
+;; {
+CLINEA 0000H 0001H 0079H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 5 2 121
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "EPW_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "E_128H" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "E_32H" 02H 00H 01H
+
+;;      E_32H > INTS_HIGH) {
+CLINEA 0000H 0001H 007BH 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L57
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L57
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L56
+_$L57 :
+CBLOCK 5 3 123
+
+;; 	  return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 007CH 0005H 001EH
+	mov	er0,	#-1
+CBLOCKEND 5 3 125
+CBLOCKEND 5 2 129
+
+;; }
+CLINEA 0000H 0001H 0081H 0002H 0002H
+_$L55 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 007DH 0009H 000BH
+_$L56 :
+
+;;	EPW0 = EPW_0; E128H = E_128H;
+CLINEA 0000H 0001H 007EH 0002H 001EH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M36
+	sb	0f016h.0
+	bal	_$M37
+_$M36 :
+	rb	0f016h.0
+_$M37 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M38
+	sb	0f016h.5
+	bal	_$M39
+_$M38 :
+	rb	0f016h.5
+_$M39 :
+
+;;	E32H = E_32H; 
+CLINEA 0000H 0001H 007FH 0002H 000FH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M40
+	sb	0f016h.7
+	bal	_$M41
+_$M40 :
+	rb	0f016h.7
+_$M41 :
+
+;;   return (INTS_DEPLOY_OK);   	
+CLINEA 0000H 0001H 0080H 0004H 001FH
+	mov	er0,	#0 
+	bal	_$L55
+CBLOCKEND 5 1 129
+CFUNCTIONEND 5
+
+
+	rseg $$IE7_init$ints
+CFUNCTION 6
+
+_IE7_init	:
+CBLOCK 6 1 141
+
+;; {
+CLINEA 0000H 0001H 008DH 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 6 2 141
+CARGUMENT 46H 0002H 0028H "E_16H" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "E_2H" 02H 00H 01H
+
+;;   if(E_16H > INTS_HIGH || E_2H > INTS_HIGH) {
+CLINEA 0000H 0001H 008EH 0004H 002EH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L68
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L67
+_$L68 :
+CBLOCK 6 3 142
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 008FH 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 6 3 144
+CBLOCKEND 6 2 147
+
+;; }
+CLINEA 0000H 0001H 0093H 0002H 0002H
+_$L66 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 0090H 0009H 000BH
+_$L67 :
+
+;;	E16H = E_16H; E2H = E_2H;
+CLINEA 0000H 0001H 0091H 0002H 001AH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M43
+	sb	0f017h.0
+	bal	_$M44
+_$M43 :
+	rb	0f017h.0
+_$M44 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M45
+	sb	0f017h.3
+	bal	_$M46
+_$M45 :
+	rb	0f017h.3
+_$M46 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 0092H 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L66
+CBLOCKEND 6 1 147
+CFUNCTIONEND 6
+
+
+	rseg $$IRQ0_init$ints
+CFUNCTION 7
+
+_IRQ0_init	:
+CBLOCK 7 1 163
+
+;; {
+CLINEA 0000H 0001H 00A3H 0002H 0002H
+	mov	er2,	er0
+CBLOCK 7 2 163
+CARGUMENT 46H 0002H 0025H "QW_DT" 02H 00H 01H
+
+;;   if(QW_DT > INTS_HIGH) {
+CLINEA 0000H 0001H 00A4H 0004H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L75
+CBLOCK 7 3 164
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 00A5H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 7 3 166
+CBLOCKEND 7 2 169
+
+;;  } 
+CLINEA 0000H 0001H 00A9H 0003H 0004H
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 00A6H 0009H 000BH
+_$L75 :
+
+;;	QWDT = QW_DT; 
+CLINEA 0000H 0001H 00A7H 0002H 000FH
+	mov	r0,	r2
+	and	r0,	#01h
+	beq	_$M48
+	sb	0f018h.0
+	bal	_$M49
+_$M48 :
+	rb	0f018h.0
+_$M49 :
+
+;;   return (INTS_DEPLOY_OK); 	
+CLINEA 0000H 0001H 00A8H 0004H 001DH
+	mov	er0,	#0 
+	rt
+CBLOCKEND 7 1 169
+CFUNCTIONEND 7
+
+
+	rseg $$IRQ1_init$ints
+CFUNCTION 8
+
+_IRQ1_init	:
+CBLOCK 8 1 184
+
+;; {
+CLINEA 0000H 0001H 00B8H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 8 2 184
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "QP_00" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "QP_01" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "QP_02" 02H 00H 01H
+CARGUMENT 42H 0002H 0010H "QP_03" 02H 00H 01H
+CARGUMENT 42H 0002H 0012H "QP_04" 02H 00H 01H
+
+;;      QP_04 > INTS_HIGH) {
+CLINEA 0000H 0001H 00BBH 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L79
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L79
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L79
+	l	er0,	16[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L79
+	l	er0,	18[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L78
+_$L79 :
+CBLOCK 8 3 187
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 00BCH 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 8 3 189
+CBLOCKEND 8 2 194
+
+;; } 
+CLINEA 0000H 0001H 00C2H 0002H 0003H
+_$L77 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 00BDH 0009H 000BH
+_$L78 :
+
+;;	QP00 = QP_00; QP01 = QP_01;
+CLINEA 0000H 0001H 00BEH 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M51
+	sb	0f019h.0
+	bal	_$M52
+_$M51 :
+	rb	0f019h.0
+_$M52 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M53
+	sb	0f019h.1
+	bal	_$M54
+_$M53 :
+	rb	0f019h.1
+_$M54 :
+
+;;	QP02 = QP_02; QP03 = QP_03;
+CLINEA 0000H 0001H 00BFH 0002H 001CH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M55
+	sb	0f019h.2
+	bal	_$M56
+_$M55 :
+	rb	0f019h.2
+_$M56 :
+	l	r0,	16[fp]
+	and	r0,	#01h
+	beq	_$M57
+	sb	0f019h.3
+	bal	_$M58
+_$M57 :
+	rb	0f019h.3
+_$M58 :
+
+;;	QP04 = QP_04;
+CLINEA 0000H 0001H 00C0H 0002H 000EH
+	l	r0,	18[fp]
+	and	r0,	#01h
+	beq	_$M59
+	sb	0f019h.4
+	bal	_$M60
+_$M59 :
+	rb	0f019h.4
+_$M60 :
+
+;;   return (INTS_DEPLOY_OK);	   	
+CLINEA 0000H 0001H 00C1H 0004H 0020H
+	mov	er0,	#0 
+	bal	_$L77
+CBLOCKEND 8 1 194
+CFUNCTIONEND 8
+
+
+	rseg $$IRQ2_init$ints
+CFUNCTION 9
+
+_IRQ2_init	:
+CBLOCK 9 1 207
+
+;; {
+CLINEA 0000H 0001H 00CFH 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 9 2 207
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "QSIO_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "QSIO_1" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "QP_5" 02H 00H 01H
+
+;;      QP_5 > INTS_HIGH) {
+CLINEA 0000H 0001H 00D1H 0007H 0019H
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L96
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L96
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L95
+_$L96 :
+CBLOCK 9 3 209
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 00D2H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 9 3 211
+CBLOCKEND 9 2 215
+
+;; }
+CLINEA 0000H 0001H 00D7H 0002H 0002H
+_$L94 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 00D3H 0009H 000BH
+_$L95 :
+
+;;	QSIO0 = QSIO_0; QSIO1 = QSIO_1;
+CLINEA 0000H 0001H 00D4H 0002H 0020H
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M62
+	sb	0f01ah.0
+	bal	_$M63
+_$M62 :
+	rb	0f01ah.0
+_$M63 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M64
+	sb	0f01ah.1
+	bal	_$M65
+_$M64 :
+	rb	0f01ah.1
+_$M65 :
+
+;;	QP5 = QP_5; 
+CLINEA 0000H 0001H 00D5H 0002H 000DH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M66
+	sb	0f01ah.3
+	bal	_$M67
+_$M66 :
+	rb	0f01ah.3
+_$M67 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 00D6H 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L94
+CBLOCKEND 9 1 215
+CFUNCTIONEND 9
+
+
+	rseg $$IRQ3_init$ints
+CFUNCTION 10
+
+_IRQ3_init	:
+CBLOCK 10 1 227
+
+;; {
+CLINEA 0000H 0001H 00E3H 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 10 2 227
+CARGUMENT 46H 0002H 0028H "QTM_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "QTM_1" 02H 00H 01H
+
+;;   if(QTM_0 > INTS_HIGH || QTM_1 > INTS_HIGH) {
+CLINEA 0000H 0001H 00E4H 0004H 002FH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L107
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L106
+_$L107 :
+CBLOCK 10 3 228
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 00E5H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 10 3 230
+CBLOCKEND 10 2 233
+
+;; }
+CLINEA 0000H 0001H 00E9H 0002H 0002H
+_$L105 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 00E6H 0009H 000BH
+_$L106 :
+
+;;	QTM0 = QTM_0; QTM1 = QTM_1;
+CLINEA 0000H 0001H 00E7H 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M69
+	sb	0f01bh.0
+	bal	_$M70
+_$M69 :
+	rb	0f01bh.0
+_$M70 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M71
+	sb	0f01bh.1
+	bal	_$M72
+_$M71 :
+	rb	0f01bh.1
+_$M72 :
+
+;;   return (INTS_DEPLOY_OK);	  	
+CLINEA 0000H 0001H 00E8H 0004H 001FH
+	mov	er0,	#0 
+	bal	_$L105
+CBLOCKEND 10 1 233
+CFUNCTIONEND 10
+
+
+	rseg $$IRQ4_init$ints
+CFUNCTION 11
+
+_IRQ4_init	:
+CBLOCK 11 1 246
+
+;; {
+CLINEA 0000H 0001H 00F6H 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 11 2 246
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "QUA_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "QMD_0" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "QR_AD" 02H 00H 01H
+
+;;      QR_AD > INTS_HIGH) {
+CLINEA 0000H 0001H 00F8H 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L115
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L115
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L114
+_$L115 :
+CBLOCK 11 3 248
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 00F9H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 11 3 250
+CBLOCKEND 11 2 254
+
+;; }
+CLINEA 0000H 0001H 00FEH 0002H 0002H
+_$L113 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 00FAH 0009H 000BH
+_$L114 :
+
+;;	QUA0 = QUA_0; QMD0 = QMD_0;
+CLINEA 0000H 0001H 00FBH 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M74
+	sb	0f01ch.0
+	bal	_$M75
+_$M74 :
+	rb	0f01ch.0
+_$M75 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M76
+	sb	0f01ch.2
+	bal	_$M77
+_$M76 :
+	rb	0f01ch.2
+_$M77 :
+
+;;	QRAD = QR_AD; 
+CLINEA 0000H 0001H 00FCH 0002H 000FH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M78
+	sb	0f01ch.5
+	bal	_$M79
+_$M78 :
+	rb	0f01ch.5
+_$M79 :
+
+;;   return (INTS_DEPLOY_OK);	   	
+CLINEA 0000H 0001H 00FDH 0004H 0020H
+	mov	er0,	#0 
+	bal	_$L113
+CBLOCKEND 11 1 254
+CFUNCTIONEND 11
+
+
+	rseg $$IRQ5_init$ints
+CFUNCTION 12
+
+_IRQ5_init	:
+CBLOCK 12 1 266
+
+;; {
+CLINEA 0000H 0001H 010AH 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 12 2 266
+CARGUMENT 46H 0002H 0028H "QTM_2" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "QTM_3" 02H 00H 01H
+
+;;   if(QTM_2 > INTS_HIGH || QTM_3 > INTS_HIGH) {
+CLINEA 0000H 0001H 010BH 0004H 002FH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L126
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L125
+_$L126 :
+CBLOCK 12 3 267
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 010CH 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 12 3 269
+CBLOCKEND 12 2 272
+
+;; }
+CLINEA 0000H 0001H 0110H 0002H 0002H
+_$L124 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 010DH 0009H 000BH
+_$L125 :
+
+;;	QTM2 = QTM_2; QTM3 = QTM_3;
+CLINEA 0000H 0001H 010EH 0002H 001CH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M81
+	sb	0f01dh.4
+	bal	_$M82
+_$M81 :
+	rb	0f01dh.4
+_$M82 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M83
+	sb	0f01dh.5
+	bal	_$M84
+_$M83 :
+	rb	0f01dh.5
+_$M84 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 010FH 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L124
+CBLOCKEND 12 1 272
+CFUNCTIONEND 12
+
+
+	rseg $$IRQ6_init$ints
+CFUNCTION 13
+
+_IRQ6_init	:
+CBLOCK 13 1 285
+
+;; {
+CLINEA 0000H 0001H 011DH 0002H 0002H
+	push	lr
+	bl	__regpushu8sw
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 13 2 285
+CRET 000CH
+CARGUMENT 46H 0002H 0034H "QPW_0" 02H 00H 01H
+CARGUMENT 46H 0002H 0035H "Q_128H" 02H 00H 01H
+CARGUMENT 42H 0002H 000EH "Q_32H" 02H 00H 01H
+
+;;      Q_32H > INTS_HIGH) {
+CLINEA 0000H 0001H 011FH 0007H 001AH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L134
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	bgt	_$L134
+	l	er0,	14[fp]
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	ble	_$L133
+_$L134 :
+CBLOCK 13 3 287
+
+;; 	  return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0120H 0005H 001EH
+	mov	er0,	#-1
+CBLOCKEND 13 3 289
+CBLOCKEND 13 2 293
+
+;; }
+CLINEA 0000H 0001H 0125H 0002H 0002H
+_$L132 :
+	b	__regpopu8sw
+
+;;        }  
+CLINEA 0000H 0000H 0121H 0009H 000BH
+_$L133 :
+
+;;	QPW0 = QPW_0; Q128H = Q_128H;
+CLINEA 0000H 0001H 0122H 0002H 001EH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M86
+	sb	0f01eh.0
+	bal	_$M87
+_$M86 :
+	rb	0f01eh.0
+_$M87 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M88
+	sb	0f01eh.5
+	bal	_$M89
+_$M88 :
+	rb	0f01eh.5
+_$M89 :
+
+;;	Q32H = Q_32H; 
+CLINEA 0000H 0001H 0123H 0002H 000FH
+	l	r0,	14[fp]
+	and	r0,	#01h
+	beq	_$M90
+	sb	0f01eh.7
+	bal	_$M91
+_$M90 :
+	rb	0f01eh.7
+_$M91 :
+
+;;   return (INTS_DEPLOY_OK);   	
+CLINEA 0000H 0001H 0124H 0004H 001FH
+	mov	er0,	#0 
+	bal	_$L132
+CBLOCKEND 13 1 293
+CFUNCTIONEND 13
+
+
+	rseg $$IRQ7_init$ints
+CFUNCTION 14
+
+_IRQ7_init	:
+CBLOCK 14 1 305
+
+;; {
+CLINEA 0000H 0001H 0131H 0002H 0002H
+	push	xr8
+	mov	er8,	er0
+	mov	er10,	er2
+CBLOCK 14 2 305
+CARGUMENT 46H 0002H 0028H "Q_16H" 02H 00H 01H
+CARGUMENT 46H 0002H 0029H "Q_2H" 02H 00H 01H
+
+;;   if(Q_16H > INTS_HIGH || Q_2H > INTS_HIGH) {
+CLINEA 0000H 0001H 0132H 0004H 002EH
+	cmp	r0,	#01h
+	cmpc	r1,	#00h
+	bgt	_$L145
+	cmp	r2,	#01h
+	cmpc	r3,	#00h
+	ble	_$L144
+_$L145 :
+CBLOCK 14 3 306
+
+;;       	 return (INTS_DEPLOY_FAIL);
+CLINEA 0000H 0001H 0133H 000AH 0023H
+	mov	er0,	#-1
+CBLOCKEND 14 3 308
+CBLOCKEND 14 2 311
+
+;; }
+CLINEA 0000H 0001H 0137H 0002H 0002H
+_$L143 :
+	pop	xr8
+	rt
+
+;;        }  
+CLINEA 0000H 0000H 0134H 0009H 000BH
+_$L144 :
+
+;;	Q16H = Q_16H; Q2H = Q_2H;
+CLINEA 0000H 0001H 0135H 0002H 001AH
+	mov	r0,	r8
+	and	r0,	#01h
+	beq	_$M93
+	sb	0f01fh.0
+	bal	_$M94
+_$M93 :
+	rb	0f01fh.0
+_$M94 :
+	mov	r0,	r10
+	and	r0,	#01h
+	beq	_$M95
+	sb	0f01fh.3
+	bal	_$M96
+_$M95 :
+	rb	0f01fh.3
+_$M96 :
+
+;;   return (INTS_DEPLOY_OK);	 	
+CLINEA 0000H 0001H 0136H 0004H 001EH
+	mov	er0,	#0 
+	bal	_$L143
+CBLOCKEND 14 1 311
+CFUNCTIONEND 14
+
+	public _IRQ0_init
+	public _IRQ2_init
+	public _IRQ4_init
+	public _IRQ6_init
+	public _IE2_init
+	public _IE4_init
+	public _IE6_init
+	public _IRQ1_init
+	public _IRQ3_init
+	public _IRQ5_init
+	public _IRQ7_init
+	public _IE1_init
+	public _IE3_init
+	public _IE5_init
+	public _IE7_init
+	extrn code near : _main
+	extrn code : __regpushu8sw
+	extrn code : __regpopu8sw
+
+	end

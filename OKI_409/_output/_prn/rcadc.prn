@@ -1,0 +1,841 @@
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   1 
+ Source File: _output\_obj\rcadc.asm
+ Object File: _output\_obj\rcadc.obj
+ Date  : 2018/01/03 Wed.[14:06]
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                    1   ;; Compile Options : /TM610409 /MS /nea
+                                        r /Imain /Iclk /IINTERR~1 /Ikey /Ilcd /
+                                        Ilcdshow /Imelody /Ircadc /Itemphum /It
+                                        imers /IMACROA~1 /Ieternity /ICLKbuzz /
+                                        SD /Om /W 1 /Fa_output\_obj\ 
+                                    2   ;; Version Number  : Ver.3.54.3
+                                    3   ;; File Name       : rcadc.c
+                                    4   
+                                    5   	type (M610409) 
+                                    6   	model small, near
+                                    7   	$$P3rcAdc_monitor_off$rcadc seg
+                                        ment code 2h #0h
+                                    8   	$$P3rcAdc_monitor_on$rcadc segm
+                                        ent code 2h #0h
+                                    9   	$$P4rcAdc_monitor_off$rcadc seg
+                                        ment code 2h #0h
+                                   10   	$$P4rcAdc_monitor_on$rcadc segm
+                                        ent code 2h #0h
+                                   11   	$$TABRCADC_SAMPLING_MODE$rcadc 
+                                        segment table 2h #0h
+                                   12   	$$TABRCADC_SAMP_CLK_MODE$rcadc 
+                                        segment table 2h #0h
+                                   13   	$$rcadc_RCAD_run$rcadc segment 
+                                        code 2h #0h
+                                   14   	$$rcadc_RCINT_run$rcadc segment
+                                         code 2h #0h
+                                   15   	$$rcadc_Samp_Clk_init$rcadc seg
+                                        ment code 2h #0h
+                                   16   	$$rcadc_getResult$rcadc segment
+                                         code 2h #0h
+                                   17   	$$rcadc_intit$rcadc segment cod
+                                        e 2h #0h
+                                   18   	$$rcadc_radi$rcadc segment code
+                                         2h #0h
+                                   19   CVERSION 3.54.3
+                                   20   CGLOBAL 01H 03H 0000H "P3rcAdc_monitor_
+                                        on" 08H 02H 00H 00H 80H 00H 00H 00H 07H
+                                   21   CGLOBAL 01H 03H 0000H "P4rcAdc_monitor_
+                                        off" 08H 02H 03H 00H 80H 00H 00H 00H 07
+                                        H
+                                   22   CGLOBAL 01H 03H 0000H "rcadc_radi" 08H 
+                                        02H 06H 00H 80H 00H 00H 00H 01H
+                                   23   CGLOBAL 01H 03H 0000H "rcadc_intit" 08H
+                                         02H 04H 00H 81H 06H 00H 00H 01H
+                                   24   CGLOBAL 01H 03H 0000H "rcadc_RCINT_run"
+                                         08H 02H 08H 00H 80H 00H 00H 00H 01H
+                                   25   CGLOBAL 01H 03H 0000H "P4rcAdc_monitor_
+                                        on" 08H 02H 02H 00H 80H 00H 00H 00H 07H
+                                   26   CGLOBAL 01H 03H 0000H "P3rcAdc_monitor_
+                                        off" 08H 02H 01H 00H 80H 00H 00H 00H 07
+                                        H
+                                   27   CGLOBAL 01H 03H 0000H "rcadc_Samp_Clk_i
+                                        nit" 08H 02H 05H 00H 80H 02H 00H 00H 01
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   2 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                        H
+                                   28   CGLOBAL 01H 03H 0000H "rcadc_RCAD_run" 
+                                        08H 02H 07H 00H 80H 00H 00H 00H 01H
+                                   29   CGLOBAL 01H 03H 0000H "rcadc_getResult"
+                                         08H 02H 09H 00H 80H 02H 00H 00H 01H
+                                   30   CSTRUCTTAG 0000H 0000H 0000H 0008H 0000
+                                        0001H "_Notag"
+                                   31   CSTRUCTMEM 52H 00000001H 00000000H "b0"
+                                         02H 00H 00H
+                                   32   CSTRUCTMEM 52H 00000001H 00000001H "b1"
+                                         02H 00H 00H
+                                   33   CSTRUCTMEM 52H 00000001H 00000002H "b2"
+                                         02H 00H 00H
+                                   34   CSTRUCTMEM 52H 00000001H 00000003H "b3"
+                                         02H 00H 00H
+                                   35   CSTRUCTMEM 52H 00000001H 00000004H "b4"
+                                         02H 00H 00H
+                                   36   CSTRUCTMEM 52H 00000001H 00000005H "b5"
+                                         02H 00H 00H
+                                   37   CSTRUCTMEM 52H 00000001H 00000006H "b6"
+                                         02H 00H 00H
+                                   38   CSTRUCTMEM 52H 00000001H 00000007H "b7"
+                                         02H 00H 00H
+                                   39   CENUMTAG 0000H 0000H 0001H 0009H "RCmod
+                                        e_value"
+                                   40   CENUMMEM 00000000H "rcad_one"
+                                   41   CENUMMEM 00000001H "rcad_two"
+                                   42   CENUMMEM 00000002H "rcad_three"
+                                   43   CENUMMEM 00000003H "rcad_four"
+                                   44   CENUMMEM 00000004H "rcad_five"
+                                   45   CENUMMEM 00000005H "rcad_six"
+                                   46   CENUMMEM 00000006H "rcad_seven"
+                                   47   CENUMMEM 00000007H "rcad_eight"
+                                   48   CENUMMEM 00000008H "rcad_nine"
+                                   49   CTYPEDEF 0000H 0000H 42H "uint8" 02H 00
+                                        H 00H
+                                   50   CTYPEDEF 0000H 0000H 42H "DWORD" 02H 00
+                                        H 02H
+                                   51   CTYPEDEF 0000H 0000H 43H "INT8" 02H 00H
+                                         00H
+                                   52   CTYPEDEF 0000H 0000H 42H "uint32" 02H 0
+                                        0H 02H
+                                   53   CTYPEDEF 0000H 0000H 42H "uint16" 02H 0
+                                        0H 01H
+                                   54   CTYPEDEF 0000H 0000H 42H "byte" 02H 00H
+                                         00H
+                                   55   CTYPEDEF 0000H 0000H 43H "INT32" 02H 00
+                                        H 02H
+                                   56   CTYPEDEF 0000H 0000H 43H "INT16" 02H 00
+                                        H 01H
+                                   57   CTYPEDEF 0000H 0000H 42H "dword" 02H 00
+                                        H 02H
+                                   58   CTYPEDEF 0000H 0000H 43H "int8" 02H 00H
+                                         00H
+                                   59   CTYPEDEF 0000H 0000H 42H "UINT" 02H 00H
+                                         01H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   3 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                   60   CTYPEDEF 0000H 0000H 42H "WORD" 02H 00H
+                                         01H
+                                   61   CTYPEDEF 0000H 0000H 43H "int16" 02H 00
+                                        H 01H
+                                   62   CTYPEDEF 0000H 0000H 43H "int32" 02H 00
+                                        H 02H
+                                   63   CTYPEDEF 0000H 0000H 42H "UINT8" 02H 00
+                                        H 00H
+                                   64   CTYPEDEF 0000H 0000H 42H "uint" 02H 00H
+                                         01H
+                                   65   CTYPEDEF 0000H 0000H 42H "uchar" 02H 00
+                                        H 00H
+                                   66   CTYPEDEF 0000H 0000H 42H "UINT16" 02H 0
+                                        0H 01H
+                                   67   CTYPEDEF 0000H 0000H 42H "UINT32" 02H 0
+                                        0H 02H
+                                   68   CTYPEDEF 0000H 0000H 42H "word" 02H 00H
+                                         01H
+                                   69   CTYPEDEF 0000H 0000H 42H "BOOL" 02H 00H
+                                         00H
+                                   70   CTYPEDEF 0000H 0000H 42H "BYTE" 02H 00H
+                                         00H
+                                   71   CTYPEDEF 0000H 0000H 43H "_BYTE_FIELD" 
+                                        04H 00H 05H 00H 00H
+                                   72   CSGLOBAL 00H 0008H "RCADC_SAMP_CLK_MODE
+                                        " 05H 01H 08H 00H 00H 00H
+                                   73   CSGLOBAL 00H 000AH "RCADC_SAMPLING_MODE
+                                        " 05H 01H 0AH 00H 00H 00H
+                                   74   CFILE 0001H 00000822H "E:\\IDEU8\\Inc\\
+                                        m610409.h"
+                                   75   CFILE 0002H 0000003FH "rcadc\\rcadc.h"
+                                   76   CFILE 0003H 00000025H "MACROA~1\\MacroA
+                                        ndConst.h"
+                                   77   CFILE 0000H 000000EBH "rcadc\\rcadc.c"
+                                   78   
+  --------------------------       79   	rseg $$rcadc_intit$rcadc
+                                   80   CFUNCTION 4
+                                   81   
+00:0000                            82   _rcadc_intit	:
+                                   83   CBLOCK 4 1 48
+                                   84   
+                                   85   ;; {
+                                   86   CLINEA 0000H 0001H 0030H 0002H 0002H
+00:0000 CE-F8                      87   	push	lr
+00:0002 6E-F8                      88   	push	xr8
+00:0004 05-F8                      89   	mov	er8,	er0
+00:0006 25-FA                      90   	mov	er10,	er2
+                                   91   CBLOCK 4 2 48
+                                   92   CRET 0004H
+                                   93   CARGUMENT 46H 0002H 0028H "P3int" 02H 0
+                                        0H 01H
+                                   94   CARGUMENT 46H 0002H 0029H "P4int" 02H 0
+                                        0H 01H
+                                   95   
+                                   96   ;;   if(P3int >(unsigned int)RCADC_P3IN
+                                        T_ON || P4int > (unsigned int)RCADC_P4I
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   4 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                        NT_ON) {
+                                   97   CLINEA 0000H 0001H 0032H 0004H 0054H
+00:0008 01 70                      98   	cmp	r0,	#01h
+00:000A 00 51                      99   	cmpc	r1,	#00h
+00:000C 03 C2                     100   	bgt	_$L2
+00:000E 01 72                     101   	cmp	r2,	#01h
+00:0010 00 53                     102   	cmpc	r3,	#00h
+00:0012 03 C3                     103   	ble	_$L1
+00:0014                           104   _$L2 :
+                                  105   CBLOCK 4 3 50
+                                  106   
+                                  107   ;;   	 return (RCADC_DEPLOY_FAIL);
+                                  108   CLINEA 0000H 0001H 0033H 0006H 0020H
+00:0014 7F E0                     109   	mov	er0,	#-1
+                                  110   CBLOCKEND 4 3 52
+                                  111   CBLOCKEND 4 2 62
+                                  112   
+                                  113   ;;  }
+                                  114   CLINEA 0000H 0001H 003EH 0003H 0003H
+00:0016                           115   _$L0 :
+00:0016 2E-F8                     116   	pop	xr8
+00:0018 8E-F2                     117   	pop	pc
+                                  118   
+                                  119   ;;	  }   
+                                  120   CLINEA 0000H 0000H 0034H 0004H 0007H
+00:001A                           121   _$L1 :
+                                  122   
+                                  123   ;;    if(P3int == RCADC_P3INT_ON)   
+                                  124   CLINEA 0000H 0001H 0036H 0005H 0022H
+00:001A 01 78                     125   	cmp	r8,	#01h
+00:001C 00 59                     126   	cmpc	r9,	#00h
+00:001E 03 C8                     127   	bne	_$L8
+                                  128   
+                                  129   ;;     P3rcAdc_monitor_on();
+                                  130   CLINEA 0000H 0001H 0037H 0006H 001AH
+00:0020 01-F0'00-00'              131   	bl	_P3rcAdc_monitor_on
+                                  132   
+                                  133   ;;    else  P3rcAdc_monitor_off(); 
+                                  134   CLINEA 0000H 0001H 0038H 0005H 0021H
+00:0024 02 CE                     135   	bal	_$L10
+00:0026                           136   _$L8 :
+00:0026 01-F0'00-00'              137   	bl	_P3rcAdc_monitor_off
+00:002A                           138   _$L10 :
+                                  139   
+                                  140   ;;    if(P4int == RCADC_P4INT_ON)   
+                                  141   CLINEA 0000H 0001H 003AH 0005H 0022H
+00:002A 01 7A                     142   	cmp	r10,	#01h
+00:002C 00 5B                     143   	cmpc	r11,	#00h
+00:002E 03 C8                     144   	bne	_$L11
+                                  145   
+                                  146   ;;     P4rcAdc_monitor_on();
+                                  147   CLINEA 0000H 0001H 003BH 0006H 001AH
+00:0030 01-F0'00-00'              148   	bl	_P4rcAdc_monitor_on
+                                  149   
+                                  150   ;;    else P4rcAdc_monitor_off();    	
+                                  151   CLINEA 0000H 0001H 003CH 0005H 0024H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   5 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0034 02 CE                     152   	bal	_$L13
+00:0036                           153   _$L11 :
+00:0036 01-F0'00-00'              154   	bl	_P4rcAdc_monitor_off
+00:003A                           155   _$L13 :
+                                  156   
+                                  157   ;;	return (RCADC_DEPLOY_OK);
+                                  158   CLINEA 0000H 0001H 003DH 0002H 001AH
+00:003A 00 E0                     159   	mov	er0,	#0 
+00:003C EC CE                     160   	bal	_$L0
+                                  161   CBLOCKEND 4 1 62
+                                  162   CFUNCTIONEND 4
+                                  163   
+                                  164   
+  --------------------------      165   	rseg $$rcadc_Samp_Clk_init$rcad
+                                        c
+                                  166   CFUNCTION 5
+                                  167   
+00:0000                           168   _rcadc_Samp_Clk_init	:
+                                  169   CBLOCK 5 1 74
+                                  170   
+                                  171   ;; {
+                                  172   CLINEA 0000H 0001H 004AH 0002H 0002H
+00:0000 5E-F8                     173   	push	er8
+00:0002 05-F8                     174   	mov	er8,	er0
+                                  175   CBLOCK 5 2 74
+                                  176   CARGUMENT 46H 0002H 0028H "samp" 02H 00
+                                        H 01H
+                                  177   CARGUMENT 46H 0002H 0025H "clk" 02H 00H
+                                         01H
+                                  178   CLOCAL 4AH 0001H 0000H 0002H "r0" 02H 0
+                                        0H 00H
+                                  179   CLOCAL 4AH 0001H 0000H 0002H "r1" 02H 0
+                                        0H 00H
+                                  180   
+                                  181   ;;   if(samp >= SAMP_MODE || clk >= SAM
+                                        P_CLK_MODE) {
+                                  182   CLINEA 0000H 0001H 004DH 0004H 0032H
+00:0004 0A 70                     183   	cmp	r0,	#0ah
+00:0006 00 51                     184   	cmpc	r1,	#00h
+00:0008 03 C0                     185   	bge	_$L16
+00:000A 08 72                     186   	cmp	r2,	#08h
+00:000C 00 53                     187   	cmpc	r3,	#00h
+00:000E 03 C1                     188   	blt	_$L15
+00:0010                           189   _$L16 :
+                                  190   CBLOCK 5 3 77
+                                  191   
+                                  192   ;;   	 return (RCADC_DEPLOY_FAIL);
+                                  193   CLINEA 0000H 0001H 004EH 0006H 0020H
+00:0010 7F E0                     194   	mov	er0,	#-1
+                                  195   CBLOCKEND 5 3 79
+                                  196   CBLOCKEND 5 2 84
+                                  197   
+                                  198   ;; }
+                                  199   CLINEA 0000H 0001H 0054H 0002H 0002H
+00:0012                           200   _$L14 :
+00:0012 1E-F8                     201   	pop	er8
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   6 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:0014 1F-FE                     202   	rt
+                                  203   
+                                  204   ;;	  } 
+                                  205   CLINEA 0000H 0000H 004FH 0004H 0005H
+00:0016                           206   _$L15 :
+                                  207   
+                                  208   ;;   RADMOD = ((r0 << 0) | (r1 << 5));
+                                  209   CLINEA 0000H 0001H 0052H 0004H 0024H
+00:0016 28-90 00-00'              210   	l	r0,	NEAR _RCADC_SAM
+                                        P_CLK_MODE[er2]
+00:001A 5A-90                     211   	sll	r0,	#05h
+00:001C 88-91 00-00'              212   	l	r1,	NEAR _RCADC_SAM
+                                        PLING_MODE[er8]
+00:0020 03-81                     213   	or	r1,	r0
+00:0022 11-91 08-F3               214   	st	r1,	0f308h
+                                  215   
+                                  216   ;;  return (RCADC_DEPLOY_OK);
+                                  217   CLINEA 0000H 0001H 0053H 0003H 001BH
+00:0026 00 E0                     218   	mov	er0,	#0 
+00:0028 F4 CE                     219   	bal	_$L14
+                                  220   CBLOCKEND 5 1 84
+                                  221   CFUNCTIONEND 5
+                                  222   
+                                  223   
+  --------------------------      224   	rseg $$rcadc_radi$rcadc
+                                  225   CFUNCTION 6
+                                  226   
+00:0000                           227   _rcadc_radi	:
+                                  228   CBLOCK 6 1 95
+                                  229   
+                                  230   ;; {
+                                  231   CLINEA 0000H 0001H 005FH 0002H 0002H
+00:0000 05-F2                     232   	mov	er2,	er0
+                                  233   CBLOCK 6 2 95
+                                  234   CARGUMENT 46H 0002H 0025H "rad" 02H 00H
+                                         01H
+                                  235   
+                                  236   ;;   if(rad > (unsigned int)RCADC_B) {
+                                  237   CLINEA 0000H 0001H 0060H 0004H 0024H
+00:0002 01 70                     238   	cmp	r0,	#01h
+00:0004 00 51                     239   	cmpc	r1,	#00h
+00:0006 02 C3                     240   	ble	_$L23
+                                  241   CBLOCK 6 3 96
+                                  242   
+                                  243   ;; 	 return (RCADC_DEPLOY_FAIL); 
+                                  244   CLINEA 0000H 0001H 0061H 0004H 001FH
+00:0008 7F E0                     245   	mov	er0,	#-1
+                                  246   CBLOCKEND 6 3 98
+                                  247   CBLOCKEND 6 2 101
+                                  248   
+                                  249   ;;  }
+                                  250   CLINEA 0000H 0001H 0065H 0003H 0003H
+00:000A 1F-FE                     251   	rt
+                                  252   
+                                  253   ;;    }
+                                  254   CLINEA 0000H 0000H 0062H 0005H 0005H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   7 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000C                           255   _$L23 :
+                                  256   
+                                  257   ;;   RADI = rad;
+                                  258   CLINEA 0000H 0001H 0063H 0004H 000EH
+00:000C 20-80                     259   	mov	r0,	r2
+00:000E 01 20                     260   	and	r0,	#01h
+00:0010 03 C9                     261   	beq	_$M3
+00:0012 C0-A0 08-F3               262   	sb	0f308h.4
+00:0016 02 CE                     263   	bal	_$M4
+00:0018                           264   _$M3 :
+00:0018 C2-A0 08-F3               265   	rb	0f308h.4
+00:001C                           266   _$M4 :
+                                  267   
+                                  268   ;;   return (RCADC_DEPLOY_OK);	 
+                                  269   CLINEA 0000H 0001H 0064H 0004H 001EH
+00:001C 00 E0                     270   	mov	er0,	#0 
+00:001E 1F-FE                     271   	rt
+                                  272   CBLOCKEND 6 1 101
+                                  273   CFUNCTIONEND 6
+                                  274   
+                                  275   
+  --------------------------      276   	rseg $$rcadc_RCAD_run$rcadc
+                                  277   CFUNCTION 7
+                                  278   
+00:0000                           279   _rcadc_RCAD_run	:
+                                  280   CBLOCK 7 1 113
+                                  281   
+                                  282   ;; {
+                                  283   CLINEA 0000H 0001H 0071H 0002H 0002H
+00:0000 05-F2                     284   	mov	er2,	er0
+                                  285   CBLOCK 7 2 113
+                                  286   CARGUMENT 46H 0002H 0025H "run" 02H 00H
+                                         01H
+                                  287   
+                                  288   ;; 	if(run > (unsigned int)RCADC_RU
+                                        N){
+                                  289   CLINEA 0000H 0001H 0072H 0003H 0024H
+00:0002 01 70                     290   	cmp	r0,	#01h
+00:0004 00 51                     291   	cmpc	r1,	#00h
+00:0006 02 C3                     292   	ble	_$L26
+                                  293   CBLOCK 7 3 114
+                                  294   
+                                  295   ;; 	  return (RCADC_DEPLOY_FAIL);
+                                  296   CLINEA 0000H 0001H 0073H 0005H 001FH
+00:0008 7F E0                     297   	mov	er0,	#-1
+                                  298   CBLOCKEND 7 3 116
+                                  299   CBLOCKEND 7 2 119
+                                  300   
+                                  301   ;; }
+                                  302   CLINEA 0000H 0001H 0077H 0002H 0002H
+00:000A 1F-FE                     303   	rt
+                                  304   
+                                  305   ;;	 } 
+                                  306   CLINEA 0000H 0000H 0074H 0003H 0004H
+00:000C                           307   _$L26 :
+                                  308   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   8 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  309   ;;    RARUN = run;
+                                  310   CLINEA 0000H 0001H 0075H 0005H 0010H
+00:000C 20-80                     311   	mov	r0,	r2
+00:000E 01 20                     312   	and	r0,	#01h
+00:0010 03 C9                     313   	beq	_$M6
+00:0012 80-A0 09-F3               314   	sb	0f309h.0
+00:0016 02 CE                     315   	bal	_$M7
+00:0018                           316   _$M6 :
+00:0018 82-A0 09-F3               317   	rb	0f309h.0
+00:001C                           318   _$M7 :
+                                  319   
+                                  320   ;;    return (RCADC_DEPLOY_OK);
+                                  321   CLINEA 0000H 0001H 0076H 0005H 001DH
+00:001C 00 E0                     322   	mov	er0,	#0 
+00:001E 1F-FE                     323   	rt
+                                  324   CBLOCKEND 7 1 119
+                                  325   CFUNCTIONEND 7
+                                  326   
+                                  327   
+  --------------------------      328   	rseg $$rcadc_RCINT_run$rcadc
+                                  329   CFUNCTION 8
+                                  330   
+00:0000                           331   _rcadc_RCINT_run	:
+                                  332   CBLOCK 8 1 130
+                                  333   
+                                  334   ;;  {
+                                  335   CLINEA 0000H 0001H 0082H 0003H 0003H
+00:0000 05-F2                     336   	mov	er2,	er0
+                                  337   CBLOCK 8 2 130
+                                  338   CARGUMENT 46H 0002H 0025H "INIT" 02H 00
+                                        H 01H
+                                  339   
+                                  340   ;;  	if(INIT > (unsigned int)RCADCIN
+                                        T_START) {
+                                  341   CLINEA 0000H 0001H 0083H 0004H 002CH
+00:0002 01 70                     342   	cmp	r0,	#01h
+00:0004 00 51                     343   	cmpc	r1,	#00h
+00:0006 02 C3                     344   	ble	_$L29
+                                  345   CBLOCK 8 3 131
+                                  346   
+                                  347   ;;	  return (RCADC_DEPLOY_FAIL);	
+                                  348   CLINEA 0000H 0001H 0084H 0004H 001FH
+00:0008 7F E0                     349   	mov	er0,	#-1
+                                  350   CBLOCKEND 8 3 133
+                                  351   CBLOCKEND 8 2 136
+                                  352   
+                                  353   ;;   }
+                                  354   CLINEA 0000H 0001H 0088H 0004H 0004H
+00:000A 1F-FE                     355   	rt
+                                  356   
+                                  357   ;;	  }
+                                  358   CLINEA 0000H 0000H 0085H 0004H 0004H
+00:000C                           359   _$L29 :
+                                  360   
+                                  361   ;;     QRAD = INIT;
+                                  362   CLINEA 0000H 0001H 0086H 0006H 0011H
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:   9 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000C 20-80                     363   	mov	r0,	r2
+00:000E 01 20                     364   	and	r0,	#01h
+00:0010 03 C9                     365   	beq	_$M9
+00:0012 D0-A0 1C-F0               366   	sb	0f01ch.5
+00:0016 02 CE                     367   	bal	_$M10
+00:0018                           368   _$M9 :
+00:0018 D2-A0 1C-F0               369   	rb	0f01ch.5
+00:001C                           370   _$M10 :
+                                  371   
+                                  372   ;;     return (RCADC_DEPLOY_OK);
+                                  373   CLINEA 0000H 0001H 0087H 0006H 001EH
+00:001C 00 E0                     374   	mov	er0,	#0 
+00:001E 1F-FE                     375   	rt
+                                  376   CBLOCKEND 8 1 136
+                                  377   CFUNCTIONEND 8
+                                  378   
+                                  379   
+  --------------------------      380   	rseg $$rcadc_getResult$rcadc
+                                  381   CFUNCTION 9
+                                  382   
+00:0000                           383   _rcadc_getResult	:
+                                  384   CBLOCK 9 1 153
+                                  385   
+                                  386   ;; {
+                                  387   CLINEA 0000H 0001H 0099H 0002H 0002H
+00:0000 5E-FA                     388   	push	er10
+00:0002 25-FA                     389   	mov	er10,	er2
+                                  390   CBLOCK 9 2 153
+                                  391   CARGUMENT 46H 0002H 0024H "cntNo" 02H 0
+                                        0H 01H
+                                  392   CARGUMENT 46H 0002H 0029H "result" 04H 
+                                        03H 00H 00H 01H
+                                  393   CLOCAL 46H 0001H 0016H 0002H "r0" 02H 0
+                                        0H 00H
+                                  394   CLOCAL 46H 0001H 0014H 0002H "r1" 02H 0
+                                        0H 00H
+                                  395   
+                                  396   ;;	if(cntNo > (unsigned int)RCADC_
+                                        B) {
+                                  397   CLINEA 0000H 0001H 009BH 0002H 0024H
+00:0004 01 70                     398   	cmp	r0,	#01h
+00:0006 00 51                     399   	cmpc	r1,	#00h
+00:0008 03 C3                     400   	ble	_$L32
+                                  401   CBLOCK 9 3 155
+                                  402   
+                                  403   ;;	 return (RCADC_DEPLOY_FAIL); //
+                                        ·µ»Ø-1
+                                  404   CLINEA 0000H 0001H 009CH 0003H 0026H
+00:000A 7F E0                     405   	mov	er0,	#-1
+                                  406   CBLOCKEND 9 3 157
+                                  407   CBLOCKEND 9 2 175
+                                  408   
+                                  409   ;; }
+                                  410   CLINEA 0000H 0001H 00AFH 0002H 0002H
+00:000C                           411   _$L31 :
+00:000C 1E-FA                     412   	pop	er10
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  10 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+00:000E 1F-FE                     413   	rt
+                                  414   
+                                  415   ;;	 }
+                                  416   CLINEA 0000H 0000H 009DH 0003H 0003H
+00:0010                           417   _$L32 :
+                                  418   
+                                  419   ;;	 if(cntNo == (unsigned int)RCAD
+                                        C_A) {
+                                  420   CLINEA 0000H 0001H 009FH 0003H 0026H
+00:0010 05-F0                     421   	mov	er0,	er0
+00:0012 06 C8                     422   	bne	_$L34
+                                  423   CBLOCK 9 4 159
+                                  424   
+                                  425   ;; 	   r0 = RADCB0;
+                                  426   CLINEA 0000H 0001H 00A0H 0006H 0011H
+00:0014 10-90 04-F3               427   	l	r0,	0f304h
+00:0018 00-82                     428   	mov	r2,	r0
+                                  429   
+                                  430   ;;	   r1 = RADCB1;	
+                                  431   CLINEA 0000H 0001H 00A1H 0005H 0011H
+00:001A 10-90 05-F3               432   	l	r0,	0f305h
+                                  433   CBLOCKEND 9 4 162
+                                  434   
+                                  435   ;;	 else {
+                                  436   CLINEA 0000H 0001H 00A3H 0003H 0008H
+00:001E 05 CE                     437   	bal	_$L36
+00:0020                           438   _$L34 :
+                                  439   CBLOCK 9 5 163
+                                  440   
+                                  441   ;; 	   r0 = RADCA0;
+                                  442   CLINEA 0000H 0001H 00A4H 0006H 0011H
+00:0020 10-90 00-F3               443   	l	r0,	0f300h
+00:0024 00-82                     444   	mov	r2,	r0
+                                  445   
+                                  446   ;;	   r1 = RADCA1;	
+                                  447   CLINEA 0000H 0001H 00A5H 0005H 0011H
+00:0026 10-90 01-F3               448   	l	r0,	0f301h
+                                  449   CBLOCKEND 9 5 166
+                                  450   
+                                  451   ;; 	   } 
+                                  452   CLINEA 0000H 0000H 00A6H 0006H 0007H
+00:002A                           453   _$L36 :
+                                  454   
+                                  455   ;;                              (((unsi
+                                        gned char)r1) << 8) );
+                                  456   CLINEA 0000H 0001H 00A9H 001FH 003BH
+00:002A 00-81                     457   	mov	r1,	r0
+00:002C 00 00                     458   	mov	r0,	#00h
+00:002E 23-80                     459   	or	r0,	r2
+00:0030 A3-90                     460   	st	er0,	[er10]
+                                  461   
+                                  462   ;;     RADCB0=0;
+                                  463   CLINEA 0000H 0001H 00AAH 0006H 000EH
+00:0032 00 00                     464   	mov	r0,	#00h
+00:0034 11-90 04-F3               465   	st	r0,	0f304h
+                                  466   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  11 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  467   ;;     RADCB1=0;
+                                  468   CLINEA 0000H 0001H 00ABH 0006H 000EH
+00:0038 11-90 05-F3               469   	st	r0,	0f305h
+                                  470   
+                                  471   ;;     RADCA0=0;
+                                  472   CLINEA 0000H 0001H 00ACH 0006H 000EH
+00:003C 11-90 00-F3               473   	st	r0,	0f300h
+                                  474   
+                                  475   ;;     RADCA1=0;
+                                  476   CLINEA 0000H 0001H 00ADH 0006H 000EH
+00:0040 11-90 01-F3               477   	st	r0,	0f301h
+                                  478   
+                                  479   ;;     return (RCADC_DEPLOY_OK);
+                                  480   CLINEA 0000H 0001H 00AEH 0006H 001EH
+00:0044 00 E0                     481   	mov	er0,	#0 
+00:0046 E2 CE                     482   	bal	_$L31
+                                  483   CBLOCKEND 9 1 175
+                                  484   CFUNCTIONEND 9
+                                  485   
+                                  486   
+  --------------------------      487   	rseg $$P3rcAdc_monitor_on$rcadc
+                                  488   CFUNCTION 0
+                                  489   
+00:0000                           490   _P3rcAdc_monitor_on	:
+                                  491   CBLOCK 0 1 186
+                                  492   
+                                  493   ;;{
+                                  494   CLINEA 0000H 0001H 00BAH 0001H 0001H
+                                  495   CBLOCK 0 2 186
+                                  496   
+                                  497   ;;	P3DIR = 0x1F;		 
+                                  498   CLINEA 0000H 0001H 00BBH 0002H 0011H
+00:0000 1F 00                     499   	mov	r0,	#01fh
+00:0002 11-90 19-F2               500   	st	r0,	0f219h
+                                  501   
+                                  502   ;;	P3CON0 = 0x20;
+                                  503   CLINEA 0000H 0001H 00BCH 0002H 000FH
+00:0006 20 00                     504   	mov	r0,	#020h
+00:0008 11-90 1A-F2               505   	st	r0,	0f21ah
+                                  506   
+                                  507   ;;	P3CON1 = 0x20;		 
+                                  508   CLINEA 0000H 0001H 00BDH 0002H 0012H
+00:000C 11-90 1B-F2               509   	st	r0,	0f21bh
+                                  510   
+                                  511   ;;	P3MOD0 = 0x3F;     
+                                  512   CLINEA 0000H 0001H 00BEH 0002H 0014H
+00:0010 3F 00                     513   	mov	r0,	#03fh
+00:0012 11-90 1C-F2               514   	st	r0,	0f21ch
+                                  515   CBLOCKEND 0 2 191
+                                  516   
+                                  517   ;;}
+                                  518   CLINEA 0000H 0001H 00BFH 0001H 0001H
+00:0016 1F-FE                     519   	rt
+                                  520   CBLOCKEND 0 1 191
+                                  521   CFUNCTIONEND 0
+                                  522   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  12 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  523   
+  --------------------------      524   	rseg $$P3rcAdc_monitor_off$rcad
+                                        c
+                                  525   CFUNCTION 1
+                                  526   
+00:0000                           527   _P3rcAdc_monitor_off	:
+                                  528   CBLOCK 1 1 200
+                                  529   
+                                  530   ;;{
+                                  531   CLINEA 0000H 0001H 00C8H 0001H 0001H
+                                  532   CBLOCK 1 2 200
+                                  533   
+                                  534   ;;	P3DIR = 0;		
+                                  535   CLINEA 0000H 0001H 00C9H 0002H 000DH
+00:0000 00 00                     536   	mov	r0,	#00h
+00:0002 11-90 19-F2               537   	st	r0,	0f219h
+                                  538   
+                                  539   ;;	P3CON0 = 0;
+                                  540   CLINEA 0000H 0001H 00CAH 0002H 000CH
+00:0006 11-90 1A-F2               541   	st	r0,	0f21ah
+                                  542   
+                                  543   ;;	P3CON1 = 0;		
+                                  544   CLINEA 0000H 0001H 00CBH 0002H 000EH
+00:000A 11-90 1B-F2               545   	st	r0,	0f21bh
+                                  546   
+                                  547   ;;	P3MOD0 = 0;    
+                                  548   CLINEA 0000H 0001H 00CCH 0002H 0010H
+00:000E 11-90 1C-F2               549   	st	r0,	0f21ch
+                                  550   CBLOCKEND 1 2 205
+                                  551   
+                                  552   ;;}
+                                  553   CLINEA 0000H 0001H 00CDH 0001H 0001H
+00:0012 1F-FE                     554   	rt
+                                  555   CBLOCKEND 1 1 205
+                                  556   CFUNCTIONEND 1
+                                  557   
+                                  558   
+  --------------------------      559   	rseg $$P4rcAdc_monitor_on$rcadc
+                                  560   CFUNCTION 2
+                                  561   
+00:0000                           562   _P4rcAdc_monitor_on	:
+                                  563   CBLOCK 2 1 214
+                                  564   
+                                  565   ;;{
+                                  566   CLINEA 0000H 0001H 00D6H 0001H 0001H
+                                  567   CBLOCK 2 2 214
+                                  568   
+                                  569   ;;	P4DIR = 0xF0;		
+                                  570   CLINEA 0000H 0001H 00D7H 0002H 0010H
+00:0000 F0 00                     571   	mov	r0,	#0f0h
+00:0002 11-90 21-F2               572   	st	r0,	0f221h
+                                  573   
+                                  574   ;;	P4CON0 = 0;
+                                  575   CLINEA 0000H 0001H 00D8H 0002H 000CH
+00:0006 00 00                     576   	mov	r0,	#00h
+00:0008 11-90 22-F2               577   	st	r0,	0f222h
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  13 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  578   
+                                  579   ;;	P4CON1 = 0;		
+                                  580   CLINEA 0000H 0001H 00D9H 0002H 000EH
+00:000C 11-90 23-F2               581   	st	r0,	0f223h
+                                  582   
+                                  583   ;;	P4MOD0 = 0xF0; 
+                                  584   CLINEA 0000H 0001H 00DAH 0002H 0010H
+00:0010 F0 00                     585   	mov	r0,	#0f0h
+00:0012 11-90 24-F2               586   	st	r0,	0f224h
+                                  587   
+                                  588   ;;	P4MOD1 = 0;      
+                                  589   CLINEA 0000H 0001H 00DBH 0002H 0012H
+00:0016 00 00                     590   	mov	r0,	#00h
+00:0018 11-90 25-F2               591   	st	r0,	0f225h
+                                  592   CBLOCKEND 2 2 220
+                                  593   
+                                  594   ;;}
+                                  595   CLINEA 0000H 0001H 00DCH 0001H 0001H
+00:001C 1F-FE                     596   	rt
+                                  597   CBLOCKEND 2 1 220
+                                  598   CFUNCTIONEND 2
+                                  599   
+                                  600   
+  --------------------------      601   	rseg $$P4rcAdc_monitor_off$rcad
+                                        c
+                                  602   CFUNCTION 3
+                                  603   
+00:0000                           604   _P4rcAdc_monitor_off	:
+                                  605   CBLOCK 3 1 229
+                                  606   
+                                  607   ;;{
+                                  608   CLINEA 0000H 0001H 00E5H 0001H 0001H
+                                  609   CBLOCK 3 2 229
+                                  610   
+                                  611   ;;	P4DIR = 0;		
+                                  612   CLINEA 0000H 0001H 00E6H 0002H 000DH
+00:0000 00 00                     613   	mov	r0,	#00h
+00:0002 11-90 21-F2               614   	st	r0,	0f221h
+                                  615   
+                                  616   ;;	P4CON0 = 0;
+                                  617   CLINEA 0000H 0001H 00E7H 0002H 000CH
+00:0006 11-90 22-F2               618   	st	r0,	0f222h
+                                  619   
+                                  620   ;;	P4CON1 = 0;		
+                                  621   CLINEA 0000H 0001H 00E8H 0002H 000EH
+00:000A 11-90 23-F2               622   	st	r0,	0f223h
+                                  623   
+                                  624   ;;	P4MOD0 = 0; 
+                                  625   CLINEA 0000H 0001H 00E9H 0002H 000DH
+00:000E 11-90 24-F2               626   	st	r0,	0f224h
+                                  627   
+                                  628   ;;	P4MOD1 = 0;     
+                                  629   CLINEA 0000H 0001H 00EAH 0002H 0011H
+00:0012 11-90 25-F2               630   	st	r0,	0f225h
+                                  631   CBLOCKEND 3 2 235
+                                  632   
+RASU8(ML610409)Relocatable Assembler, Ver.1.70.0    assemble list. page:  14 
+ Title : 
+## Loc. Object                   Line   Source Statements
+
+                                  633   ;;}
+                                  634   CLINEA 0000H 0001H 00EBH 0001H 0001H
+00:0016 1F-FE                     635   	rt
+                                  636   CBLOCKEND 3 1 235
+                                  637   CFUNCTIONEND 3
+                                  638   
+                                  639   	public _P3rcAdc_monitor_on
+                                  640   	public _P4rcAdc_monitor_off
+                                  641   	public _rcadc_radi
+                                  642   	public _rcadc_intit
+                                  643   	public _rcadc_RCINT_run
+                                  644   	public _P4rcAdc_monitor_on
+                                  645   	public _P3rcAdc_monitor_off
+                                  646   	public _rcadc_Samp_Clk_init
+                                  647   	public _rcadc_RCAD_run
+                                  648   	public _rcadc_getResult
+                                  649   	extrn code near : _main
+                                  650   
+  --------------------------      651   	rseg $$TABRCADC_SAMPLING_MODE$r
+                                        cadc
+00:0000                           652   _RCADC_SAMPLING_MODE :
+00:0000 00                        653   	db	00h
+00:0001 01                        654   	db	01h
+00:0002 02                        655   	db	02h
+00:0003 03                        656   	db	03h
+00:0004 04                        657   	db	04h
+00:0005 05                        658   	db	05h
+00:0006 06                        659   	db	06h
+00:0007 07                        660   	db	07h
+00:0008 08                        661   	db	08h
+00:0009 00                        662   	db	00h
+                                  663   
+  --------------------------      664   	rseg $$TABRCADC_SAMP_CLK_MODE$r
+                                        cadc
+00:0000                           665   _RCADC_SAMP_CLK_MODE :
+00:0000 00                        666   	db	00h
+00:0001 01                        667   	db	01h
+00:0002 02                        668   	db	02h
+00:0003 03                        669   	db	03h
+00:0004 04                        670   	db	04h
+00:0005 05                        671   	db	05h
+00:0006 06                        672   	db	06h
+00:0007 00                        673   	db	00h
+                                  674   
+                                  675   	end
+
+
+
+  Target       : ML610409 (nX-U8/100)
+  Memory Model : SMALL
+  Data   Model : NEAR
+  ROM WINDOW   : (not specified)
+  Internal RAM : E000H to E3FFH
+
+  Errors   : 0
+  Warnings : 0  (/Wrpeast)
+  Lines    : 675

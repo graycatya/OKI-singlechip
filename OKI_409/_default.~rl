@@ -1,0 +1,1 @@
+ /STACK(1024) /D /SD /NS /CC _output\_obj\clk.obj _output\_obj\clkbuzz.obj _output\_obj\eternity.obj _output\_obj\ints.obj _output\_obj\key.obj _output\_obj\lcdshow.obj _output\_obj\main.obj _output\_obj\melody.obj _output\_obj\rcadc.obj _output\_obj\s610409sw.obj _output\_obj\temphum.obj ,rt817s-409.abs,,;
